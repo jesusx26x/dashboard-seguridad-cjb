@@ -1414,34 +1414,18 @@ function viewIncident(id) {
     const incident = DataStore.rawData.find(r => r.id == id);
     if (!incident) { showToast('No encontrado', 'error'); return; }
 
-    // Generar HTML de evidencia
+    // Generar HTML de evidencia (solo enlace, sin previsualización - SharePoint requiere autenticación)
     let evidenceHtml = '';
     if (incident.evidence && incident.evidence.trim()) {
         const evidenceUrl = incident.evidence.trim();
-        // Verificar si es una URL de imagen (SharePoint, Google Drive, etc.)
-        const isImageUrl = /\.(jpg|jpeg|png|gif|webp|bmp)/i.test(evidenceUrl) ||
-            evidenceUrl.includes('sharepoint') ||
-            evidenceUrl.includes('drive.google');
-
         evidenceHtml = `
             <div class="detail-evidence-section">
                 <span class="detail-label"><i class="fas fa-camera"></i> Evidencia Visual</span>
                 <div class="evidence-container">
-                    ${isImageUrl ? `
-                        <div class="evidence-preview">
-                            <img src="${escapeHtml(evidenceUrl)}" 
-                                 alt="Evidencia del incidente" 
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                                 onclick="window.open('${escapeHtml(evidenceUrl)}', '_blank')">
-                            <div class="evidence-fallback" style="display:none;">
-                                <i class="fas fa-image"></i>
-                                <p>No se pudo cargar la imagen</p>
-                            </div>
-                        </div>
-                    ` : ''}
                     <a href="${escapeHtml(evidenceUrl)}" target="_blank" class="btn btn-evidence">
-                        <i class="fas fa-external-link-alt"></i> Ver Evidencia
+                        <i class="fas fa-external-link-alt"></i> Ver Evidencia en SharePoint
                     </a>
+                    <p class="evidence-note"><i class="fas fa-info-circle"></i> La evidencia se abrirá en una nueva pestaña (requiere acceso a SharePoint)</p>
                 </div>
             </div>
         `;
@@ -1459,6 +1443,11 @@ function viewIncident(id) {
         </div>
         <div class="detail-narrative"><span class="detail-label"><i class="fas fa-file-alt"></i> Narrativa</span><div class="narrative-full">${escapeHtml(incident.narrative) || 'Sin narrativa'}</div></div>
         ${evidenceHtml}
+        <div class="detail-actions">
+            <button class="btn btn-print" onclick="printIncidentReport(${id})">
+                <i class="fas fa-print"></i> Imprimir Reporte
+            </button>
+        </div>
     `;
     document.getElementById('incidentModal').classList.add('active');
 }
@@ -1660,6 +1649,202 @@ function generateExecutiveSummary() {
 function closeSummaryModal() { document.getElementById('summaryModal')?.classList.remove('active'); }
 function printSummary() { window.print(); }
 
+// Función para imprimir reporte individual de incidente con formato oficial CJB
+function printIncidentReport(id) {
+    const incident = DataStore.rawData.find(r => r.id == id);
+    if (!incident) { showToast('Incidente no encontrado', 'error'); return; }
+
+    const reportDate = formatDisplayDate(incident.date, true);
+    const today = new Date().toLocaleDateString('es-DO', { day: '2-digit', month: 'long', year: 'numeric' });
+
+    // Crear ventana de impresión con formato oficial
+    const printWindow = window.open('', '_blank', 'width=800,height=600');
+    printWindow.document.write(`
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <title>Informe de Incidente #${incident.id} - Seguridad CJB</title>
+            <style>
+                * { margin: 0; padding: 0; box-sizing: border-box; }
+                body { 
+                    font-family: 'Arial', sans-serif; 
+                    padding: 30px; 
+                    color: #333;
+                    line-height: 1.6;
+                }
+                .header { 
+                    text-align: center; 
+                    border-bottom: 3px solid #1E3A5F;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                }
+                .header h1 { 
+                    color: #1E3A5F; 
+                    font-size: 1.8rem;
+                    margin-bottom: 5px;
+                }
+                .header h2 { 
+                    color: #2ECC71;
+                    font-size: 1.2rem;
+                    font-weight: normal;
+                }
+                .header .subtitle {
+                    color: #666;
+                    font-size: 0.9rem;
+                    margin-top: 10px;
+                }
+                .report-title {
+                    background: #1E3A5F;
+                    color: white;
+                    padding: 10px 20px;
+                    text-align: center;
+                    margin: 20px 0;
+                    font-size: 1.1rem;
+                }
+                .info-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 15px;
+                    margin: 20px 0;
+                }
+                .info-item {
+                    border: 1px solid #ddd;
+                    padding: 12px;
+                    border-radius: 5px;
+                }
+                .info-label {
+                    font-size: 0.75rem;
+                    color: #666;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    display: block;
+                    margin-bottom: 5px;
+                }
+                .info-value {
+                    font-size: 1rem;
+                    color: #1E3A5F;
+                    font-weight: 600;
+                }
+                .section {
+                    margin: 25px 0;
+                }
+                .section-title {
+                    background: #f5f5f5;
+                    padding: 8px 15px;
+                    border-left: 4px solid #2ECC71;
+                    font-weight: bold;
+                    color: #1E3A5F;
+                    margin-bottom: 15px;
+                }
+                .narrative-box {
+                    border: 1px solid #ddd;
+                    padding: 15px;
+                    border-radius: 5px;
+                    background: #fafafa;
+                    min-height: 100px;
+                }
+                .footer {
+                    margin-top: 40px;
+                    padding-top: 20px;
+                    border-top: 2px solid #1E3A5F;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 30px;
+                }
+                .signature-box {
+                    text-align: center;
+                    padding-top: 40px;
+                    border-top: 1px solid #333;
+                }
+                .signature-label {
+                    font-size: 0.8rem;
+                    color: #666;
+                }
+                .print-date {
+                    text-align: right;
+                    font-size: 0.8rem;
+                    color: #999;
+                    margin-top: 30px;
+                }
+                @media print {
+                    body { padding: 20px; }
+                    .no-print { display: none; }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>DIRECCIÓN DE SEGURIDAD</h1>
+                <h2>Ciudad Juan Bosch</h2>
+                <p class="subtitle">Santo Domingo Este, República Dominicana</p>
+            </div>
+            
+            <div class="report-title">
+                INFORME DE INCIDENTE #${incident.id}
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Fecha y Hora</span>
+                    <span class="info-value">${reportDate}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Tipo de Incidente</span>
+                    <span class="info-value">${incident.type}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Cuadrante</span>
+                    <span class="info-value">${incident.quadrant}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Oficial a Cargo</span>
+                    <span class="info-value">${incident.officer}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Indocumentados Detenidos</span>
+                    <span class="info-value">${incident.undocumented || '0'}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Acciones Tomadas</span>
+                    <span class="info-value">${incident.actions || 'N/A'}</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">NARRATIVA DEL INCIDENTE</div>
+                <div class="narrative-box">
+                    ${escapeHtml(incident.narrative) || 'Sin narrativa registrada.'}
+                </div>
+            </div>
+            
+            ${incident.evidence ? `
+            <div class="section">
+                <div class="section-title">EVIDENCIA VISUAL</div>
+                <p>Disponible en: <a href="${escapeHtml(incident.evidence)}">${escapeHtml(incident.evidence)}</a></p>
+            </div>
+            ` : ''}
+            
+            <div class="footer">
+                <div class="signature-box">
+                    <span class="signature-label">Firma del Oficial</span>
+                </div>
+                <div class="signature-box">
+                    <span class="signature-label">Firma del Supervisor</span>
+                </div>
+            </div>
+            
+            <p class="print-date">Documento generado el ${today}</p>
+            
+            <script>
+                window.onload = function() { window.print(); }
+            </script>
+        </body>
+        </html>
+    `);
+    printWindow.document.close();
+}
+
 // ============================================
 // INITIALIZATION
 // ============================================
@@ -1680,4 +1865,5 @@ window.exportToPDF = exportToPDF;
 window.generateExecutiveSummary = generateExecutiveSummary;
 window.closeSummaryModal = closeSummaryModal;
 window.printSummary = printSummary;
+window.printIncidentReport = printIncidentReport;
 window.TableManager = TableManager;

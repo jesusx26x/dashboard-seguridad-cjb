@@ -619,7 +619,7 @@ body {
 }
 
 .chart-lg {
-    grid-column: span 7;
+    grid-column: span 6;
 }
 
 .chart-md {
@@ -2018,4 +2018,52 @@ body {
 
 .btn-evidence i {
     font-size: 0.85rem;
+}
+
+/* Evidence note */
+.evidence-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 5px 0 0 0;
+    font-style: italic;
+}
+
+.evidence-note i {
+    color: var(--accent-blue);
+    margin-right: 5px;
+}
+
+/* Detail Actions (Print button) */
+.detail-actions {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border-color);
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-print {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-print:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+}
+
+.btn-print i {
+    font-size: 0.9rem;
 }
