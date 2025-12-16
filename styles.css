@@ -22,7 +22,9 @@
     /* Neutral Colors */
     --bg-dark: #0f1923;
     --bg-sidebar: #1a2634;
-    --bg-main: #f4f6f9;
+    --bg-main: #f0f2f5;
+    --bg-body: #f0f2f5;
+    /* Added as per instruction */
     --bg-card: #ffffff;
     --text-dark: #2c3e50;
     --text-muted: #7f8c8d;
@@ -2221,4 +2223,42 @@ body {
     .history-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Manual Data Styles */
+.data-input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--bg-main);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.history-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.history-input-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.history-input-group input {
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.history-input-group input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
 }

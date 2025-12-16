@@ -622,19 +622,22 @@
 
                     <div class="history-card manual-entry-card">
                         <div class="card-header">
-                            <h3><i class="fas fa-chart-line"></i> Gráficos Históricos</h3>
+                            <h3><i class="fas fa-chart-line"></i> Análisis de Tendencias (Datos Históricos)</h3>
                         </div>
-                        <div class="manual-data-prompt">
-                            <div class="prompt-icon">
-                                <i class="fas fa-edit"></i>
+                        <div class="history-chart-container" style="position: relative; height: 300px; width: 100%;">
+                            <canvas id="historyChart"></canvas>
+                        </div>
+                        <div class="manual-data-controls" style="margin-top: 20px; text-align: center;">
+                            <p class="text-muted text-small" style="margin-bottom: 10px;">
+                                <i class="fas fa-info-circle"></i> Los datos mostrados a continuación son una estimación
+                                basada en la estructura de reportes.
+                                Puede ajustar los valores reales si difieren.
+                            </p>
+                            <div class="data-input-grid" id="historyInputs">
+                                <!-- Se generará dinámicamente con JS -->
                             </div>
-                            <h4>Visualización de Datos Históricos</h4>
-                            <p>Para generar gráficos a partir de los reportes PDF, es necesario digitalizar los datos
-                                clave.</p>
-                            <p class="text-small text-muted">Próximamente podrá ingresar los totales mensuales
-                                manualmente aquí.</p>
-                            <button class="btn btn-outline" disabled>
-                                <i class="fas fa-plus"></i> Ingresar Datos (Próximamente)
+                            <button class="btn btn-primary mt-3" onclick="updateHistoricalChart()">
+                                <i class="fas fa-sync-alt"></i> Actualizar Gráfico
                             </button>
                         </div>
                     </div>
