@@ -587,7 +587,8 @@ body {
 .charts-row {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 20px;
+    gap: 32px;
+    margin-bottom: 24px;
 }
 
 .chart-card {
@@ -2064,6 +2065,160 @@ body {
     box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
 }
 
-.btn-print i {
+
+/* ============================================
+   HISTORY PAGE STYLES
+   ============================================ */
+.history-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.history-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.history-card .card-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.history-card .card-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.pdf-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pdf-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: var(--bg-main);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.pdf-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary);
+}
+
+.pdf-icon {
+    font-size: 1.8rem;
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.pdf-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pdf-link {
+    font-weight: 600;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.pdf-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.pdf-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    padding: 2px 8px;
+    border-radius: 10px;
+    display: inline-block;
+    width: fit-content;
+    border: 1px solid var(--border-color);
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease;
+    padding: 5px;
+}
+
+.btn-icon:hover {
+    color: var(--primary);
+}
+
+.manual-entry-card {
+    height: 100%;
+}
+
+.manual-data-prompt {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    gap: 20px;
+    color: var(--text-muted);
+    background: repeating-linear-gradient(45deg,
+            var(--bg-main),
+            var(--bg-main) 10px,
+            var(--bg-card) 10px,
+            var(--bg-card) 20px);
+    border-radius: 8px;
+    border: 1px dashed var(--border-color);
+}
+
+.prompt-icon {
+    font-size: 4rem;
+    color: var(--text-muted);
+    opacity: 0.3;
+}
+
+.btn-outline {
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: default;
     font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .history-grid {
+        grid-template-columns: 1fr;
+    }
 }

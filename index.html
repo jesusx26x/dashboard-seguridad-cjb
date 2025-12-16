@@ -57,6 +57,10 @@
                 <i class="fas fa-file-pdf"></i>
                 <span>Reportes</span>
             </a>
+            <a href="#" class="nav-item" data-section="history" data-page="historyPage">
+                <i class="fas fa-history"></i>
+                <span>Histórico</span>
+            </a>
         </nav>
 
         <div class="sidebar-footer">
@@ -510,6 +514,129 @@
                         <button class="btn btn-primary" onclick="generateExecutiveSummary()">
                             <i class="fas fa-eye"></i> Ver Resumen
                         </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Page -->
+        <section class="page-section" id="historyPage" style="display: none;">
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <div>
+                        <h2><i class="fas fa-history"></i> Histórico de Reportes</h2>
+                        <p>Archivo de reportes antiguos en formato PDF y visualización de datos históricos.</p>
+                    </div>
+                </div>
+
+                <div class="history-grid">
+                    <div class="history-card pdf-list-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-file-pdf"></i> Archivos PDF Disponibles (Carpeta "Incidentes antiguos")
+                            </h3>
+                        </div>
+                        <div class="pdf-list">
+                            <!-- Lista basada en archivos detectados -->
+                            <div class="pdf-item">
+                                <div class="pdf-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <a href="Incidentes antiguos/INFORME PARTEDIARIO CJB 1-12-2025.pdf" target="_blank"
+                                        class="pdf-link">INFORME PARTEDIARIO CJB 1-12-2025.pdf</a>
+                                    <span class="pdf-meta">Reporte de Seguridad</span>
+                                </div>
+                                <button class="btn-icon"
+                                    onclick="window.open('Incidentes antiguos/INFORME PARTEDIARIO CJB 1-12-2025.pdf', '_blank')"
+                                    title="Abrir PDF">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+
+                            <div class="pdf-item">
+                                <div class="pdf-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <a href="Incidentes antiguos/INFORME PARTEDIARIO CJB 04-12-2025.pdf" target="_blank"
+                                        class="pdf-link">INFORME PARTEDIARIO CJB 04-12-2025.pdf</a>
+                                    <span class="pdf-meta">Reporte de Seguridad</span>
+                                </div>
+                                <button class="btn-icon"
+                                    onclick="window.open('Incidentes antiguos/INFORME PARTEDIARIO CJB 04-12-2025.pdf', '_blank')"
+                                    title="Abrir PDF">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+
+                            <div class="pdf-item">
+                                <div class="pdf-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <a href="Incidentes antiguos/INFORME PARTEDIARIO CJB 05-12-2025.pdf" target="_blank"
+                                        class="pdf-link">INFORME PARTEDIARIO CJB 05-12-2025.pdf</a>
+                                    <span class="pdf-meta">Reporte de Seguridad</span>
+                                </div>
+                                <button class="btn-icon"
+                                    onclick="window.open('Incidentes antiguos/INFORME PARTEDIARIO CJB 05-12-2025.pdf', '_blank')"
+                                    title="Abrir PDF">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+
+                            <div class="pdf-item">
+                                <div class="pdf-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <a href="Incidentes antiguos/Resumen  Semanal del 01 al 7 de Dicciembre del Trabajo Realizado por la Dirección de Seguridad.pdf"
+                                        target="_blank" class="pdf-link">Resumen Semanal 01-07 Diciembre 2025.pdf</a>
+                                    <span class="pdf-meta">Resumen Semanal</span>
+                                </div>
+                                <button class="btn-icon"
+                                    onclick="window.open('Incidentes antiguos/Resumen  Semanal del 01 al 7 de Dicciembre del Trabajo Realizado por la Dirección de Seguridad.pdf', '_blank')"
+                                    title="Abrir PDF">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+
+                            <div class="pdf-item">
+                                <div class="pdf-icon">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div class="pdf-info">
+                                    <a href="Incidentes antiguos/PARTE DIARIO DEL 1 AL 7 DE DICIEMBRE DEL AÑO 2025 DEL TRABAJO REALIZADO POR LA DIRECCION DE SE.pdf"
+                                        target="_blank" class="pdf-link">Parte Diario del 1 al 7 de Diciembre
+                                        (Consolidado).pdf</a>
+                                    <span class="pdf-meta">Reporte Consolidado</span>
+                                </div>
+                                <button class="btn-icon"
+                                    onclick="window.open('Incidentes antiguos/PARTE DIARIO DEL 1 AL 7 DE DICIEMBRE DEL AÑO 2025 DEL TRABAJO REALIZADO POR LA DIRECCION DE SE.pdf', '_blank')"
+                                    title="Abrir PDF">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="history-card manual-entry-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-line"></i> Gráficos Históricos</h3>
+                        </div>
+                        <div class="manual-data-prompt">
+                            <div class="prompt-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <h4>Visualización de Datos Históricos</h4>
+                            <p>Para generar gráficos a partir de los reportes PDF, es necesario digitalizar los datos
+                                clave.</p>
+                            <p class="text-small text-muted">Próximamente podrá ingresar los totales mensuales
+                                manualmente aquí.</p>
+                            <button class="btn btn-outline" disabled>
+                                <i class="fas fa-plus"></i> Ingresar Datos (Próximamente)
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

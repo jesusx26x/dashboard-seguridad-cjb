@@ -1768,8 +1768,21 @@ function printIncidentReport(id) {
                     margin-top: 30px;
                 }
                 @media print {
-                    body { padding: 20px; }
+                    @page { margin: 0.5cm; size: auto; }
+                    body { 
+                        padding: 10px; 
+                        -webkit-print-color-adjust: exact; 
+                        transform: scale(0.95);
+                        transform-origin: top left;
+                        width: 105%;
+                    }
                     .no-print { display: none; }
+                    .header { margin-bottom: 15px; padding-bottom: 10px; }
+                    .report-title { margin: 10px 0; padding: 5px 20px; }
+                    .section { margin: 15px 0; }
+                    .footer { margin-top: 20px; padding-top: 10px; break-inside: avoid; }
+                    .info-grid { gap: 10px; margin: 10px 0; }
+                    .narrative-box { min-height: auto; }
                 }
             </style>
         </head>
