@@ -7,8 +7,8 @@
 | **Proyecto** | Dashboard de Incidentes de Seguridad |
 | **Cliente** | Dirección de Seguridad - Ciudad Juan Bosch |
 | **Versión** | 3.0 (Power BI Edition) |
-| **Última Actualización** | 2025-12-15 |
-| **Estado** | ✅ Completado |
+| **Última Actualización** | 2025-12-16 |
+| **Estado** | ✅ En desarrollo activo |
 
 ---
 
@@ -101,13 +101,15 @@
 
 ```
 Dashboard Seguridad/
-├── index.html          # HTML principal (~550 líneas)
-├── styles.css          # Estilos CSS (~1920 líneas)
-├── app.js              # JavaScript completo (~1600 líneas)
+├── index.html          # HTML principal (~790 líneas)
+├── styles.css          # Estilos CSS (~2460 líneas)
+├── app.js              # JavaScript completo (~2500 líneas)
+├── config.js           # Configuración SharePoint [NUEVO]
 ├── logo-cjb.png        # Logo de Ciudad Juan Bosch
+├── logo-security.png   # Logo de Seguridad
 ├── README.md           # Documentación del proyecto
 ├── Project_Tracker.md  # Este archivo
-└── Registro Rápido de Incidentes (SEGURIDAD).csv  # Datos de ejemplo
+└── Incidentes antiguos/  # PDFs históricos
 ```
 
 ---
@@ -117,6 +119,7 @@ Dashboard Seguridad/
 | Tecnología | Versión | Uso |
 |------------|---------|-----|
 | Chart.js | 4.4.1 | Gráficas interactivas |
+| chartjs-plugin-datalabels | 2.2.0 | Etiquetas de datos en gráficos |
 | Papa Parse | 5.4.1 | Parsing CSV |
 | SheetJS | 0.20.1 | Lectura/escritura Excel |
 | html2pdf.js | 0.10.1 | Exportación PDF |
@@ -137,8 +140,28 @@ Dashboard Seguridad/
 
 ## 📊 Métricas del Proyecto
 
-- **Líneas de código**: ~4,100+
-- **Componentes**: 5 módulos principales
-- **Gráficos**: 11 visualizaciones interactivas
+- **Líneas de código**: ~5,700+
+- **Componentes**: 6 módulos principales
+- **Gráficos**: 14 visualizaciones interactivas
 - **KPIs**: 6 indicadores dinámicos
-- **Páginas SPA**: 4 secciones navegables
+- **Páginas SPA**: 5 secciones navegables
+
+---
+
+### Fase 8: Mejoras Avanzadas (2025-12-16)
+
+| ID | Tarea | Estado | Contexto |
+|----|-------|--------|----------|
+| 8.1 | Etiquetas de datos en gráficos | ✅ | Plugin chartjs-plugin-datalabels en 8 gráficos del dashboard |
+| 8.2 | Corrección Análisis Avanzado | ✅ | Fix de renderizado de gráficos cuando se navega a la página |
+| 8.3 | Sección Histórico expandida | ✅ | 3 gráficos: Comparativa por Período, Distribución por Categoría, Tendencia Acumulada |
+| 8.4 | Modal ingreso datos manuales | ✅ | 6 campos: Migración, Multas, Motos, Llamadas, Accidentes, Asistencias |
+| 8.5 | Resumen Ejecutivo inteligente | ✅ | Generación automática con hallazgos, recomendaciones, logo oficial |
+| 8.6 | Impresión limpia | ✅ | Iframe oculto para impresión sin popups, sin botones en salida |
+| 8.7 | Corrección doble diálogo impresión | ✅ | Eliminado window.onload redundante |
+| 8.8 | Eliminación botón Captura Dashboard | ✅ | Removido feature que no funcionaba (html2pdf issues) |
+| 8.9 | Eliminación EVIDENCIA VISUAL en print | ✅ | Sección removida del reporte de incidentes impreso |
+| 8.10 | Integración SharePoint | ✅ | config.js con URL, loadFromSharePoint() con manejo CORS silencioso |
+| 8.11 | Botón Cargar Archivo en sidebar | ✅ | Visible sin datos, se oculta al cargar archivo |
+| 8.12 | Bloqueo navegación sin datos | ✅ | Modal de confirmación al intentar navegar sin archivo cargado |
+

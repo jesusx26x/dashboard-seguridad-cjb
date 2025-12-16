@@ -17,6 +17,8 @@
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 
     <!-- Papa Parse for CSV -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
@@ -26,6 +28,9 @@
 
     <!-- html2pdf for PDF Export -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- Configuration -->
+    <script src="config.js"></script>
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
@@ -68,6 +73,9 @@
                 <i class="fas fa-database"></i>
                 <span>Sin datos cargados</span>
             </div>
+            <button class="btn btn-primary btn-sidebar-upload" id="btnSidebarUpload" onclick="showUploadSection()">
+                <i class="fas fa-cloud-upload-alt"></i> Cargar Archivo
+            </button>
         </div>
     </aside>
 
@@ -494,17 +502,6 @@
                         </button>
                     </div>
 
-                    <div class="report-card" id="reportDashboard">
-                        <div class="report-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <h3>Captura del Dashboard</h3>
-                        <p>Genera un PDF con el estado actual del dashboard</p>
-                        <button class="btn btn-primary" onclick="exportToPDF()">
-                            <i class="fas fa-download"></i> Descargar PDF
-                        </button>
-                    </div>
-
                     <div class="report-card" id="reportSummary">
                         <div class="report-icon">
                             <i class="fas fa-clipboard-list"></i>
@@ -657,23 +654,34 @@
 
                     <div class="history-card manual-entry-card">
                         <div class="card-header">
-                            <h3><i class="fas fa-chart-line"></i> Análisis de Tendencias (Datos Históricos)</h3>
+                            <h3><i class="fas fa-chart-bar"></i> Comparativa por Período</h3>
                         </div>
                         <div class="history-chart-container" style="position: relative; height: 300px; width: 100%;">
                             <canvas id="historyChart"></canvas>
                         </div>
+                    </div>
+
+                    <div class="history-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-pie"></i> Distribución por Categoría</h3>
+                        </div>
+                        <div class="history-chart-container" style="position: relative; height: 300px; width: 100%;">
+                            <canvas id="historyPieChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="history-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-line"></i> Tendencia Acumulada</h3>
+                        </div>
+                        <div class="history-chart-container" style="position: relative; height: 300px; width: 100%;">
+                            <canvas id="historyLineChart"></canvas>
+                        </div>
                         <div class="manual-data-controls" style="margin-top: 20px; text-align: center;">
                             <p class="text-muted text-small" style="margin-bottom: 10px;">
-                                <i class="fas fa-info-circle"></i> Los datos mostrados a continuación son una estimación
-                                basada en la estructura de reportes.
-                                Puede ajustar los valores reales si difieren.
+                                <i class="fas fa-info-circle"></i> Use el botón editar <i class="fas fa-edit"></i> en
+                                cada PDF para ingresar datos manualmente.
                             </p>
-                            <div class="data-input-grid" id="historyInputs">
-                                <!-- Se generará dinámicamente con JS -->
-                            </div>
-                            <button class="btn btn-primary mt-3" onclick="updateHistoricalChart()">
-                                <i class="fas fa-sync-alt"></i> Actualizar Gráfico
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -739,6 +747,14 @@
                         <div class="form-group">
                             <label><i class="fas fa-phone"></i> Llamadas Ciudadanas</label>
                             <input type="number" id="inputLlamadas" class="form-control" min="0" placeholder="0">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-car-crash"></i> Accidentes Tránsito</label>
+                            <input type="number" id="inputAccidentes" class="form-control" min="0" placeholder="0">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-hand-holding-medical"></i> Asistencias Seguridad</label>
+                            <input type="number" id="inputAsistencias" class="form-control" min="0" placeholder="0">
                         </div>
                     </div>
                 </div>

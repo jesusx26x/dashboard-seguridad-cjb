@@ -277,7 +277,14 @@ const Navigation = {
                 e.preventDefault();
                 const page = item.dataset.page;
                 if (DataStore.rawData.length === 0 && page !== 'uploadSection') {
-                    showToast('Primero cargue un archivo de datos', 'warning');
+                    // Show modal warning instead of toast
+                    showConfirm(
+                        '📂 Archivo Requerido',
+                        'Debe cargar un archivo de datos para acceder a esta sección. ¿Desea ir a la zona de carga?',
+                        () => {
+                            showUploadSection();
+                        }
+                    );
                     return;
                 }
                 this.navigateTo(page);
@@ -412,13 +419,21 @@ const ChartManager = {
                                 return `${ctx.parsed.x} (${pct}%)`;
                             }
                         }
+                    },
+                    datalabels: {
+                        color: 'white',
+                        font: { weight: 'bold' },
+                        anchor: 'center',
+                        align: 'center',
+                        formatter: (val) => val > 0 ? val : ''
                     }
                 },
                 scales: {
                     x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
                     y: { grid: { display: false } }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
     },
 
@@ -454,10 +469,22 @@ const ChartManager = {
                     }
                 },
                 plugins: {
-                    legend: { position: 'right' }
+                    legend: { position: 'right' },
+                    datalabels: {
+                        color: '#fff',
+                        font: { weight: 'bold' },
+                        formatter: (val, ctx) => {
+                            let sum = 0;
+                            let dataArr = ctx.chart.data.datasets[0].data;
+                            dataArr.map(data => { sum += data; });
+                            let percentage = (val * 100 / sum).toFixed(1) + "%";
+                            return percentage;
+                        }
+                    }
                 },
                 cutout: '60%'
-            }
+            },
+            plugins: [ChartDataLabels]
         });
     },
 
@@ -535,12 +562,22 @@ const ChartManager = {
                         DataStore.setCrossFilter('officer', fullLabels[idx]);
                     }
                 },
-                plugins: { legend: { display: false } },
+                plugins: {
+                    legend: { display: false },
+                    datalabels: {
+                        color: 'white',
+                        anchor: 'end',
+                        align: 'end',
+                        offset: -30,
+                        font: { weight: 'bold' }
+                    }
+                },
                 scales: {
                     x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
                     y: { grid: { display: false } }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
     },
 
@@ -625,12 +662,21 @@ const ChartManager = {
                         DataStore.setCrossFilter('quadrant', labels[idx]);
                     }
                 },
-                plugins: { legend: { display: false } },
+                plugins: {
+                    legend: { display: false },
+                    datalabels: {
+                        color: 'white',
+                        anchor: 'end',
+                        align: 'start', // Inside bar
+                        font: { weight: 'bold' }
+                    }
+                },
                 scales: {
                     x: { grid: { display: false } },
                     y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
     },
 
@@ -775,12 +821,13 @@ const ChartManager = {
 
         if (this.charts.heatmap) this.charts.heatmap.destroy();
 
-        // Simple visualization as grouped bar
+        // Stacked Bar for Hour x Day
         const hourLabels = Array.from({ length: 24 }, (_, i) => `${i}:00`);
         const datasets = days.map((day, dayIdx) => ({
             label: day,
             data: hourLabels.map((_, h) => heatData.find(d => d.x === h && d.y === dayIdx)?.v || 0),
-            backgroundColor: this.generateColors(7, 0.7)[dayIdx]
+            backgroundColor: this.generateColors(7, 0.7)[dayIdx],
+            stack: 'Stack 0'
         }));
 
         this.charts.heatmap = new Chart(ctx.getContext('2d'), {
@@ -789,12 +836,16 @@ const ChartManager = {
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { position: 'top' } },
+                plugins: {
+                    legend: { position: 'top' },
+                    datalabels: { display: false } // Too crowded
+                },
                 scales: {
-                    x: { stacked: true, grid: { display: false } },
-                    y: { stacked: true, beginAtZero: true }
+                    x: { stacked: true, grid: { display: false }, title: { display: true, text: 'Hora del Día' } },
+                    y: { stacked: true, beginAtZero: true, title: { display: true, text: 'Cantidad' } }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
     },
 
@@ -1325,10 +1376,19 @@ EventBus.on('dataLoaded', () => {
     TableManager.render();
 
     document.getElementById('uploadSection').style.display = 'none';
-    document.getElementById('btnExportExcel').disabled = false;
-    document.getElementById('btnExportPDF').disabled = false;
-    document.getElementById('dataStatus').innerHTML = `<i class="fas fa-check-circle"></i><span>${DataStore.rawData.length} registros</span>`;
-    document.getElementById('dataStatus').classList.add('loaded');
+    const btnExcel = document.getElementById('btnExportExcel');
+    if (btnExcel) btnExcel.disabled = false;
+    const btnPDF = document.getElementById('btnExportPDF');
+    if (btnPDF) btnPDF.disabled = false;
+    const dataStatus = document.getElementById('dataStatus');
+    if (dataStatus) {
+        dataStatus.innerHTML = `<i class="fas fa-check-circle"></i><span>${DataStore.rawData.length} registros</span>`;
+        dataStatus.classList.add('loaded');
+    }
+
+    // Hide sidebar upload button when data is loaded
+    const btnSidebarUpload = document.getElementById('btnSidebarUpload');
+    if (btnSidebarUpload) btnSidebarUpload.classList.add('hidden');
 
     Navigation.showDashboard();
     showToast(`${DataStore.rawData.length} registros cargados`, 'success');
@@ -1606,34 +1666,54 @@ function exportToExcel() {
 }
 
 function exportToPDF() {
-    showToast('Generando captura del Dashboard...', 'info', 3000);
+    const element = document.getElementById('dashboardPage');
+    if (!element) {
+        showToast('Dashboard no encontrado', 'error');
+        return;
+    }
+
+    showToast('Preparando captura del Dashboard...', 'info');
     showLoading(true);
 
-    // Asegurar que los gráficos están renderizados
-    const element = document.getElementById('dashboardPage');
+    // Scroll to top
+    window.scrollTo(0, 0);
 
+    // Use a simpler approach - target only the visible content
     const opt = {
-        margin: [5, 5, 5, 5], // Márgenes reducidos
+        margin: 5,
         filename: `Dashboard_CJB_${new Date().toISOString().slice(0, 10)}.pdf`,
-        image: { type: 'jpeg', quality: 0.98 },
+        image: { type: 'jpeg', quality: 0.95 },
         html2canvas: {
-            scale: 2,
+            scale: 1.5,
             useCORS: true,
-            logging: false,
-            scrollY: 0,
-            windowWidth: document.documentElement.offsetWidth
+            backgroundColor: '#ffffff',
+            scrollX: 0,
+            scrollY: 0
         },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+        jsPDF: {
+            unit: 'mm',
+            format: 'a4',
+            orientation: 'landscape'
+        },
+        pagebreak: { mode: 'avoid-all' }
     };
 
-    html2pdf().set(opt).from(element).save().then(() => {
-        showLoading(false);
-        showToast('Captura descargada correctamente', 'success');
-    }).catch(err => {
-        console.error(err);
-        showLoading(false);
-        showToast('Error al generar PDF', 'error');
-    });
+    // Give charts time to fully render
+    setTimeout(() => {
+        html2pdf()
+            .set(opt)
+            .from(element)
+            .save()
+            .then(() => {
+                showLoading(false);
+                showToast('Dashboard descargado correctamente', 'success');
+            })
+            .catch(err => {
+                console.error('PDF Error:', err);
+                showLoading(false);
+                showToast('Error generando PDF. Intente de nuevo.', 'error');
+            });
+    }, 2000);
 }
 
 function generateInsights() {
@@ -1727,6 +1807,10 @@ function generateExecutiveSummary() {
             
             <div class="summary-footer">
                 <p>Documento generado automáticamente por el Sistema de Gestión de Seguridad CJB.</p>
+                <div class="summary-actions no-print" style="margin-top: 20px; text-align: center;">
+                    <button class="btn btn-primary" onclick="downloadSummaryPDF()"><i class="fas fa-download"></i> Descargar PDF</button>
+                    <button class="btn btn-secondary" onclick="printSummary()"><i class="fas fa-print"></i> Imprimir</button>
+                </div>
             </div>
         </div>
     `;
@@ -1781,17 +1865,16 @@ function printSummary() {
                 .insights-list { padding-left: 20px; }
                 .insights-list li { margin-bottom: 8px; font-size: 0.95rem; }
                 .summary-footer { margin-top: 40px; text-align: center; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+                .no-print { display: none !important; }
                 @media print {
                     @page { margin: 1cm; size: A4; }
                     body { -webkit-print-color-adjust: exact; }
+                    .no-print { display: none !important; }
                 }
             </style>
         </head>
         <body>
             ${content}
-            <script>
-                window.onload = function() { window.print(); }
-            </script>
         </body>
         </html>
     `);
@@ -2003,12 +2086,6 @@ function printIncidentReport(id) {
                 <div class="narrative-box">${escapeHtml(incident.narrative) || 'Sin narrativa registrada.'}</div>
             </div>
             
-            ${incident.evidence && incident.evidence.trim() ? `
-            <div class="section">
-                <div class="section-title">EVIDENCIA VISUAL</div>
-                <p>Enlace a evidencia: <a href="${escapeHtml(incident.evidence.trim())}">${escapeHtml(incident.evidence.trim())}</a></p>
-            </div>
-            ` : ''}
             
             <div class="footer">
                 <div class="signature-box">
@@ -2033,29 +2110,92 @@ function printIncidentReport(id) {
 }
 
 // ============================================
+// SHAREPOINT CLOUD LOADING
+// ============================================
+async function loadFromSharePoint() {
+    // Check if CONFIG exists and auto-load is enabled
+    if (typeof CONFIG === 'undefined' || !CONFIG.AUTO_LOAD_FROM_CLOUD || !CONFIG.SHAREPOINT_URL) {
+        console.log('Auto-load from cloud disabled or not configured');
+        return false;
+    }
+
+    showToast('Conectando con SharePoint...', 'info');
+    showLoading(true);
+
+    try {
+        const response = await fetch(CONFIG.SHAREPOINT_URL, {
+            method: 'GET',
+            mode: 'cors',
+            credentials: 'include'
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        const arrayBuffer = await response.arrayBuffer();
+        const data = new Uint8Array(arrayBuffer);
+        const workbook = XLSX.read(data, { type: 'array', cellDates: true });
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const json = XLSX.utils.sheet_to_json(sheet, { defval: '' });
+
+        if (!json.length) {
+            throw new Error('El archivo Excel está vacío');
+        }
+
+        const normalized = FileParser.normalizeData(json);
+        DataStore.load(normalized);
+        showToast(`✅ ${normalized.length} registros cargados desde SharePoint`, 'success');
+        return true;
+
+    } catch (error) {
+        console.error('Error loading from SharePoint:', error);
+        showLoading(false);
+
+        // Check if it's a CORS error - just log it, don't show prominent toast
+        if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+            console.log('CORS: SharePoint blocked the request. User needs to upload file manually.');
+        } else {
+            console.log('SharePoint error:', error.message);
+        }
+        return false;
+    }
+}
+
+// ============================================
 // INITIALIZATION
 // ============================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     UIManager.init();
     ChartManager.init();
     Navigation.init();
     TableManager.init();
     FileParser.init();
     console.log('Dashboard CJB v3.0 - Power BI Edition cargado');
+
+    // Try auto-load from SharePoint if configured
+    const loaded = await loadFromSharePoint();
+
+    if (!loaded) {
+        // Show manual upload section
+        document.getElementById('uploadSection').style.display = 'flex';
+    }
 });
 
 // ============================================
 // HISTORICAL DATA LOGIC
 // ============================================
 let historyChartInstance = null;
+let historyPieChartInstance = null;
+let historyLineChartInstance = null;
 
 // Estructura de datos por defecto (si no hay nada guardado)
 const defaultHistoryData = {
-    '2025-12-01': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, label: '01 Dic' },
-    '2025-12-04': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, label: '04 Dic' },
-    '2025-12-05': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, label: '05 Dic' },
-    '2025-12-07-week': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, label: 'Semana 1-7 Dic' },
-    '2025-12-07-consolidated': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, label: 'Consolidado' }
+    '2025-12-01': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0, label: '01 Dic' },
+    '2025-12-04': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0, label: '04 Dic' },
+    '2025-12-05': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0, label: '05 Dic' },
+    '2025-12-07-week': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0, label: 'Semana 1-7 Dic' },
+    '2025-12-07-consolidated': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0, label: 'Consolidado' }
 };
 
 // Cargar datos guardados o usar defecto
@@ -2065,13 +2205,6 @@ function getHistoryData() {
 }
 
 function initHistoryChart() {
-    const ctx = document.getElementById('historyChart')?.getContext('2d');
-    if (!ctx) return;
-
-    if (historyChartInstance) {
-        historyChartInstance.destroy();
-    }
-
     const data = getHistoryData();
     const labels = Object.values(data).map(d => d.label);
 
@@ -2080,51 +2213,139 @@ function initHistoryChart() {
     const dsMultas = Object.values(data).map(d => d.multas || 0);
     const dsMotos = Object.values(data).map(d => d.motos || 0);
     const dsLlamadas = Object.values(data).map(d => d.llamadas || 0);
+    const dsAccidentes = Object.values(data).map(d => d.accidentes || 0);
+    const dsAsistencias = Object.values(data).map(d => d.asistencias || 0);
 
-    historyChartInstance = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: 'Migración (Haitianos)',
-                    data: dsHaitianos,
-                    backgroundColor: '#e74c3c'
+    // Chart 1: Bar Chart (Comparativa por Período)
+    const ctx = document.getElementById('historyChart')?.getContext('2d');
+    if (ctx) {
+        if (historyChartInstance) historyChartInstance.destroy();
+        historyChartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    { label: 'Migración', data: dsHaitianos, backgroundColor: '#e74c3c' },
+                    { label: 'Multas', data: dsMultas, backgroundColor: '#f1c40f' },
+                    { label: 'Motos', data: dsMotos, backgroundColor: '#e67e22' },
+                    { label: 'Llamadas', data: dsLlamadas, backgroundColor: '#3498db' },
+                    { label: 'Accidentes', data: dsAccidentes, backgroundColor: '#95a5a6' },
+                    { label: 'Asistencias', data: dsAsistencias, backgroundColor: '#2ecc71' }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: false },
+                    datalabels: {
+                        color: '#fff',
+                        font: { weight: 'bold', size: 9 },
+                        formatter: value => value > 0 ? value : '',
+                        anchor: 'center',
+                        align: 'center'
+                    }
                 },
-                {
-                    label: 'Multas Tránsito',
-                    data: dsMultas,
-                    backgroundColor: '#f1c40f'
-                },
-                {
-                    label: 'Motos Retenidas',
-                    data: dsMotos,
-                    backgroundColor: '#e67e22'
-                },
-                {
-                    label: 'Llamadas Ciudadanas',
-                    data: dsLlamadas,
-                    backgroundColor: '#3498db'
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'top' },
-                title: { display: true, text: 'Indicadores Clave por Reporte (Datos Manuales)' },
-                tooltip: {
-                    mode: 'index',
-                    intersect: false,
+                scales: {
+                    x: { stacked: false },
+                    y: { beginAtZero: true }
                 }
             },
-            scales: {
-                x: { stacked: false },
-                y: { beginAtZero: true }
-            }
-        }
-    });
+            plugins: [ChartDataLabels]
+        });
+    }
+
+    // Chart 2: Pie Chart (Distribución por Categoría - Totales)
+    const ctxPie = document.getElementById('historyPieChart')?.getContext('2d');
+    if (ctxPie) {
+        if (historyPieChartInstance) historyPieChartInstance.destroy();
+        const totals = {
+            'Migración': dsHaitianos.reduce((a, b) => a + b, 0),
+            'Multas': dsMultas.reduce((a, b) => a + b, 0),
+            'Motos': dsMotos.reduce((a, b) => a + b, 0),
+            'Llamadas': dsLlamadas.reduce((a, b) => a + b, 0),
+            'Accidentes': dsAccidentes.reduce((a, b) => a + b, 0),
+            'Asistencias': dsAsistencias.reduce((a, b) => a + b, 0)
+        };
+        historyPieChartInstance = new Chart(ctxPie, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(totals),
+                datasets: [{
+                    data: Object.values(totals),
+                    backgroundColor: ['#e74c3c', '#f1c40f', '#e67e22', '#3498db', '#95a5a6', '#2ecc71'],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right' },
+                    datalabels: {
+                        color: '#fff',
+                        font: { weight: 'bold' },
+                        formatter: (val, ctx) => {
+                            let sum = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                            return sum > 0 ? ((val / sum) * 100).toFixed(0) + '%' : '';
+                        }
+                    }
+                },
+                cutout: '50%'
+            },
+            plugins: [ChartDataLabels]
+        });
+    }
+
+    // Chart 3: Line Chart (Tendencia Acumulada)
+    const ctxLine = document.getElementById('historyLineChart')?.getContext('2d');
+    if (ctxLine) {
+        if (historyLineChartInstance) historyLineChartInstance.destroy();
+        const totalsPerPeriod = labels.map((_, i) =>
+            (dsHaitianos[i] || 0) + (dsMultas[i] || 0) + (dsMotos[i] || 0) +
+            (dsLlamadas[i] || 0) + (dsAccidentes[i] || 0) + (dsAsistencias[i] || 0)
+        );
+        // Acumulado
+        let accumulated = [];
+        totalsPerPeriod.reduce((acc, val, i) => {
+            accumulated[i] = acc + val;
+            return accumulated[i];
+        }, 0);
+
+        historyLineChartInstance = new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Incidentes Acumulados',
+                    data: accumulated,
+                    borderColor: '#1E3A5F',
+                    backgroundColor: 'rgba(30, 58, 95, 0.2)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    datalabels: {
+                        color: '#1E3A5F',
+                        anchor: 'end',
+                        align: 'top',
+                        font: { weight: 'bold' }
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+    }
 }
 
 // Modal Logic
@@ -2133,12 +2354,14 @@ function openManualEntryModal(reportName, reportId) {
     document.getElementById('modalReportId').value = reportId;
 
     const data = getHistoryData();
-    const entry = data[reportId] || { haitianos: 0, multas: 0, motos: 0, llamadas: 0 };
+    const entry = data[reportId] || { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0 };
 
     document.getElementById('inputHaitianos').value = entry.haitianos || 0;
     document.getElementById('inputMultas').value = entry.multas || 0;
     document.getElementById('inputMotos').value = entry.motos || 0;
     document.getElementById('inputLlamadas').value = entry.llamadas || 0;
+    document.getElementById('inputAccidentes').value = entry.accidentes || 0;
+    document.getElementById('inputAsistencias').value = entry.asistencias || 0;
 
     document.getElementById('manualDataModal').classList.add('active');
 }
@@ -2151,46 +2374,109 @@ function saveManualData() {
     const reportId = document.getElementById('modalReportId').value;
     const currentData = getHistoryData();
 
-    // Update data for this ID
-    if (!currentData[reportId]) currentData[reportId] = { label: reportId }; // Fallback label
+    if (!currentData[reportId]) currentData[reportId] = { label: reportId };
 
     currentData[reportId].haitianos = parseInt(document.getElementById('inputHaitianos').value) || 0;
     currentData[reportId].multas = parseInt(document.getElementById('inputMultas').value) || 0;
     currentData[reportId].motos = parseInt(document.getElementById('inputMotos').value) || 0;
     currentData[reportId].llamadas = parseInt(document.getElementById('inputLlamadas').value) || 0;
+    currentData[reportId].accidentes = parseInt(document.getElementById('inputAccidentes').value) || 0;
+    currentData[reportId].asistencias = parseInt(document.getElementById('inputAsistencias').value) || 0;
 
     localStorage.setItem('cjb_history_data', JSON.stringify(currentData));
 
     showToast('Datos guardados correctamente', 'success');
     closeManualDataModal();
-    initHistoryChart(); // Refresh chart
+    initHistoryChart();
 }
 
-// Hook into Navigation to load chart when tab is shown
+
+// Hook into Navigation to load charts
 const originalNavInit = Navigation.init;
 Navigation.init = function () {
     document.querySelectorAll('.nav-item').forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
-            // ... original logic replication or simplified handling ...
+            const pageId = item.dataset.page;
+
+            // Block navigation if no data loaded (except for historyPage which uses manual data)
+            if (DataStore.rawData.length === 0 && pageId !== 'uploadSection' && pageId !== 'historyPage') {
+                showConfirm(
+                    '📂 Archivo Requerido',
+                    'Debe cargar un archivo de datos para acceder a esta sección. ¿Desea ir a la zona de carga?',
+                    () => {
+                        showUploadSection();
+                    }
+                );
+                return;
+            }
+
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             document.querySelectorAll('.page-section').forEach(s => s.style.display = 'none');
 
             item.classList.add('active');
-            const pageId = item.dataset.page;
             document.getElementById(pageId).style.display = 'block';
 
-            // Close menu on mobile
             if (window.innerWidth <= 768) {
                 document.querySelector('.sidebar').classList.remove('active');
             }
 
-            if (pageId === 'historyPage') {
-                setTimeout(initHistoryChart, 100);
+            if (pageId === 'historyPage') setTimeout(initHistoryChart, 100);
+            if (pageId === 'analyticsPage') {
+                setTimeout(() => {
+                    ChartManager.renderAnalytics();
+                }, 100);
             }
         });
     });
 };
+
+function downloadSummaryPDF() {
+    const element = document.querySelector('#summaryModal .summary-content'); // Selector específico
+    if (!element) return;
+
+    // Hide buttons temporarily
+    const actions = element.querySelector('.summary-actions');
+    const originalDisplay = actions ? actions.style.display : '';
+    if (actions) actions.style.display = 'none';
+
+    showToast('Generando PDF del Resumen...', 'info');
+
+    const opt = {
+        margin: 10,
+        filename: `Resumen_Ejecutivo_CJB_${new Date().toISOString().slice(0, 10)}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, logging: false },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save().then(() => {
+        if (actions) actions.style.display = originalDisplay; // Restore
+        showToast('Resumen descargado', 'success');
+    }).catch(err => {
+        if (actions) actions.style.display = originalDisplay; // Restore
+        console.error(err);
+        showToast('Error al descargar resumen', 'error');
+    });
+}
+
+// New Exports
+window.openManualEntryModal = openManualEntryModal;
+window.closeManualDataModal = closeManualDataModal;
+window.saveManualData = saveManualData;
+window.downloadSummaryPDF = downloadSummaryPDF;
+
+// Function to show upload section from sidebar button
+function showUploadSection() {
+    // Hide all pages
+    document.querySelectorAll('.page-section').forEach(p => p.style.display = 'none');
+    // Show upload section
+    document.getElementById('uploadSection').style.display = 'flex';
+    // Close sidebar on mobile
+    if (window.innerWidth <= 768) {
+        document.getElementById('sidebar')?.classList.remove('open');
+    }
+}
 
 // Global exports
 window.viewIncident = viewIncident;
@@ -2202,7 +2488,8 @@ window.closeSummaryModal = closeSummaryModal;
 window.printSummary = printSummary;
 window.printIncidentReport = printIncidentReport;
 window.TableManager = TableManager;
-// New Exports
+window.showUploadSection = showUploadSection;
 window.openManualEntryModal = openManualEntryModal;
 window.closeManualDataModal = closeManualDataModal;
 window.saveManualData = saveManualData;
+
