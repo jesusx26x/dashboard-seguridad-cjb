@@ -1269,10 +1269,13 @@ const FileParser = {
             let type = row['Tipo de Incidente'] || row['Tipo'] || 'No especificado';
             type = normalizeIncidentType(type);
             let quadrant = (row['Cuadrante donde sucedió el hecho'] || row['Cuadrante'] || '').toString().trim().toUpperCase();
-            if (!quadrant || quadrant === '0') quadrant = 'No especificado';
+            quadrant = normalizeQuadrant(quadrant); // Normalizar a B1, B2, B3, B4
             let officer = (row['Oficial a cargo'] || row['Oficial a cargo1'] || '').toString().trim();
             if (!officer || officer === '0') officer = 'No especificado';
             const undoc = parseInt(row['Cantidad de Indocumentados detenidos'] || 0) || 0;
+
+            // Capturar evidencia visual
+            const evidence = row['Evidencia Visual'] || '';
 
             return {
                 id: row['Id'] || (idx + 1),
@@ -1289,7 +1292,7 @@ const FileParser = {
                 securityIncident: row['Incidentes de seguridad policial'] || '',
                 personRole: row['Rol de la Persona'] || '',
                 personName: row['Nombre Completo'] || '',
-                evidence: row['Evidencia Visual'] || '',
+                evidence: evidence,
                 rawData: row
             };
         });
@@ -1411,6 +1414,39 @@ function viewIncident(id) {
     const incident = DataStore.rawData.find(r => r.id == id);
     if (!incident) { showToast('No encontrado', 'error'); return; }
 
+    // Generar HTML de evidencia
+    let evidenceHtml = '';
+    if (incident.evidence && incident.evidence.trim()) {
+        const evidenceUrl = incident.evidence.trim();
+        // Verificar si es una URL de imagen (SharePoint, Google Drive, etc.)
+        const isImageUrl = /\.(jpg|jpeg|png|gif|webp|bmp)/i.test(evidenceUrl) ||
+            evidenceUrl.includes('sharepoint') ||
+            evidenceUrl.includes('drive.google');
+
+        evidenceHtml = `
+            <div class="detail-evidence-section">
+                <span class="detail-label"><i class="fas fa-camera"></i> Evidencia Visual</span>
+                <div class="evidence-container">
+                    ${isImageUrl ? `
+                        <div class="evidence-preview">
+                            <img src="${escapeHtml(evidenceUrl)}" 
+                                 alt="Evidencia del incidente" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 onclick="window.open('${escapeHtml(evidenceUrl)}', '_blank')">
+                            <div class="evidence-fallback" style="display:none;">
+                                <i class="fas fa-image"></i>
+                                <p>No se pudo cargar la imagen</p>
+                            </div>
+                        </div>
+                    ` : ''}
+                    <a href="${escapeHtml(evidenceUrl)}" target="_blank" class="btn btn-evidence">
+                        <i class="fas fa-external-link-alt"></i> Ver Evidencia
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+
     document.getElementById('modalIncidentId').textContent = id;
     document.getElementById('modalBody').innerHTML = `
         <div class="detail-grid">
@@ -1422,6 +1458,7 @@ function viewIncident(id) {
             <div class="detail-row"><span class="detail-label"><i class="fas fa-gavel"></i> Acciones</span><span class="detail-value">${incident.actions || 'N/A'}</span></div>
         </div>
         <div class="detail-narrative"><span class="detail-label"><i class="fas fa-file-alt"></i> Narrativa</span><div class="narrative-full">${escapeHtml(incident.narrative) || 'Sin narrativa'}</div></div>
+        ${evidenceHtml}
     `;
     document.getElementById('incidentModal').classList.add('active');
 }
@@ -1493,6 +1530,53 @@ function normalizeIncidentType(t) {
     const map = { migracion: 'Migración', migración: 'Migración', digesett: 'DIGESETT', inacif: 'INACIF', dicrim: 'DICRIM', dncd: 'DNCD', policia: 'Policía Nacional', seguridad: 'Seguridad' };
     for (const [k, v] of Object.entries(map)) if (t.toLowerCase().includes(k)) return v;
     return t || 'Otros';
+}
+
+// Normaliza cuadrantes a B1, B2, B3, B4 únicamente
+function normalizeQuadrant(q) {
+    if (!q || q === '0') return 'B1'; // Default a B1
+    q = q.toString().trim().toUpperCase();
+
+    // Si ya es un cuadrante válido, retornarlo
+    if (['B1', 'B2', 'B3', 'B4'].includes(q)) return q;
+
+    // Redistribuir valores no válidos
+    const redistributeMap = {
+        // Valores que van a B1 (área principal/entrada)
+        'TODA LA CIUDAD': 'B1',
+        'EN LAS PUERTAS PRINCIPALES DE CJB': 'B1',
+        'PUERTAS PRINCIPALES': 'B1',
+        'GARITA': 'B1',
+        'ENTRADA': 'B1',
+
+        // Valores que van a B3 (gaviota)
+        'GAVIOTA #3': 'B3',
+        'GAVIOTA': 'B3',
+        'GAVIOTA 3': 'B3',
+
+        // Valores combinados - asignar al primero
+        'B1 Y B3': 'B1',
+        'B1 Y B2': 'B1',
+        'B2 Y B3': 'B2',
+        'B3 Y B4': 'B3',
+        'B1, B3': 'B1',
+
+        // Otros valores no especificados
+        'NO ESPECIFICADO': 'B1',
+        'N/A': 'B1'
+    };
+
+    // Buscar en el mapa de redistribución
+    if (redistributeMap[q]) return redistributeMap[q];
+
+    // Si contiene algún cuadrante válido, extraerlo
+    if (q.includes('B1')) return 'B1';
+    if (q.includes('B2')) return 'B2';
+    if (q.includes('B3')) return 'B3';
+    if (q.includes('B4')) return 'B4';
+
+    // Default a B1 si no se puede determinar
+    return 'B1';
 }
 
 function normalizeAction(a) {
