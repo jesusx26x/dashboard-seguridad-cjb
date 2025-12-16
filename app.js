@@ -1606,48 +1606,202 @@ function exportToExcel() {
 }
 
 function exportToPDF() {
-    showToast('Generando PDF...', 'info', 3000);
+    showToast('Generando captura del Dashboard...', 'info', 3000);
     showLoading(true);
-    html2pdf().set({
-        margin: 10, filename: `Dashboard_CJB_${new Date().toISOString().slice(0, 10)}.pdf`,
-        image: { type: 'jpeg', quality: 0.95 },
-        html2canvas: { scale: 2 },
-        jsPDF: { format: 'a4', orientation: 'landscape' }
-    }).from(document.getElementById('dashboardPage')).save().then(() => {
+
+    // Asegurar que los gráficos están renderizados
+    const element = document.getElementById('dashboardPage');
+
+    const opt = {
+        margin: [5, 5, 5, 5], // Márgenes reducidos
+        filename: `Dashboard_CJB_${new Date().toISOString().slice(0, 10)}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: {
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            scrollY: 0,
+            windowWidth: document.documentElement.offsetWidth
+        },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+    };
+
+    html2pdf().set(opt).from(element).save().then(() => {
         showLoading(false);
-        showToast('PDF descargado', 'success');
+        showToast('Captura descargada correctamente', 'success');
+    }).catch(err => {
+        console.error(err);
+        showLoading(false);
+        showToast('Error al generar PDF', 'error');
     });
+}
+
+function generateInsights() {
+    const agg = DataStore.getAggregations();
+    const typeDist = DataStore.groupBy('type').sort((a, b) => b[1] - a[1]);
+    const quadDist = DataStore.groupBy('quadrant').filter(([q]) => q !== 'No especificado').sort((a, b) => b[1] - a[1]);
+
+    // Hallazgos
+    const findings = [];
+    if (typeDist.length > 0) findings.push(`El tipo de incidente más frecuente es <strong>${typeDist[0][0]}</strong> con ${typeDist[0][1]} casos registrados.`);
+    if (quadDist.length > 0) findings.push(`La mayor concentración de actividad se encuentra en el cuadrante <strong>${quadDist[0][0]}</strong>.`);
+    if (agg.undocumented > 10) findings.push(`Se ha registrado un volumen considerable de indocumentados (${agg.undocumented}), lo cual sugiere actividad migratoria constante.`);
+    if (agg.accidents > 5) findings.push(`El número de accidentes de tránsito (${agg.accidents}) requiere atención en puntos críticos vial.`);
+
+    // Conclusiones
+    const conclusions = [];
+    conclusions.push('La operatividad se mantiene activa en los cuadrantes principales.');
+    if (agg.closures > 0) conclusions.push('Se han realizado clausuras efectivas, demostrando control sobre establecimientos irregulares.');
+    conclusions.push('Se recomienda mantener el patrullaje preventivo en las zonas de mayor incidencia detectadas.');
+
+    return { findings, conclusions };
 }
 
 function generateExecutiveSummary() {
     const agg = DataStore.getAggregations();
+    const insights = generateInsights();
     const modal = document.getElementById('summaryModal');
+
+    const today = new Date().toLocaleDateString('es-DO', { day: '2-digit', month: 'long', year: 'numeric' });
+    const period = `${document.getElementById('filterDateFrom')?.value || 'Inicio'} al ${document.getElementById('filterDateTo')?.value || 'Hoy'}`;
+
     document.getElementById('summaryModalBody').innerHTML = `
-        <div class="summary-content">
-            <h2>Resumen Ejecutivo - Dashboard de Seguridad CJB</h2>
-            <p><strong>Fecha:</strong> ${new Date().toLocaleDateString('es-DO')}</p>
-            <p><strong>Periodo:</strong> ${document.getElementById('filterDateFrom')?.value || 'N/A'} - ${document.getElementById('filterDateTo')?.value || 'N/A'}</p>
-            <hr>
-            <h3>📊 Métricas Principales</h3>
-            <ul>
-                <li><strong>Total Incidentes:</strong> ${agg.total}</li>
-                <li><strong>Indocumentados Detenidos:</strong> ${agg.undocumented}</li>
-                <li><strong>Accidentes de Tránsito:</strong> ${agg.accidents}</li>
-                <li><strong>Arrestos Realizados:</strong> ${agg.arrests}</li>
-                <li><strong>Oficiales Activos:</strong> ${agg.officers}</li>
-                <li><strong>Clausuras:</strong> ${agg.closures}</li>
-            </ul>
-            <h3>📈 Distribución por Tipo</h3>
-            <ul>${DataStore.groupBy('type').slice(0, 5).map(([t, c]) => `<li>${t}: ${c}</li>`).join('')}</ul>
-            <h3>🗺️ Distribución por Cuadrante</h3>
-            <ul>${DataStore.groupBy('quadrant').filter(([q]) => q !== 'No especificado').slice(0, 5).map(([q, c]) => `<li>${q}: ${c}</li>`).join('')}</ul>
+        <div class="summary-content printable-summary">
+            <!-- Header Oficial para Impresión -->
+            <div class="summary-header">
+                <img src="logo-security.png" alt="Logo CJB" class="summary-logo">
+                <div class="summary-title-text">
+                    <h2>DIRECCIÓN DE SEGURIDAD</h2>
+                    <h3>Ciudad Juan Bosch</h3>
+                    <p>Resumen Ejecutivo de Incidentes y Operatividad</p>
+                </div>
+            </div>
+            
+            <div class="summary-meta-grid">
+                <div><strong>Fecha de Emisión:</strong> ${today}</div>
+                <div><strong>Periodo Analizado:</strong> ${period}</div>
+            </div>
+
+            <hr class="summary-divider">
+
+            <div class="summary-section">
+                <h4><i class="fas fa-chart-pie"></i> Métricas Consolidadas</h4>
+                <div class="metrics-grid-summary">
+                    <div class="metric-box">
+                        <span class="m-val">${agg.total}</span>
+                        <span class="m-label">Total Incidentes</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="m-val">${agg.undocumented}</span>
+                        <span class="m-label">Indocumentados</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="m-val">${agg.accidents}</span>
+                        <span class="m-label">Accidentes Tránsito</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="m-val">${agg.arrests}</span>
+                        <span class="m-label">Arrestos</span>
+                    </div>
+                    <div class="metric-box">
+                        <span class="m-val">${agg.officers}</span>
+                        <span class="m-label">Oficiales Activos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-cols">
+                <div class="summary-col">
+                    <h4><i class="fas fa-search"></i> Hallazgos Principales</h4>
+                    <ul class="insights-list">
+                        ${insights.findings.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="summary-col">
+                    <h4><i class="fas fa-clipboard-check"></i> Conclusiones y Recomendaciones</h4>
+                    <ul class="insights-list">
+                        ${insights.conclusions.map(c => `<li>${c}</li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="summary-footer">
+                <p>Documento generado automáticamente por el Sistema de Gestión de Seguridad CJB.</p>
+            </div>
         </div>
     `;
     modal.classList.add('active');
 }
 
 function closeSummaryModal() { document.getElementById('summaryModal')?.classList.remove('active'); }
-function printSummary() { window.print(); }
+
+function printSummary() {
+    // Usar iframe oculto para impresión limpia
+    let printFrame = document.getElementById('printFrameSummary');
+    if (!printFrame) {
+        printFrame = document.createElement('iframe');
+        printFrame.id = 'printFrameSummary';
+        printFrame.style.position = 'fixed';
+        printFrame.style.right = '0';
+        printFrame.style.bottom = '0';
+        printFrame.style.width = '0';
+        printFrame.style.height = '0';
+        printFrame.style.border = '0';
+        document.body.appendChild(printFrame);
+    }
+
+    // Obtener contenido HTML del modal generado
+    const content = document.getElementById('summaryModalBody').innerHTML;
+
+    const doc = printFrame.contentWindow.document;
+    doc.open();
+    doc.write(`
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <title>Resumen Ejecutivo CJB</title>
+            <style>
+                body { font-family: 'Arial', sans-serif; color: #333; line-height: 1.5; padding: 20px; }
+                .summary-header { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 20px; border-bottom: 2px solid #1E3A5F; padding-bottom: 15px; }
+                .summary-logo { width: 80px; height: auto; }
+                .summary-title-text { text-align: center; }
+                .summary-title-text h2 { color: #1E3A5F; margin: 0; font-size: 1.5rem; }
+                .summary-title-text h3 { color: #2ECC71; margin: 5px 0; font-size: 1.1rem; font-weight: normal; }
+                .summary-title-text p { color: #666; margin: 0; font-size: 0.9rem; }
+                .summary-meta-grid { display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 0.9rem; background: #f8f9fa; padding: 10px; border-radius: 4px; }
+                .summary-section { margin-bottom: 25px; }
+                .summary-section h4 { background: #1E3A5F; color: white; padding: 8px 15px; margin-bottom: 15px; font-size: 1rem; -webkit-print-color-adjust: exact; }
+                .metrics-grid-summary { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+                .metric-box { border: 1px solid #ddd; padding: 10px; text-align: center; border-radius: 4px; }
+                .m-val { display: block; font-size: 1.2rem; font-weight: bold; color: #1E3A5F; }
+                .m-label { font-size: 0.75rem; color: #666; }
+                .summary-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+                .summary-col h4 { border-bottom: 2px solid #2ECC71; color: #1E3A5F; padding-bottom: 5px; margin-bottom: 10px; }
+                .insights-list { padding-left: 20px; }
+                .insights-list li { margin-bottom: 8px; font-size: 0.95rem; }
+                .summary-footer { margin-top: 40px; text-align: center; font-size: 0.8rem; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+                @media print {
+                    @page { margin: 1cm; size: A4; }
+                    body { -webkit-print-color-adjust: exact; }
+                }
+            </style>
+        </head>
+        <body>
+            ${content}
+            <script>
+                window.onload = function() { window.print(); }
+            </script>
+        </body>
+        </html>
+    `);
+    doc.close();
+
+    setTimeout(() => {
+        printFrame.contentWindow.focus();
+        printFrame.contentWindow.print();
+    }, 500);
+}
 
 // Función para imprimir reporte individual de incidente con formato oficial CJB
 function printIncidentReport(id) {
@@ -1688,23 +1842,32 @@ function printIncidentReport(id) {
                     line-height: 1.6;
                     background: white;
                 }
-                .header { 
-                    text-align: center; 
+                .header-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 20px;
+                    margin-bottom: 30px;
                     border-bottom: 3px solid #1E3A5F;
                     padding-bottom: 20px;
-                    margin-bottom: 30px;
                 }
-                .header h1 { 
+                .logo {
+                    width: 100px;
+                    height: auto;
+                }
+                .header-text {
+                    text-align: center; 
+                }
+                .header-text h1 { 
                     color: #1E3A5F; 
                     font-size: 1.8rem;
-                    margin-bottom: 5px;
                 }
-                .header h2 { 
+                .header-text h2 { 
                     color: #2ECC71;
                     font-size: 1.2rem;
                     font-weight: normal;
                 }
-                .header .subtitle {
+                .header-text .subtitle {
                     color: #666;
                     font-size: 0.9rem;
                     margin-top: 10px;
@@ -1795,10 +1958,13 @@ function printIncidentReport(id) {
             </style>
         </head>
         <body>
-            <div class="header">
-                <h1>DIRECCIÓN DE SEGURIDAD</h1>
-                <h2>Ciudad Juan Bosch</h2>
-                <p class="subtitle">Santo Domingo Este, República Dominicana</p>
+            <div class="header-container">
+                <img src="logo-security.png" alt="Logo CJB" class="logo">
+                <div class="header-text">
+                    <h1>DIRECCIÓN DE SEGURIDAD</h1>
+                    <h2>Ciudad Juan Bosch</h2>
+                    <p class="subtitle">Santo Domingo Este, República Dominicana</p>
+                </div>
             </div>
             
             <div class="report-title">
@@ -1882,73 +2048,122 @@ document.addEventListener('DOMContentLoaded', () => {
 // HISTORICAL DATA LOGIC
 // ============================================
 let historyChartInstance = null;
-const initialHistoryData = {
-    labels: ['01 Dic', '04 Dic', '05 Dic', 'Semana 1-7 Dic'],
-    values: [12, 8, 15, 45] // Estimaciones basadas en volumen típico
+
+// Estructura de datos por defecto (si no hay nada guardado)
+const defaultHistoryData = {
+    '2025-12-01': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, label: '01 Dic' },
+    '2025-12-04': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, label: '04 Dic' },
+    '2025-12-05': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, label: '05 Dic' },
+    '2025-12-07-week': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, label: 'Semana 1-7 Dic' },
+    '2025-12-07-consolidated': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, label: 'Consolidado' }
 };
+
+// Cargar datos guardados o usar defecto
+function getHistoryData() {
+    const stored = localStorage.getItem('cjb_history_data');
+    return stored ? JSON.parse(stored) : defaultHistoryData;
+}
 
 function initHistoryChart() {
     const ctx = document.getElementById('historyChart')?.getContext('2d');
     if (!ctx) return;
 
-    // Generar inputs si está vacío
-    const inputsContainer = document.getElementById('historyInputs');
-    if (inputsContainer && inputsContainer.innerHTML.trim() === '') {
-        initialHistoryData.labels.forEach((label, index) => {
-            const div = document.createElement('div');
-            div.className = 'history-input-group';
-            div.innerHTML = `
-                <label>${label}</label>
-                <input type="number" id="hist-val-${index}" value="${initialHistoryData.values[index]}" min="0">
-            `;
-            inputsContainer.appendChild(div);
-        });
-    }
-
     if (historyChartInstance) {
         historyChartInstance.destroy();
     }
 
+    const data = getHistoryData();
+    const labels = Object.values(data).map(d => d.label);
+
+    // Preparar datasets
+    const dsHaitianos = Object.values(data).map(d => d.haitianos || 0);
+    const dsMultas = Object.values(data).map(d => d.multas || 0);
+    const dsMotos = Object.values(data).map(d => d.motos || 0);
+    const dsLlamadas = Object.values(data).map(d => d.llamadas || 0);
+
     historyChartInstance = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: initialHistoryData.labels,
-            datasets: [{
-                label: 'Total Incidentes (Reportados en PDF)',
-                data: initialHistoryData.values,
-                backgroundColor: 'rgba(52, 152, 219, 0.6)',
-                borderColor: 'rgba(52, 152, 219, 1)',
-                borderWidth: 1
-            }]
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Migración (Haitianos)',
+                    data: dsHaitianos,
+                    backgroundColor: '#e74c3c'
+                },
+                {
+                    label: 'Multas Tránsito',
+                    data: dsMultas,
+                    backgroundColor: '#f1c40f'
+                },
+                {
+                    label: 'Motos Retenidas',
+                    data: dsMotos,
+                    backgroundColor: '#e67e22'
+                },
+                {
+                    label: 'Llamadas Ciudadanas',
+                    data: dsLlamadas,
+                    backgroundColor: '#3498db'
+                }
+            ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
                 legend: { position: 'top' },
-                title: { display: true, text: 'Volumen de Incidentes por Reporte' }
+                title: { display: true, text: 'Indicadores Clave por Reporte (Datos Manuales)' },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                }
             },
             scales: {
+                x: { stacked: false },
                 y: { beginAtZero: true }
             }
         }
     });
 }
 
-function updateHistoricalChart() {
-    const newValues = [];
-    initialHistoryData.labels.forEach((_, index) => {
-        const val = document.getElementById(`hist-val-${index}`)?.value || 0;
-        newValues.push(parseInt(val, 10));
-    });
+// Modal Logic
+function openManualEntryModal(reportName, reportId) {
+    document.getElementById('modalReportName').textContent = reportName;
+    document.getElementById('modalReportId').value = reportId;
 
-    initialHistoryData.values = newValues;
+    const data = getHistoryData();
+    const entry = data[reportId] || { haitianos: 0, multas: 0, motos: 0, llamadas: 0 };
 
-    if (historyChartInstance) {
-        historyChartInstance.data.datasets[0].data = newValues;
-        historyChartInstance.update();
-        showToast('Gráfico histórico actualizado', 'success');
-    }
+    document.getElementById('inputHaitianos').value = entry.haitianos || 0;
+    document.getElementById('inputMultas').value = entry.multas || 0;
+    document.getElementById('inputMotos').value = entry.motos || 0;
+    document.getElementById('inputLlamadas').value = entry.llamadas || 0;
+
+    document.getElementById('manualDataModal').classList.add('active');
+}
+
+function closeManualDataModal() {
+    document.getElementById('manualDataModal').classList.remove('active');
+}
+
+function saveManualData() {
+    const reportId = document.getElementById('modalReportId').value;
+    const currentData = getHistoryData();
+
+    // Update data for this ID
+    if (!currentData[reportId]) currentData[reportId] = { label: reportId }; // Fallback label
+
+    currentData[reportId].haitianos = parseInt(document.getElementById('inputHaitianos').value) || 0;
+    currentData[reportId].multas = parseInt(document.getElementById('inputMultas').value) || 0;
+    currentData[reportId].motos = parseInt(document.getElementById('inputMotos').value) || 0;
+    currentData[reportId].llamadas = parseInt(document.getElementById('inputLlamadas').value) || 0;
+
+    localStorage.setItem('cjb_history_data', JSON.stringify(currentData));
+
+    showToast('Datos guardados correctamente', 'success');
+    closeManualDataModal();
+    initHistoryChart(); // Refresh chart
 }
 
 // Hook into Navigation to load chart when tab is shown
@@ -1986,5 +2201,8 @@ window.generateExecutiveSummary = generateExecutiveSummary;
 window.closeSummaryModal = closeSummaryModal;
 window.printSummary = printSummary;
 window.printIncidentReport = printIncidentReport;
-window.updateHistoricalChart = updateHistoricalChart; // Exported function
 window.TableManager = TableManager;
+// New Exports
+window.openManualEntryModal = openManualEntryModal;
+window.closeManualDataModal = closeManualDataModal;
+window.saveManualData = saveManualData;
