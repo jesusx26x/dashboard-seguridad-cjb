@@ -2189,13 +2189,86 @@ let historyChartInstance = null;
 let historyPieChartInstance = null;
 let historyLineChartInstance = null;
 
-// Estructura de datos por defecto (si no hay nada guardado)
+// Estructura de datos históricos permanentes (12 períodos completos)
 const defaultHistoryData = {
-    '2025-12-01': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0, label: '01 Dic' },
-    '2025-12-04': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0, label: '04 Dic' },
-    '2025-12-05': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0, label: '05 Dic' },
-    '2025-12-07-week': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0, label: 'Semana 1-7 Dic' },
-    '2025-12-07-consolidated': { haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0, label: 'Consolidado' }
+    // Julio 2025
+    'pdf-jul-14-21': {
+        label: '14 jul 2025 - 21 jul 2025',
+        fechaInicio: '2025-07-14',
+        fechaFin: '2025-07-21',
+        haitianos: 23, multas: 178, motos: 0, llamadas: 22, accidentes: 6, asistencias: 5
+    },
+    'pdf-jul-21-27': {
+        label: '21 jul 2025 - 27 jul 2025',
+        fechaInicio: '2025-07-21',
+        fechaFin: '2025-07-27',
+        haitianos: 27, multas: 206, motos: 0, llamadas: 10, accidentes: 2, asistencias: 9
+    },
+    'pdf-jul-28-ago-03': {
+        label: '28 jul 2025 - 03 ago 2025',
+        fechaInicio: '2025-07-28',
+        fechaFin: '2025-08-03',
+        haitianos: 17, multas: 166, motos: 0, llamadas: 16, accidentes: 9, asistencias: 10
+    },
+    // Agosto 2025
+    'pdf-ago-25-31': {
+        label: '25 ago 2025 - 31 ago 2025',
+        fechaInicio: '2025-08-25',
+        fechaFin: '2025-08-31',
+        haitianos: 12, multas: 144, motos: 0, llamadas: 12, accidentes: 1, asistencias: 5
+    },
+    // Septiembre 2025
+    'pdf-sep-08-14': {
+        label: '08 sep 2025 - 14 sep 2025',
+        fechaInicio: '2025-09-08',
+        fechaFin: '2025-09-14',
+        haitianos: 14, multas: 170, motos: 0, llamadas: 14, accidentes: 1, asistencias: 14
+    },
+    'pdf-sep-22-28': {
+        label: '22 sep 2025 - 28 sep 2025',
+        fechaInicio: '2025-09-22',
+        fechaFin: '2025-09-28',
+        haitianos: 12, multas: 192, motos: 0, llamadas: 5, accidentes: 2, asistencias: 5
+    },
+    // Octubre 2025
+    'pdf-oct-05-12': {
+        label: '05 oct 2025 - 12 oct 2025',
+        fechaInicio: '2025-10-05',
+        fechaFin: '2025-10-12',
+        haitianos: 13, multas: 148, motos: 0, llamadas: 9, accidentes: 3, asistencias: 2
+    },
+    'pdf-oct-26-nov-02': {
+        label: '26 oct 2025 - 02 nov 2025',
+        fechaInicio: '2025-10-26',
+        fechaFin: '2025-11-02',
+        haitianos: 10, multas: 162, motos: 0, llamadas: 11, accidentes: 2, asistencias: 3
+    },
+    // Noviembre 2025
+    'pdf-nov-10-16': {
+        label: '10 nov 2025 - 16 nov 2025',
+        fechaInicio: '2025-11-10',
+        fechaFin: '2025-11-16',
+        haitianos: 3, multas: 109, motos: 0, llamadas: 0, accidentes: 2, asistencias: 5
+    },
+    'pdf-nov-24-30': {
+        label: '24 nov 2025 - 30 nov 2025',
+        fechaInicio: '2025-11-24',
+        fechaFin: '2025-11-30',
+        haitianos: 10, multas: 42, motos: 0, llamadas: 6, accidentes: 1, asistencias: 9
+    },
+    // Diciembre 2025
+    'pdf-dic-01-07': {
+        label: '01 dic 2025 - 07 dic 2025',
+        fechaInicio: '2025-12-01',
+        fechaFin: '2025-12-07',
+        haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0
+    },
+    'pdf-dic-08-14': {
+        label: '08 dic 2025 - 14 dic 2025',
+        fechaInicio: '2025-12-08',
+        fechaFin: '2025-12-14',
+        haitianos: 0, multas: 0, motos: 0, llamadas: 0, accidentes: 0, asistencias: 0
+    }
 };
 
 // Cargar datos guardados o usar defecto
@@ -2204,33 +2277,140 @@ function getHistoryData() {
     return stored ? JSON.parse(stored) : defaultHistoryData;
 }
 
-function initHistoryChart() {
-    const data = getHistoryData();
-    const labels = Object.values(data).map(d => d.label);
+// Integrate historical data into Dashboard
+function updateHistoricalDashboard() {
+    const rawData = getHistoryData();
 
-    // Preparar datasets
-    const dsHaitianos = Object.values(data).map(d => d.haitianos || 0);
-    const dsMultas = Object.values(data).map(d => d.multas || 0);
-    const dsMotos = Object.values(data).map(d => d.motos || 0);
-    const dsLlamadas = Object.values(data).map(d => d.llamadas || 0);
-    const dsAccidentes = Object.values(data).map(d => d.accidentes || 0);
-    const dsAsistencias = Object.values(data).map(d => d.asistencias || 0);
+    // Sort data by fechaFin chronologically
+    const sortedEntries = Object.entries(rawData)
+        .filter(([_, d]) => d.fechaFin)
+        .sort((a, b) => new Date(a[1].fechaFin) - new Date(b[1].fechaFin));
 
-    // Chart 1: Bar Chart (Comparativa por Período)
-    const ctx = document.getElementById('historyChart')?.getContext('2d');
-    if (ctx) {
-        if (historyChartInstance) historyChartInstance.destroy();
-        historyChartInstance = new Chart(ctx, {
+    // Calculate totals
+    let totalMigracion = 0, totalMultas = 0, totalLlamadas = 0, totalAccidentes = 0, totalAsistencias = 0;
+    sortedEntries.forEach(([_, d]) => {
+        totalMigracion += d.haitianos || 0;
+        totalMultas += d.multas || 0;
+        totalLlamadas += d.llamadas || 0;
+        totalAccidentes += d.accidentes || 0;
+        totalAsistencias += d.asistencias || 0;
+    });
+
+    // Update Dashboard KPI cards
+    const elMultas = document.getElementById('kpiMultasHist');
+    const elLlamadas = document.getElementById('kpiLlamadasHist');
+    const elAsistencias = document.getElementById('kpiAsistenciasHist');
+    if (elMultas) elMultas.textContent = totalMultas;
+    if (elLlamadas) elLlamadas.textContent = totalLlamadas;
+    if (elAsistencias) elAsistencias.textContent = totalAsistencias;
+
+    // Store historical totals for chart integration
+    window.historicalData = {
+        migracion: totalMigracion,
+        multas: totalMultas,
+        llamadas: totalLlamadas,
+        accidentes: totalAccidentes,
+        asistencias: totalAsistencias,
+        digesett: totalMultas + totalAccidentes, // Multas + Accidentes = DIGESETT
+        seguridad: totalLlamadas + totalAsistencias // Llamadas + Asistencias = Seguridad
+    };
+
+    // Add historical values to existing KPIs (Accidentes and Indocumentados) - ACTUAL SUM
+    const elAccidentes = document.getElementById('kpiAccidents');
+    const elUndoc = document.getElementById('kpiUndocumented');
+    if (elAccidentes && !elAccidentes.dataset.historicalAdded) {
+        const current = parseInt(elAccidentes.textContent) || 0;
+        const total = current + totalAccidentes;
+        elAccidentes.textContent = total;
+        elAccidentes.dataset.historicalAdded = 'true';
+        // Add tooltip
+        elAccidentes.title = `Excel: ${current} + Histórico: ${totalAccidentes}`;
+    }
+    if (elUndoc && !elUndoc.dataset.historicalAdded) {
+        const current = parseInt(elUndoc.textContent) || 0;
+        const total = current + totalMigracion;
+        elUndoc.textContent = total;
+        elUndoc.dataset.historicalAdded = 'true';
+        // Add tooltip
+        elUndoc.title = `Excel: ${current} + Histórico: ${totalMigracion}`;
+    }
+
+    // Inject historical data into chartByType if it exists
+    injectHistoricalIntoByTypeChart();
+
+    // Format date labels
+    const formatDate = (dateStr) => {
+        if (!dateStr) return '';
+        const d = new Date(dateStr);
+        const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        return `${d.getDate()} ${months[d.getMonth()]}`;
+    };
+
+    const dateLabels = sortedEntries.map(([_, d]) => formatDate(d.fechaFin));
+    const dsMultas = sortedEntries.map(([_, d]) => d.multas || 0);
+    const dsHaitianos = sortedEntries.map(([_, d]) => d.haitianos || 0);
+
+    // Chart 1: Multas Comparison (Horizontal Bar) - Dashboard
+    const ctxMultas = document.getElementById('chartMultasHist')?.getContext('2d');
+    if (ctxMultas) {
+        if (window.dashboardMultasChartInstance) window.dashboardMultasChartInstance.destroy();
+        window.dashboardMultasChartInstance = new Chart(ctxMultas, {
             type: 'bar',
             data: {
-                labels: labels,
+                labels: dateLabels,
+                datasets: [{
+                    label: 'Multas',
+                    data: dsMultas,
+                    backgroundColor: dsMultas.map(v => v > 150 ? '#e74c3c' : v > 100 ? '#f39c12' : '#2ecc71'),
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'end',
+                        color: '#1E3A5F',
+                        font: { weight: 'bold', size: 10 }
+                    }
+                },
+                scales: {
+                    x: { beginAtZero: true }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+    }
+
+    // Chart 2: Migration vs Multas Trend - Dashboard
+    const ctxTrend = document.getElementById('chartMigracionTrend')?.getContext('2d');
+    if (ctxTrend) {
+        if (window.dashboardTrendChartInstance) window.dashboardTrendChartInstance.destroy();
+        window.dashboardTrendChartInstance = new Chart(ctxTrend, {
+            type: 'line',
+            data: {
+                labels: dateLabels,
                 datasets: [
-                    { label: 'Migración', data: dsHaitianos, backgroundColor: '#e74c3c' },
-                    { label: 'Multas', data: dsMultas, backgroundColor: '#f1c40f' },
-                    { label: 'Motos', data: dsMotos, backgroundColor: '#e67e22' },
-                    { label: 'Llamadas', data: dsLlamadas, backgroundColor: '#3498db' },
-                    { label: 'Accidentes', data: dsAccidentes, backgroundColor: '#95a5a6' },
-                    { label: 'Asistencias', data: dsAsistencias, backgroundColor: '#2ecc71' }
+                    {
+                        label: 'Migración',
+                        data: dsHaitianos,
+                        borderColor: '#f39c12',
+                        backgroundColor: 'rgba(243, 156, 18, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Multas ÷10',
+                        data: dsMultas.map(v => v / 10),
+                        borderColor: '#e74c3c',
+                        backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    }
                 ]
             },
             options: {
@@ -2238,44 +2418,219 @@ function initHistoryChart() {
                 maintainAspectRatio: false,
                 plugins: {
                     legend: { position: 'top' },
-                    title: { display: false },
-                    datalabels: {
-                        color: '#fff',
-                        font: { weight: 'bold', size: 9 },
-                        formatter: value => value > 0 ? value : '',
-                        anchor: 'center',
-                        align: 'center'
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => {
+                                if (ctx.dataset.label === 'Multas ÷10') {
+                                    return `Multas: ${ctx.raw * 10}`;
+                                }
+                                return `${ctx.dataset.label}: ${ctx.raw}`;
+                            }
+                        }
                     }
                 },
                 scales: {
-                    x: { stacked: false },
+                    x: { grid: { display: false } },
                     y: { beginAtZero: true }
+                }
+            }
+        });
+    }
+}
+
+// Inject historical data into the "Incidentes por Tipo" chart
+function injectHistoricalIntoByTypeChart() {
+    const chart = window.byTypeChartInstance;
+    const histData = window.historicalData;
+
+    if (!chart || !histData) return;
+
+    // Map historical data to chart labels
+    const mappings = {
+        'Migración': histData.migracion || 0,
+        'DIGESETT': (histData.multas || 0) + (histData.accidentes || 0),
+        'Seguridad': (histData.llamadas || 0) + (histData.asistencias || 0)
+    };
+
+    // Get chart data
+    const labels = chart.data.labels;
+    const data = chart.data.datasets[0].data;
+
+    // Check if already injected
+    if (chart.data.historicalAdded) return;
+
+    // Add historical values to matching labels
+    let updated = false;
+    labels.forEach((label, index) => {
+        if (mappings[label]) {
+            data[index] = (data[index] || 0) + mappings[label];
+            updated = true;
+        }
+    });
+
+    if (updated) {
+        chart.data.historicalAdded = true;
+        chart.update();
+        console.log('✅ Historical data injected into byType chart:', mappings);
+    }
+}
+
+function initHistoryChart() {
+    const rawData = getHistoryData();
+
+    // Sort data by fechaFin chronologically
+    const sortedEntries = Object.entries(rawData)
+        .filter(([_, d]) => d.fechaFin) // Only entries with dates
+        .sort((a, b) => new Date(a[1].fechaFin) - new Date(b[1].fechaFin));
+
+    // Format date labels as "DD MMM"
+    const formatDate = (dateStr) => {
+        if (!dateStr) return '';
+        const d = new Date(dateStr);
+        const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        return `${d.getDate()} ${months[d.getMonth()]}`;
+    };
+
+    const dateLabels = sortedEntries.map(([_, d]) => formatDate(d.fechaFin));
+    const dsHaitianos = sortedEntries.map(([_, d]) => d.haitianos || 0);
+    const dsMultas = sortedEntries.map(([_, d]) => d.multas || 0);
+    const dsMotos = sortedEntries.map(([_, d]) => d.motos || 0);
+    const dsLlamadas = sortedEntries.map(([_, d]) => d.llamadas || 0);
+    const dsAccidentes = sortedEntries.map(([_, d]) => d.accidentes || 0);
+    const dsAsistencias = sortedEntries.map(([_, d]) => d.asistencias || 0);
+
+    // Update KPI totals
+    const totalMigracion = dsHaitianos.reduce((a, b) => a + b, 0);
+    const totalMultas = dsMultas.reduce((a, b) => a + b, 0);
+    const totalLlamadas = dsLlamadas.reduce((a, b) => a + b, 0);
+    const totalAccidentes = dsAccidentes.reduce((a, b) => a + b, 0);
+    const totalAsistencias = dsAsistencias.reduce((a, b) => a + b, 0);
+
+    const el1 = document.getElementById('kpiTotalMigracion');
+    const el2 = document.getElementById('kpiTotalMultas');
+    const el3 = document.getElementById('kpiTotalLlamadas');
+    const el4 = document.getElementById('kpiTotalAccidentes');
+    const el5 = document.getElementById('kpiTotalAsistencias');
+    if (el1) el1.textContent = totalMigracion;
+    if (el2) el2.textContent = totalMultas;
+    if (el3) el3.textContent = totalLlamadas;
+    if (el4) el4.textContent = totalAccidentes;
+    if (el5) el5.textContent = totalAsistencias;
+
+    // Chart 1: Timeline Evolution (Area Chart - Main)
+    const ctxTimeline = document.getElementById('historyTimelineChart')?.getContext('2d');
+    if (ctxTimeline) {
+        if (historyChartInstance) historyChartInstance.destroy();
+        historyChartInstance = new Chart(ctxTimeline, {
+            type: 'line',
+            data: {
+                labels: dateLabels,
+                datasets: [
+                    {
+                        label: 'Multas',
+                        data: dsMultas,
+                        borderColor: '#e74c3c',
+                        backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Migración',
+                        data: dsHaitianos,
+                        borderColor: '#f39c12',
+                        backgroundColor: 'rgba(243, 156, 18, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Llamadas',
+                        data: dsLlamadas,
+                        borderColor: '#3498db',
+                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Asistencias',
+                        data: dsAsistencias,
+                        borderColor: '#2ecc71',
+                        backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { position: 'top' },
+                    tooltip: {
+                        callbacks: {
+                            title: (items) => items[0]?.label || ''
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Fecha (2025)' },
+                        grid: { display: false }
+                    },
+                    y: { beginAtZero: true, title: { display: true, text: 'Cantidad' } }
+                }
+            }
+        });
+    }
+
+    // Chart 2: Multas Comparison (Horizontal Bar)
+    const ctxMultas = document.getElementById('historyMultasChart')?.getContext('2d');
+    if (ctxMultas) {
+        if (window.historyMultasChartInstance) window.historyMultasChartInstance.destroy();
+        window.historyMultasChartInstance = new Chart(ctxMultas, {
+            type: 'bar',
+            data: {
+                labels: dateLabels,
+                datasets: [{
+                    label: 'Multas',
+                    data: dsMultas,
+                    backgroundColor: dsMultas.map(v => v > 150 ? '#e74c3c' : v > 100 ? '#f39c12' : '#2ecc71'),
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'end',
+                        color: '#1E3A5F',
+                        font: { weight: 'bold', size: 11 }
+                    }
+                },
+                scales: {
+                    x: { beginAtZero: true, title: { display: true, text: 'Cantidad de Multas' } }
                 }
             },
             plugins: [ChartDataLabels]
         });
     }
 
-    // Chart 2: Pie Chart (Distribución por Categoría - Totales)
+    // Chart 3: Pie Chart (Distribution)
     const ctxPie = document.getElementById('historyPieChart')?.getContext('2d');
     if (ctxPie) {
         if (historyPieChartInstance) historyPieChartInstance.destroy();
-        const totals = {
-            'Migración': dsHaitianos.reduce((a, b) => a + b, 0),
-            'Multas': dsMultas.reduce((a, b) => a + b, 0),
-            'Motos': dsMotos.reduce((a, b) => a + b, 0),
-            'Llamadas': dsLlamadas.reduce((a, b) => a + b, 0),
-            'Accidentes': dsAccidentes.reduce((a, b) => a + b, 0),
-            'Asistencias': dsAsistencias.reduce((a, b) => a + b, 0)
-        };
         historyPieChartInstance = new Chart(ctxPie, {
             type: 'doughnut',
             data: {
-                labels: Object.keys(totals),
+                labels: ['Migración', 'Multas', 'Llamadas', 'Accidentes', 'Asistencias'],
                 datasets: [{
-                    data: Object.values(totals),
-                    backgroundColor: ['#e74c3c', '#f1c40f', '#e67e22', '#3498db', '#95a5a6', '#2ecc71'],
-                    borderWidth: 2,
+                    data: [totalMigracion, totalMultas, totalLlamadas, totalAccidentes, totalAsistencias],
+                    backgroundColor: ['#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#2ecc71'],
+                    borderWidth: 3,
                     borderColor: '#fff'
                 }]
             },
@@ -2286,66 +2641,868 @@ function initHistoryChart() {
                     legend: { position: 'right' },
                     datalabels: {
                         color: '#fff',
-                        font: { weight: 'bold' },
+                        font: { weight: 'bold', size: 12 },
                         formatter: (val, ctx) => {
                             let sum = ctx.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
                             return sum > 0 ? ((val / sum) * 100).toFixed(0) + '%' : '';
                         }
                     }
                 },
-                cutout: '50%'
+                cutout: '55%'
             },
             plugins: [ChartDataLabels]
         });
     }
 
-    // Chart 3: Line Chart (Tendencia Acumulada)
-    const ctxLine = document.getElementById('historyLineChart')?.getContext('2d');
-    if (ctxLine) {
-        if (historyLineChartInstance) historyLineChartInstance.destroy();
-        const totalsPerPeriod = labels.map((_, i) =>
-            (dsHaitianos[i] || 0) + (dsMultas[i] || 0) + (dsMotos[i] || 0) +
-            (dsLlamadas[i] || 0) + (dsAccidentes[i] || 0) + (dsAsistencias[i] || 0)
-        );
-        // Acumulado
-        let accumulated = [];
-        totalsPerPeriod.reduce((acc, val, i) => {
-            accumulated[i] = acc + val;
-            return accumulated[i];
-        }, 0);
+    // Chart 4: Radar Chart (Monthly Patterns)
+    const ctxRadar = document.getElementById('historyRadarChart')?.getContext('2d');
+    if (ctxRadar) {
+        if (window.historyRadarChartInstance) window.historyRadarChartInstance.destroy();
 
-        historyLineChartInstance = new Chart(ctxLine, {
+        // Group by month
+        const monthlyData = {};
+        sortedEntries.forEach(([_, d]) => {
+            const month = new Date(d.fechaFin).toLocaleString('es-ES', { month: 'short' });
+            if (!monthlyData[month]) {
+                monthlyData[month] = { haitianos: 0, multas: 0, llamadas: 0, accidentes: 0, asistencias: 0 };
+            }
+            monthlyData[month].haitianos += d.haitianos || 0;
+            monthlyData[month].multas += d.multas || 0;
+            monthlyData[month].llamadas += d.llamadas || 0;
+            monthlyData[month].accidentes += d.accidentes || 0;
+            monthlyData[month].asistencias += d.asistencias || 0;
+        });
+
+        const months = Object.keys(monthlyData);
+        window.historyRadarChartInstance = new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: ['Migración', 'Multas', 'Llamadas', 'Accidentes', 'Asistencias'],
+                datasets: months.map((month, i) => ({
+                    label: month.charAt(0).toUpperCase() + month.slice(1),
+                    data: [
+                        monthlyData[month].haitianos,
+                        monthlyData[month].multas / 10, // Scale down multas
+                        monthlyData[month].llamadas,
+                        monthlyData[month].accidentes,
+                        monthlyData[month].asistencias
+                    ],
+                    borderColor: ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'][i],
+                    backgroundColor: ['rgba(52,152,219,0.1)', 'rgba(231,76,60,0.1)', 'rgba(46,204,113,0.1)', 'rgba(243,156,18,0.1)', 'rgba(155,89,182,0.1)', 'rgba(26,188,156,0.1)'][i],
+                    fill: true
+                }))
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'top' } },
+                scales: {
+                    r: { beginAtZero: true }
+                }
+            }
+        });
+    }
+
+    // Chart 5: Trend Chart (Migration vs Multas)
+    const ctxTrend = document.getElementById('historyTrendChart')?.getContext('2d');
+    if (ctxTrend) {
+        if (historyLineChartInstance) historyLineChartInstance.destroy();
+        historyLineChartInstance = new Chart(ctxTrend, {
             type: 'line',
             data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Incidentes Acumulados',
-                    data: accumulated,
-                    borderColor: '#1E3A5F',
-                    backgroundColor: 'rgba(30, 58, 95, 0.2)',
-                    fill: true,
-                    tension: 0.3
-                }]
+                labels: dateLabels,
+                datasets: [
+                    {
+                        label: 'Migración',
+                        data: dsHaitianos,
+                        borderColor: '#f39c12',
+                        backgroundColor: '#f39c12',
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Multas ÷10',
+                        data: dsMultas.map(v => v / 10),
+                        borderColor: '#e74c3c',
+                        backgroundColor: '#e74c3c',
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        tension: 0.3
+                    }
+                ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { display: false },
-                    datalabels: {
-                        color: '#1E3A5F',
-                        anchor: 'end',
-                        align: 'top',
-                        font: { weight: 'bold' }
+                    legend: { position: 'top' },
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => {
+                                if (ctx.dataset.label === 'Multas ÷10') {
+                                    return `Multas: ${ctx.raw * 10}`;
+                                }
+                                return `${ctx.dataset.label}: ${ctx.raw}`;
+                            }
+                        }
                     }
                 },
                 scales: {
-                    y: { beginAtZero: true }
+                    x: { title: { display: true, text: 'Fecha' } },
+                    y: { beginAtZero: true, title: { display: true, text: 'Cantidad' } }
                 }
-            },
-            plugins: [ChartDataLabels]
+            }
         });
     }
+}
+
+// Toggle data management section
+function toggleDataSection() {
+    const content = document.getElementById('dataManagementContent');
+    const icon = document.getElementById('dataSectionIcon');
+    if (content && icon) {
+        content.classList.toggle('collapsed');
+        icon.classList.toggle('fa-chevron-down');
+        icon.classList.toggle('fa-chevron-up');
+    }
+}
+
+// Render History Table
+function renderHistoryTable() {
+    const tbody = document.getElementById('historyTableBody');
+    if (!tbody) return;
+
+    const data = getHistoryData();
+    tbody.innerHTML = '';
+
+    Object.entries(data).forEach(([id, entry]) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td><input type="text" value="${entry.label || id}" data-field="label" data-id="${id}" onchange="updateHistoryField(this)"></td>
+            <td><input type="number" value="${entry.haitianos || 0}" data-field="haitianos" data-id="${id}" onchange="updateHistoryField(this)" min="0"></td>
+            <td><input type="number" value="${entry.multas || 0}" data-field="multas" data-id="${id}" onchange="updateHistoryField(this)" min="0"></td>
+            <td><input type="number" value="${entry.motos || 0}" data-field="motos" data-id="${id}" onchange="updateHistoryField(this)" min="0"></td>
+            <td><input type="number" value="${entry.llamadas || 0}" data-field="llamadas" data-id="${id}" onchange="updateHistoryField(this)" min="0"></td>
+            <td><input type="number" value="${entry.accidentes || 0}" data-field="accidentes" data-id="${id}" onchange="updateHistoryField(this)" min="0"></td>
+            <td><input type="number" value="${entry.asistencias || 0}" data-field="asistencias" data-id="${id}" onchange="updateHistoryField(this)" min="0"></td>
+            <td><button class="btn-delete-row" onclick="deleteHistoryRow('${id}')" title="Eliminar"><i class="fas fa-trash"></i></button></td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+// Update individual field in history data
+function updateHistoryField(input) {
+    const id = input.dataset.id;
+    const field = input.dataset.field;
+    const value = input.type === 'number' ? parseInt(input.value) || 0 : input.value;
+
+    const data = getHistoryData();
+    if (!data[id]) data[id] = {};
+    data[id][field] = value;
+    localStorage.setItem('cjb_history_data', JSON.stringify(data));
+
+    // Refresh charts
+    initHistoryChart();
+}
+
+// Add new period row
+function addNewHistoryRow() {
+    const data = getHistoryData();
+    const today = new Date();
+    const newId = `custom-${today.getTime()}`;
+    const label = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+
+    data[newId] = {
+        label: label,
+        haitianos: 0,
+        multas: 0,
+        motos: 0,
+        llamadas: 0,
+        accidentes: 0,
+        asistencias: 0
+    };
+
+    localStorage.setItem('cjb_history_data', JSON.stringify(data));
+    renderHistoryTable();
+    initHistoryChart();
+    showToast('Nuevo período agregado', 'success');
+}
+
+// Delete history row
+function deleteHistoryRow(id) {
+    showConfirm('Eliminar Período', '¿Está seguro de eliminar este período?', () => {
+        const data = getHistoryData();
+        delete data[id];
+        localStorage.setItem('cjb_history_data', JSON.stringify(data));
+        renderHistoryTable();
+        initHistoryChart();
+        showToast('Período eliminado', 'success');
+    });
+}
+
+// Clear all history data
+function clearAllHistoryData() {
+    showConfirm('Limpiar Todo', '¿Está seguro de eliminar todos los datos históricos?', () => {
+        localStorage.removeItem('cjb_history_data');
+        renderHistoryTable();
+        initHistoryChart();
+        showToast('Datos históricos eliminados', 'success');
+    });
+}
+
+// Export history data to JSON
+function exportHistoryData() {
+    const data = getHistoryData();
+    const dataStr = JSON.stringify(data, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `historico_cjb_${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Datos exportados correctamente', 'success');
+}
+
+// ============================================
+// PDF TEXT EXTRACTION SYSTEM
+// ============================================
+let extractedPDFData = [];
+
+// Initialize PDF upload handlers
+function initPDFUploadHandlers() {
+    const uploadZone = document.getElementById('pdfUploadZone');
+    const fileInput = document.getElementById('pdfFileInput');
+
+    if (!uploadZone || !fileInput) return;
+
+    // Drag and drop handlers
+    uploadZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadZone.classList.add('dragover');
+    });
+
+    uploadZone.addEventListener('dragleave', () => {
+        uploadZone.classList.remove('dragover');
+    });
+
+    uploadZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadZone.classList.remove('dragover');
+        const files = Array.from(e.dataTransfer.files).filter(f => f.type === 'application/pdf');
+        if (files.length > 0) {
+            processPDFFiles(files);
+        }
+    });
+
+    // Click to upload
+    uploadZone.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        const files = Array.from(e.target.files);
+        if (files.length > 0) {
+            processPDFFiles(files);
+        }
+    });
+}
+
+// Process multiple PDF files
+async function processPDFFiles(files) {
+    const uploadZone = document.getElementById('pdfUploadZone');
+    const processing = document.getElementById('pdfProcessing');
+    const results = document.getElementById('pdfExtractionResults');
+
+    uploadZone.style.display = 'none';
+    processing.style.display = 'flex';
+    results.style.display = 'none';
+
+    extractedPDFData = [];
+
+    for (const file of files) {
+        try {
+            const text = await extractTextFromPDF(file);
+            const parsed = parseReportText(text, file.name);
+            if (parsed) {
+                extractedPDFData.push(parsed);
+            }
+        } catch (error) {
+            console.error('Error processing PDF:', file.name, error);
+        }
+    }
+
+    processing.style.display = 'none';
+
+    if (extractedPDFData.length > 0) {
+        displayExtractionResults();
+        results.style.display = 'block';
+        showToast(`${extractedPDFData.length} PDF(s) procesados`, 'success');
+    } else {
+        uploadZone.style.display = 'flex';
+        showToast('No se pudo extraer datos de los PDFs', 'warning');
+    }
+}
+
+// Extract text from PDF using PDF.js
+async function extractTextFromPDF(file) {
+    const arrayBuffer = await file.arrayBuffer();
+    const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    let fullText = '';
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const textContent = await page.getTextContent();
+        const pageText = textContent.items.map(item => item.str).join(' ');
+        fullText += pageText + '\n';
+    }
+
+    return fullText;
+}
+
+// Parse report text to extract data with CORRECT business logic
+function parseReportText(text, filename) {
+    // Clean and normalize text
+    const cleanText = text
+        .replace(/\r\n/g, '\n')
+        .replace(/\s+/g, ' ')
+        .toLowerCase()
+        .trim();
+
+    console.log('=== PDF EXTRACTION DEBUG ===');
+    console.log('Filename:', filename);
+    console.log('Text length:', cleanText.length);
+
+    // Try to extract date from filename or text
+    let period = extractPeriodFromFilename(filename) || extractPeriodFromText(text);
+    console.log('Extracted period:', period);
+
+    const result = {
+        label: period || filename.replace('.pdf', '').replace('.PDF', ''),
+        haitianos: 0,  // Migración: Nacionales haitianos detenidos/entregados
+        multas: 0,     // Fiscalizaciones de tránsito + violaciones de moto (giro prohibido, no casco, etc)
+        motos: 0,      // Solo retenciones FÍSICAS de motocicletas
+        llamadas: 0,   // Llamadas telefónicas atendidas a ciudadanos
+        accidentes: 0, // Accidentes de tránsito
+        asistencias: 0, // Asistencias, auxilios, depuraciones de vehículos
+        source: filename
+    };
+
+    // ========================================
+    // 1. MIGRACIÓN / HAITIANOS
+    // ========================================
+    // Patterns: "total de (2)" haitianos, "27 Nacionales Haitianos"
+    const haitianosPatterns = [
+        /total de \(?(\d+)\)?\s*\.?\s*$/gm,  // "total de (2)." at end
+        /un total de (\d+)\s*nacionales?\s*haitiano/gi,
+        /\(?(\d+)\)?\s*nacionales?\s*haitiano/gi,
+        /haitiano[s]?.*?total.*?\(?(\d+)\)?/gi,
+        /\(?(\d+)\)?\s*indocumentado/gi
+    ];
+    haitianosPatterns.forEach(pattern => {
+        const matches = [...cleanText.matchAll(pattern)];
+        matches.forEach(m => {
+            const val = parseInt(m[1]) || 0;
+            if (val > 0 && val < 500 && val > result.haitianos) {
+                // Verify context mentions haitianos/migración
+                const pos = m.index;
+                const context = cleanText.substring(Math.max(0, pos - 150), pos + 50);
+                if (context.includes('haitiano') || context.includes('nacionales') || context.includes('migra') || context.includes('indocumentado')) {
+                    result.haitianos = val;
+                    console.log('Haitianos:', val, 'from pattern');
+                }
+            }
+        });
+    });
+
+    // ========================================
+    // 2. MULTAS / FISCALIZACIONES
+    // PRINCIPAL: "total de X en toda la semana" junto a contexto de tránsito
+    // ========================================
+
+    // FIRST PRIORITY: "total de X en toda la semana" - this is the main multas number
+    const totalSemanaMatch = cleanText.match(/total de (\d+)\s*en toda la semana/i);
+    if (totalSemanaMatch) {
+        result.multas = parseInt(totalSemanaMatch[1]) || 0;
+        console.log('Multas (total semana):', result.multas);
+    }
+
+    // SECOND: Check for "X fiscalizaciones" if no total found
+    if (result.multas === 0) {
+        const fiscalizacionMatch = cleanText.match(/(\d+)\s*fiscalizacion/i);
+        if (fiscalizacionMatch) {
+            result.multas = parseInt(fiscalizacionMatch[1]) || 0;
+            console.log('Multas (fiscalizaciones):', result.multas);
+        }
+    }
+
+    // ADD motorcycle violations ONLY if they are explicitly listed
+    // "giro prohibido", "no casco", "vía contraria" - these ADD to multas
+    let motoViolations = 0;
+    const giroMatch = cleanText.match(/(\d+)\s*giro prohibido/i);
+    const noCascoMatch = cleanText.match(/(\d+)\s*no casco/i);
+    const viaMatch = cleanText.match(/(\d+)\s*v[ií]a contraria/i);
+
+    if (giroMatch) motoViolations += parseInt(giroMatch[1]) || 0;
+    if (noCascoMatch) motoViolations += parseInt(noCascoMatch[1]) || 0;
+    if (viaMatch) motoViolations += parseInt(viaMatch[1]) || 0;
+
+    // Only add moto violations if they were found AND are separate from main count
+    if (motoViolations > 0 && result.multas === 0) {
+        result.multas = motoViolations;
+        console.log('Multas (violaciones moto):', motoViolations);
+    }
+
+    // ========================================
+    // 3. MOTOS - SOLO RETENCIONES FÍSICAS
+    // ========================================
+    let motosRetenidas = 0;
+    const motosMatches = cleanText.matchAll(/\(?(\d+)\)?\s*motocicleta[s]?\s*retenida/gi);
+    [...motosMatches].forEach(m => {
+        motosRetenidas += parseInt(m[1]) || 0;
+    });
+    result.motos = motosRetenidas;
+    console.log('Motos retenidas:', result.motos);
+
+    // ========================================
+    // 4. LLAMADAS - SOLO si dice explícitamente "llamadas atendidas a ciudadanos"
+    // ========================================
+    // STRICT: Only match "total de X llamadas atendidas" or "X llamadas atendidas a ciudadanos"
+    const llamadasStrictMatch = cleanText.match(/total de (\d+)\s*llamadas?\s*atendida/i) ||
+        cleanText.match(/(\d+)\s*llamadas?\s*atendidas?\s*a\s*ciudadano/i);
+    if (llamadasStrictMatch) {
+        result.llamadas = parseInt(llamadasStrictMatch[1]) || 0;
+        console.log('Llamadas (strict):', result.llamadas);
+    }
+    // Note: If no explicit llamadas pattern found, leave as 0
+
+    // ========================================
+    // 5. ACCIDENTES - SOLO si dice explícitamente "X accidentes" en contexto de estadísticas
+    // ========================================
+    // STRICT: Only match "X accidentes" or "X accidente" when preceded by a number indicator
+    const accidenteStrictMatch = cleanText.match(/➢\s*(\d+)\s*accidente/i) ||
+        cleanText.match(/•\s*(\d+)\s*accidente/i) ||
+        cleanText.match(/^\s*(\d+)\s*accidente/im);
+    if (accidenteStrictMatch) {
+        result.accidentes = parseInt(accidenteStrictMatch[1]) || 0;
+        console.log('Accidentes (strict):', result.accidentes);
+    }
+    // Note: If no explicit pattern found, leave as 0
+
+    // ========================================
+    // 6. ASISTENCIAS - SOLO "X asistencias" explícito
+    // ========================================
+    // STRICT: Only match "X asistencias" with bullet or number context
+    const asistStrictMatch = cleanText.match(/➢\s*(\d+)\s*asistencia/i) ||
+        cleanText.match(/•\s*(\d+)\s*asistencia/i) ||
+        cleanText.match(/(\d+)\s*asistencias?\s*\./i);
+    if (asistStrictMatch) {
+        result.asistencias = parseInt(asistStrictMatch[1]) || 0;
+        console.log('Asistencias (strict):', result.asistencias);
+    }
+    // Note: Don't add depuraciones - they might be counted in multas
+
+    console.log('=== FINAL RESULT ===', result);
+
+    // Only return if we extracted at least some data
+    const hasData = result.haitianos > 0 || result.multas > 0 || result.motos > 0 ||
+        result.llamadas > 0 || result.accidentes > 0 || result.asistencias > 0;
+
+    return hasData ? result : null;
+}
+
+// Extract best (highest) value from patterns with debug
+function extractBestValue(text, patterns, field) {
+    let maxValue = 0;
+    patterns.forEach(pattern => {
+        const matches = [...text.matchAll(pattern)];
+        matches.forEach(match => {
+            const value = parseInt(match[1]) || 0;
+            if (value > maxValue && value < 5000) {
+                console.log(`${field}: Found ${value} with pattern ${pattern}`);
+                maxValue = value;
+            }
+        });
+    });
+    return maxValue;
+}
+
+// Extract sum of all values found with debug
+function extractAllSum(text, patterns, field) {
+    let total = 0;
+    patterns.forEach(pattern => {
+        const matches = [...text.matchAll(pattern)];
+        matches.forEach(match => {
+            const value = parseInt(match[1]) || 0;
+            if (value > 0 && value < 5000) {
+                console.log(`${field}: Adding ${value} with pattern ${pattern}`);
+                total += value;
+            }
+        });
+    });
+    return total;
+}
+
+// Extract sum of all values (for cumulative counts like motos)
+function extractSumValue(text, patterns) {
+    let total = 0;
+    patterns.forEach(pattern => {
+        const matches = [...text.matchAll(pattern)];
+        matches.forEach(match => {
+            const value = parseInt(match[1]) || 0;
+            if (value > 0 && value < 10000) {
+                total += value;
+            }
+        });
+    });
+    return total;
+}
+
+// Extract period from filename
+function extractPeriodFromFilename(filename) {
+    // Patterns: "1-12-2025", "04-12-2025", "21 al 27 de Julio"
+    const patterns = [
+        /(\d{1,2})-(\d{1,2})-(\d{4})/,
+        /(\d{1,2})\/(\d{1,2})\/(\d{4})/,
+        /(\d{1,2})\s*al\s*(\d{1,2})\s*de\s*(\w+)/i,
+        /del\s*(\d{1,2})\s*al\s*(\d{1,2})\s*de\s*(\w+)/i
+    ];
+
+    for (const pattern of patterns) {
+        const match = filename.match(pattern);
+        if (match) {
+            return match[0];
+        }
+    }
+    return null;
+}
+
+// Extract period from text content
+function extractPeriodFromText(text) {
+    // Look for date patterns in first 1000 characters
+    const firstPart = text.substring(0, 1000);
+
+    // Patterns based on real PDFs:
+    // "17 de Noviembre del 2025"
+    // "1 de Diciembre del 2025"
+    // "desde el 21 al 27 de Julio del 2025"
+    // "04 de noviembre del 2025"
+    const patterns = [
+        /desde\s*el\s*(\d{1,2})\s*al\s*(\d{1,2})\s*de\s*(\w+)\s*del?\s*(\d{4})/i,
+        /del\s*(\d{1,2})\s*al\s*(\d{1,2})\s*de\s*(\w+)\s*del?\s*(\d{4})/i,
+        /(\d{1,2})\s*de\s*(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\s*del?\s*(\d{4})/i
+    ];
+
+    for (const pattern of patterns) {
+        const match = firstPart.match(pattern);
+        if (match) {
+            return match[0];
+        }
+    }
+    return null;
+}
+
+// Display extraction results
+function displayExtractionResults() {
+    const preview = document.getElementById('extractedDataPreview');
+    preview.innerHTML = '';
+
+    extractedPDFData.forEach((data, index) => {
+        const card = document.createElement('div');
+        card.className = 'extracted-period-card';
+        card.innerHTML = `
+            <div class="extracted-period-header">
+                <span class="extracted-period-title">${data.label}</span>
+                <small style="color: var(--text-muted);">${data.source}</small>
+            </div>
+            <div class="extracted-period-grid">
+                <div class="extracted-field">
+                    <label>Migración</label>
+                    <input type="number" id="ext_${index}_haitianos" value="${data.haitianos}" min="0">
+                </div>
+                <div class="extracted-field">
+                    <label>Multas</label>
+                    <input type="number" id="ext_${index}_multas" value="${data.multas}" min="0">
+                </div>
+                <div class="extracted-field">
+                    <label>Motos</label>
+                    <input type="number" id="ext_${index}_motos" value="${data.motos}" min="0">
+                </div>
+                <div class="extracted-field">
+                    <label>Llamadas</label>
+                    <input type="number" id="ext_${index}_llamadas" value="${data.llamadas}" min="0">
+                </div>
+                <div class="extracted-field">
+                    <label>Accidentes</label>
+                    <input type="number" id="ext_${index}_accidentes" value="${data.accidentes}" min="0">
+                </div>
+                <div class="extracted-field">
+                    <label>Asistencias</label>
+                    <input type="number" id="ext_${index}_asistencias" value="${data.asistencias}" min="0">
+                </div>
+            </div>
+        `;
+        preview.appendChild(card);
+    });
+}
+
+// Apply extracted data to history table
+function applyExtractedData() {
+    const historyData = getHistoryData();
+
+    extractedPDFData.forEach((data, index) => {
+        // Get updated values from inputs
+        const id = `pdf-${Date.now()}-${index}`;
+        historyData[id] = {
+            label: data.label,
+            haitianos: parseInt(document.getElementById(`ext_${index}_haitianos`)?.value) || data.haitianos,
+            multas: parseInt(document.getElementById(`ext_${index}_multas`)?.value) || data.multas,
+            motos: parseInt(document.getElementById(`ext_${index}_motos`)?.value) || data.motos,
+            llamadas: parseInt(document.getElementById(`ext_${index}_llamadas`)?.value) || data.llamadas,
+            accidentes: parseInt(document.getElementById(`ext_${index}_accidentes`)?.value) || data.accidentes,
+            asistencias: parseInt(document.getElementById(`ext_${index}_asistencias`)?.value) || data.asistencias
+        };
+    });
+
+    localStorage.setItem('cjb_history_data', JSON.stringify(historyData));
+    renderHistoryTable();
+    initHistoryChart();
+    clearExtractionResults();
+    showToast(`${extractedPDFData.length} período(s) agregados`, 'success');
+}
+
+// Clear extraction results
+function clearExtractionResults() {
+    const uploadZone = document.getElementById('pdfUploadZone');
+    const results = document.getElementById('pdfExtractionResults');
+    const fileInput = document.getElementById('pdfFileInput');
+
+    results.style.display = 'none';
+    uploadZone.style.display = 'flex';
+    fileInput.value = '';
+    extractedPDFData = [];
+}
+
+// ============================================
+// PDF FILES LIST FROM FOLDER
+// ============================================
+
+// All PDF files from "Incidentes antiguos" folder
+const knownPDFFiles = [
+    { id: 'pdf-dic-01-07', name: 'Resumen Semanal 01-07 Diciembre 2025', path: 'Incidentes antiguos/Resumen  Semanal del 01 al 7 de Dicciembre del Trabajo Realizado por la Dirección de Seguridad.pdf' },
+    { id: 'pdf-nov-11-16', name: 'Resumen Semanal 11-16 Noviembre 2025', path: 'Incidentes antiguos/Resumen  Semanal del 11 al 16 de NOVIEMBRE del Trabajo Realizado por la Dirección de Seguridad.pdf' },
+    { id: 'pdf-nov-27-02', name: 'Resumen Semanal 27 Oct - 02 Nov 2025', path: 'Incidentes antiguos/RESUMEN  DEL 27 AL 02 DE NOVIEMBRE DEL AÑO 2025 DEL TRABAJO REALIZADO POR LA DIRECCION DE SEGURIDA.pdf' },
+    { id: 'pdf-oct-06-12', name: 'Resumen Semanal 06-12 Octubre 2025', path: 'Incidentes antiguos/Resumen  Semanal del 06 al 12 de OCTUBRE del Trabajo Realizado por la Dirección de Seguridad d.pdf' },
+    { id: 'pdf-sep-08-14', name: 'Resumen Semanal 08-14 Septiembre 2025', path: 'Incidentes antiguos/Resumen  Semanal del 08 al 14 de septiembre del Trabajo Realizado por la Dirección de Seguridad de.pdf' },
+    { id: 'pdf-sep-22-28', name: 'Resumen Semanal 22-28 Septiembre 2025', path: 'Incidentes antiguos/Resumen Semanal desde el 22 al 28 de Septiembre del año 2025 del Trabajo Realizado por la Direcció.pdf' },
+    { id: 'pdf-ago-25-31', name: 'Resumen Semanal 25-31 Agosto 2025', path: 'Incidentes antiguos/Resumen Semanal del 25 al 31 de agosto del año 2025 del Trabajo Realizado por la Dirección de Segu.pdf' },
+    { id: 'pdf-jul-28-ago-03', name: 'Resumen Semanal 28 Jul - 03 Ago 2025', path: 'Incidentes antiguos/Resumen Semanal del 28 de julio al 03 de agosto del Trabajo Realizado por la Dirección de Segurida.pdf' },
+    { id: 'pdf-jul-21-27', name: 'Resumen Semanal 21-27 Julio 2025', path: 'Incidentes antiguos/Resumen Semanal del Trabajo Realizado dedes el 21 al 27 de julio del año 2025 por la Di.pdf' },
+    { id: 'pdf-jul-14-21', name: 'Resumen Semanal 14-21 Julio 2025', path: 'Incidentes antiguos/Resumen Semanal del 14 al 21 de Julio del 2025 del Trabajo Realizado por la Dirección de Segurida[.pdf' },
+    { id: 'pdf-parte-dic', name: 'Parte Diario 01-07 Diciembre 2025', path: 'Incidentes antiguos/PARTE DIARIO DEL 1 AL 7 DE DICIEMBRE DEL AÑO 2025 DEL TRABAJO REALIZADO POR LA DIRECCION DE SE.pdf' },
+    { id: 'pdf-parte-nov', name: 'Parte Diario 11-16 Noviembre 2025', path: 'Incidentes antiguos/PARTE DIARIO DEL 11 AL 16 DE NOVIEMBRE DEL AÑO 2025 DEL TRABAJO REALIZADO POR LA DIRECCION DE .pdf' }
+];
+
+// Render PDF files list with manual entry buttons
+function renderPDFFileList() {
+    const container = document.getElementById('pdfFilesList');
+    if (!container) return;
+
+    const historyData = getHistoryData();
+
+    if (knownPDFFiles.length === 0) {
+        container.innerHTML = `
+            <div class="pdf-files-empty">
+                <i class="fas fa-folder-open"></i>
+                <p>No hay archivos PDF configurados</p>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = knownPDFFiles.map((file) => {
+        const hasData = historyData[file.id] && (
+            historyData[file.id].haitianos > 0 ||
+            historyData[file.id].multas > 0 ||
+            historyData[file.id].motos > 0
+        );
+        const statusClass = hasData ? 'has-data' : '';
+        const statusIcon = hasData ? '<i class="fas fa-check-circle" style="color: var(--accent-green);"></i>' : '';
+
+        return `
+        <div class="pdf-file-item ${statusClass}">
+            <i class="fas fa-file-pdf"></i>
+            <div class="pdf-file-info">
+                <div class="pdf-file-name">${file.name} ${statusIcon}</div>
+            </div>
+            <div class="pdf-file-actions">
+                <button class="btn btn-sm btn-secondary" onclick="openPDFFile('${file.path.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Abrir PDF">
+                    <i class="fas fa-external-link-alt"></i>
+                </button>
+                <button class="btn btn-sm btn-primary" onclick="openPDFDataEntry('${file.id}', '${file.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Ingresar Datos">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </div>
+        </div>
+    `;
+    }).join('');
+}
+
+// Open PDF data entry modal
+function openPDFDataEntry(fileId, fileName) {
+    const historyData = getHistoryData();
+    const entry = historyData[fileId] || {
+        label: fileName,
+        fechaInicio: '',
+        fechaFin: '',
+        haitianos: 0,
+        multas: 0,
+        motos: 0,
+        llamadas: 0,
+        accidentes: 0,
+        asistencias: 0
+    };
+
+    // Create modal dynamically
+    let modal = document.getElementById('pdfDataEntryModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'pdfDataEntryModal';
+        modal.className = 'modal-overlay';
+        document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+        <div class="modal-content" style="max-width: 550px;">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Ingresar Datos del Reporte</h3>
+                <button class="btn btn-icon" onclick="closePDFDataEntry()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 15px; color: var(--primary); font-weight: 600;"><i class="fas fa-file-pdf"></i> ${fileName}</p>
+                <input type="hidden" id="pdfEntryId" value="${fileId}">
+                <input type="hidden" id="pdfEntryName" value="${fileName}">
+                
+                <!-- Date Range Section -->
+                <div style="background: rgba(30, 58, 95, 0.05); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                    <label style="font-weight: 600; margin-bottom: 10px; display: block;"><i class="fas fa-calendar-alt"></i> Período del Reporte</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label>Fecha Inicio</label>
+                            <input type="date" id="pdfEntryFechaInicio" value="${entry.fechaInicio || ''}">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label>Fecha Fin</label>
+                            <input type="date" id="pdfEntryFechaFin" value="${entry.fechaFin || ''}">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Fields -->
+                <label style="font-weight: 600; margin-bottom: 10px; display: block;"><i class="fas fa-chart-bar"></i> Datos Estadísticos</label>
+                <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                    <div class="form-group">
+                        <label>Migración</label>
+                        <input type="number" id="pdfEntryHaitianos" value="${entry.haitianos}" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Multas</label>
+                        <input type="number" id="pdfEntryMultas" value="${entry.multas}" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Motos</label>
+                        <input type="number" id="pdfEntryMotos" value="${entry.motos}" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Llamadas</label>
+                        <input type="number" id="pdfEntryLlamadas" value="${entry.llamadas}" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Accidentes</label>
+                        <input type="number" id="pdfEntryAccidentes" value="${entry.accidentes}" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Asistencias</label>
+                        <input type="number" id="pdfEntryAsistencias" value="${entry.asistencias}" min="0">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="display: flex; gap: 10px; justify-content: flex-end; padding: 15px 20px; border-top: 1px solid var(--border-color);">
+                <button class="btn btn-secondary" onclick="closePDFDataEntry()">Cancelar</button>
+                <button class="btn btn-primary" onclick="savePDFDataEntry()">
+                    <i class="fas fa-save"></i> Guardar
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Show modal using display style
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.classList.add('active');
+}
+
+// Close PDF data entry modal
+function closePDFDataEntry() {
+    const modal = document.getElementById('pdfDataEntryModal');
+    if (modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('active');
+    }
+}
+
+// Save PDF data entry
+function savePDFDataEntry() {
+    const fileId = document.getElementById('pdfEntryId').value;
+    const fileName = document.getElementById('pdfEntryName').value;
+    const fechaInicio = document.getElementById('pdfEntryFechaInicio').value;
+    const fechaFin = document.getElementById('pdfEntryFechaFin').value;
+
+    // Format label with dates if provided
+    let label = fileName;
+    if (fechaInicio && fechaFin) {
+        const inicio = new Date(fechaInicio);
+        const fin = new Date(fechaFin);
+        const options = { day: '2-digit', month: 'short', year: 'numeric' };
+        label = `${inicio.toLocaleDateString('es-ES', options)} - ${fin.toLocaleDateString('es-ES', options)}`;
+    }
+
+    const historyData = getHistoryData();
+    historyData[fileId] = {
+        label: label,
+        fechaInicio: fechaInicio,
+        fechaFin: fechaFin,
+        haitianos: parseInt(document.getElementById('pdfEntryHaitianos').value) || 0,
+        multas: parseInt(document.getElementById('pdfEntryMultas').value) || 0,
+        motos: parseInt(document.getElementById('pdfEntryMotos').value) || 0,
+        llamadas: parseInt(document.getElementById('pdfEntryLlamadas').value) || 0,
+        accidentes: parseInt(document.getElementById('pdfEntryAccidentes').value) || 0,
+        asistencias: parseInt(document.getElementById('pdfEntryAsistencias').value) || 0
+    };
+
+    localStorage.setItem('cjb_history_data', JSON.stringify(historyData));
+
+    closePDFDataEntry();
+    renderPDFFileList();
+    renderHistoryTable();
+    initHistoryChart();
+    showToast('Datos guardados correctamente', 'success');
+}
+
+// Open a PDF file
+function openPDFFile(path) {
+    window.open(path, '_blank');
+}
+
+// Refresh PDF file list
+function refreshPDFFileList() {
+    renderPDFFileList();
+    showToast('Lista actualizada', 'info');
 }
 
 // Modal Logic
@@ -2421,7 +3578,7 @@ Navigation.init = function () {
                 document.querySelector('.sidebar').classList.remove('active');
             }
 
-            if (pageId === 'historyPage') setTimeout(initHistoryChart, 100);
+            if (pageId === 'historyPage') setTimeout(() => { renderHistoryTable(); initHistoryChart(); initPDFUploadHandlers(); renderPDFFileList(); }, 100);
             if (pageId === 'analyticsPage') {
                 setTimeout(() => {
                     ChartManager.renderAnalytics();
@@ -2492,4 +3649,408 @@ window.showUploadSection = showUploadSection;
 window.openManualEntryModal = openManualEntryModal;
 window.closeManualDataModal = closeManualDataModal;
 window.saveManualData = saveManualData;
+// History table functions
+window.addNewHistoryRow = addNewHistoryRow;
+window.updateHistoryField = updateHistoryField;
+window.deleteHistoryRow = deleteHistoryRow;
+window.clearAllHistoryData = clearAllHistoryData;
+window.exportHistoryData = exportHistoryData;
+window.renderHistoryTable = renderHistoryTable;
+// PDF extraction functions
+window.initPDFUploadHandlers = initPDFUploadHandlers;
+window.processPDFFiles = processPDFFiles;
+window.applyExtractedData = applyExtractedData;
+window.clearExtractionResults = clearExtractionResults;
+// PDF file list functions
+window.renderPDFFileList = renderPDFFileList;
+window.openPDFFile = openPDFFile;
+window.refreshPDFFileList = refreshPDFFileList;
+window.openPDFDataEntry = openPDFDataEntry;
+window.closePDFDataEntry = closePDFDataEntry;
+window.savePDFDataEntry = savePDFDataEntry;
+window.toggleDataSection = toggleDataSection;
+window.updateHistoricalDashboard = updateHistoricalDashboard;
 
+// Auto-load historical data on page load
+setTimeout(() => {
+    if (document.getElementById('kpiMultasHist')) {
+        updateHistoricalDashboard();
+    }
+}, 800);
+
+// ============================================
+// INTERACTIVE SECURITY MAP FUNCTIONS
+// ============================================
+
+// Quadrant color mapping
+const quadrantColors = {
+    'B1': '#e74c3c',
+    'B2': '#2ecc71',
+    'B3': '#f1c40f',
+    'B4': '#3498db'
+};
+
+// Get dynamic stats for a quadrant
+function getQuadrantStats(quadrant) {
+    const data = DataStore.filteredData || [];
+    const quadrantData = data.filter(r => r.quadrant === quadrant);
+    const officers = new Set(quadrantData.map(r => r.officer).filter(o => o && o !== 'No especificado'));
+
+    return {
+        incidents: quadrantData.length,
+        officers: officers.size,
+        status: quadrantData.length > 10 ? 'Alta Actividad' : quadrantData.length > 5 ? 'Moderado' : 'Normal'
+    };
+}
+
+// Show tooltip for quadrant hover
+function showQuadrantTooltip(event, quadrant) {
+    const tooltip = document.getElementById('quadrantTooltip');
+    const header = document.getElementById('tooltipHeader');
+    const statusEl = document.getElementById('tooltipStatus');
+    const incidentsEl = document.getElementById('tooltipIncidents');
+    const officersEl = document.getElementById('tooltipOfficers');
+
+    if (!tooltip) return;
+
+    // Get stats
+    const stats = getQuadrantStats(quadrant);
+
+    // Update tooltip content
+    header.textContent = `Cuadrante ${quadrant}`;
+    header.style.borderColor = quadrantColors[quadrant];
+    statusEl.textContent = stats.status;
+    statusEl.style.color = stats.status === 'Alta Actividad' ? '#ff6b6b' : stats.status === 'Moderado' ? '#ffd93d' : '#6bcb77';
+    incidentsEl.textContent = stats.incidents;
+    officersEl.textContent = stats.officers;
+
+    // Position tooltip near cursor
+    const x = event.clientX + 15;
+    const y = event.clientY + 15;
+
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+    tooltip.style.display = 'block';
+}
+
+// Hide tooltip
+function hideQuadrantTooltip() {
+    const tooltip = document.getElementById('quadrantTooltip');
+    if (tooltip) {
+        tooltip.style.display = 'none';
+    }
+}
+
+// Filter dashboard by quadrant (cross-filter)
+function filterByQuadrant(quadrant) {
+    DataStore.setCrossFilter('quadrant', quadrant);
+    hideQuadrantTooltip();
+}
+
+// Current quadrant for modal
+let currentQuadrant = null;
+
+// Open quadrant modal with stats
+function openQuadrantModal(quadrant) {
+    currentQuadrant = quadrant;
+    const modal = document.getElementById('quadrantModal');
+    const header = document.getElementById('quadrantModalHeader');
+    const title = document.getElementById('modalQuadrantTitle');
+
+    if (!modal) return;
+
+    // Get stats
+    let data = DataStore.filteredData;
+
+    // If no filtered data (and presumably no active filters), try raw data
+    // This fixes issue where stats show 0 on initial load if filteredData isn't populated yet
+    if ((!data || data.length === 0) && DataStore.rawData && DataStore.rawData.length > 0) {
+        console.log('Using rawData for quadrant modal as filteredData is empty');
+        data = DataStore.rawData;
+    }
+
+    data = data || [];
+    console.log(`Open Quadrant ${quadrant}. Total Data Points: ${data.length}`);
+
+    const quadrantData = data.filter(r => r.quadrant === quadrant);
+    console.log(`Data for ${quadrant}:`, quadrantData.length);
+
+    const totalData = data.length;
+
+    // Calculate unique officers
+    const officers = new Set();
+    quadrantData.forEach(r => {
+        if (r.officer && r.officer !== 'No especificado') {
+            officers.add(r.officer);
+        }
+    });
+
+    // Safely sum undocumented count
+    const undocumented = quadrantData.reduce((sum, r) => {
+        const val = parseInt(r.undocumented);
+        return sum + (isNaN(val) ? 0 : val);
+    }, 0);
+
+    const percentage = totalData > 0 ? ((quadrantData.length / totalData) * 100).toFixed(1) : '0';
+
+    // Status Logic
+    let status = 'Normal';
+    let statusColor = '#6bcb77';
+    if (quadrantData.length > 15) {
+        status = 'Alta Actividad';
+        statusColor = '#ff6b6b';
+    } else if (quadrantData.length > 5) {
+        status = 'Moderado';
+        statusColor = '#ffd93d';
+    }
+
+    // Update modal content
+    title.textContent = `Cuadrante ${quadrant}`;
+    header.style.borderBottom = `3px solid ${quadrantColors[quadrant]}`;
+
+    document.getElementById('modalIncidents').textContent = quadrantData.length;
+    document.getElementById('modalUndocumented').textContent = undocumented;
+    document.getElementById('modalOfficers').textContent = officers.size;
+    document.getElementById('modalPercentage').textContent = `${percentage}%`;
+
+    const statusEl = document.getElementById('modalStatus');
+    statusEl.innerHTML = `<i class="fas fa-circle" style="color:${statusColor}"></i> Estado: <strong>${status}</strong>`;
+
+    // Show modal
+    modal.style.display = 'flex';
+}
+
+// Close quadrant modal
+function closeQuadrantModal(event) {
+    if (event && event.target && event.target.id !== 'quadrantModal') return;
+    const modal = document.getElementById('quadrantModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+    if (!event) {
+        const modal = document.getElementById('quadrantModal');
+        if (modal) modal.style.display = 'none';
+    }
+}
+
+// Export map functions
+window.showQuadrantTooltip = showQuadrantTooltip;
+window.hideQuadrantTooltip = hideQuadrantTooltip;
+window.filterByQuadrant = filterByQuadrant;
+window.getQuadrantStats = getQuadrantStats;
+window.openQuadrantModal = openQuadrantModal;
+window.closeQuadrantModal = closeQuadrantModal;
+
+// ============================================
+// INLINE INFO PANEL FUNCTIONS
+// ============================================
+
+// ============================================
+// INLINE INFO PANEL FUNCTIONS (4-PANEL DETAILED)
+// ============================================
+
+const SIDE_GROUPS = {
+    'B1': ['B1', 'B3'],
+    'B3': ['B1', 'B3'],
+    'B2': ['B2', 'B4'],
+    'B4': ['B2', 'B4']
+};
+
+window.toggleQuadrantPanel = function (quadrant) {
+    const panelId = `panel-${quadrant}`;
+    const panel = document.getElementById(panelId);
+
+    if (!panel) return;
+
+    const isVisible = panel.style.display === 'flex';
+
+    if (!isVisible) {
+        // Enforce Single Active Panel per Side
+        const group = SIDE_GROUPS[quadrant];
+        if (group) {
+            group.forEach(q => {
+                if (q !== quadrant) closeSpecificPanel(q);
+            });
+        }
+
+        updateQuadrantStats(quadrant);
+        panel.style.display = 'flex';
+    } else {
+        panel.style.display = 'none';
+    }
+};
+
+window.switchPanelTab = function (quadrant, tabName) {
+    // 1. Update Buttons
+    const btnInc = document.getElementById(`tab-btn-${quadrant}-inc`);
+    const btnAct = document.getElementById(`tab-btn-${quadrant}-act`);
+
+    if (btnInc && btnAct) {
+        if (tabName === 'incidentes') {
+            btnInc.classList.add('active');
+            btnAct.classList.remove('active');
+        } else {
+            btnAct.classList.add('active');
+            btnInc.classList.remove('active');
+        }
+    }
+
+    // 2. Show Content
+    const contentInc = document.getElementById(`tab-content-${quadrant}-incidentes`);
+    const contentAct = document.getElementById(`tab-content-${quadrant}-acciones`);
+
+    if (contentInc && contentAct) {
+        if (tabName === 'incidentes') {
+            contentInc.style.display = 'block';
+            contentAct.style.display = 'none';
+        } else {
+            contentInc.style.display = 'none';
+            contentAct.style.display = 'block';
+        }
+    }
+};
+
+window.closeSpecificPanel = function (quadrant) {
+    const panelId = `panel-${quadrant}`;
+    const panel = document.getElementById(panelId);
+    if (panel) {
+        panel.style.display = 'none';
+    }
+};
+
+function updateQuadrantStats(quadrant) {
+    let data = DataStore.filteredData;
+    if ((!data || data.length === 0) && DataStore.rawData && DataStore.rawData.length > 0) {
+        data = DataStore.rawData;
+    }
+    data = data || [];
+
+    const quadrantData = data.filter(r => r.quadrant === quadrant);
+
+    // 1. Basic Stats
+    const undocumented = quadrantData.reduce((sum, r) => {
+        const val = parseInt(r.undocumented);
+        return sum + (isNaN(val) ? 0 : val);
+    }, 0);
+
+    const elInc = document.getElementById(`stat-incidents-${quadrant}`);
+    const elUndoc = document.getElementById(`stat-undoc-${quadrant}`);
+
+    if (elInc) elInc.textContent = quadrantData.length;
+    if (elUndoc) elUndoc.textContent = undocumented;
+
+    // 2. Detailed Stats (Top Types & Actions)
+    renderDetailedStats(quadrant, quadrantData);
+}
+
+function renderDetailedStats(quadrant, data) {
+    // Top Incident Types
+    const typeCounts = {};
+    data.forEach(r => {
+        const type = r.Tipo || r.type || r['Tipo de Incidente'] || 'Otros';
+        typeCounts[type] = (typeCounts[type] || 0) + 1;
+    });
+
+    const sortedTypes = Object.entries(typeCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5);
+
+    const listIncidents = document.getElementById(`list-incidents-${quadrant}`);
+    if (listIncidents) {
+        listIncidents.innerHTML = sortedTypes.map(([type, count]) => {
+            const pct = data.length > 0 ? Math.round((count / data.length) * 100) : 0;
+            return `
+                <div class="mini-stat-item">
+                    <span>${type}</span>
+                    <span>${count}</span>
+                </div>
+                <div class="stat-bar-bg">
+                    <div class="stat-bar-fill" style="width: ${pct}%"></div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Top Actions
+    const actionCounts = {};
+    data.forEach(r => {
+        const action = r.Accion || r.actions || r['Acciones Tomadas'] || 'Sin registro';
+        actionCounts[action] = (actionCounts[action] || 0) + 1;
+    });
+
+    const sortedActions = Object.entries(actionCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3);
+
+    const listActions = document.getElementById(`list-actions-${quadrant}`);
+    if (listActions) {
+        listActions.innerHTML = sortedActions.map(([action, count]) => `
+            <div class="mini-stat-item" style="border-bottom: 1px solid rgba(255,255,255,0.05)">
+                <span style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:160px;" title="${action}">
+                    ${action}
+                </span>
+                <span style="color:#a0aec0; font-size:0.75rem">${count}</span>
+            </div>
+        `).join('');
+    }
+}
+
+// Export new functions
+window.toggleQuadrantPanel = toggleQuadrantPanel;
+window.closeSpecificPanel = closeSpecificPanel;
+
+
+// ============================================
+// RESPONSIVE IMAGE MAP
+// ============================================
+
+// Original coordinates based on 800px wide image
+const originalImageWidth = 800;
+const originalCoords = {
+    'B1': '50,50,400,50,400,280,200,350,50,280',
+    'B2': '400,50,750,50,750,280,550,350,400,280',
+    'B3': '50,280,200,350,400,450,200,550,50,450',
+    'B4': '400,280,550,350,750,280,750,450,550,550,400,450'
+};
+
+// Resize image map coordinates based on actual image size
+function resizeImageMap() {
+    const img = document.getElementById('mapaCuadrantes');
+    if (!img) return;
+
+    const currentWidth = img.clientWidth;
+    if (currentWidth === 0) return;
+
+    const scale = currentWidth / originalImageWidth;
+
+    const areas = document.querySelectorAll('#imageMap area');
+    areas.forEach(area => {
+        const quadrant = area.getAttribute('data-quadrant');
+        if (quadrant && originalCoords[quadrant]) {
+            const originalCoordList = originalCoords[quadrant].split(',').map(Number);
+            const scaledCoords = originalCoordList.map(coord => Math.round(coord * scale));
+            area.setAttribute('coords', scaledCoords.join(','));
+        }
+    });
+}
+
+// Initialize responsive map
+function initResponsiveMap() {
+    const img = document.getElementById('mapaCuadrantes');
+    if (!img) return;
+
+    if (img.complete) {
+        resizeImageMap();
+    } else {
+        img.onload = resizeImageMap;
+    }
+
+    // Resize on window resize
+    window.addEventListener('resize', resizeImageMap);
+}
+
+// Auto-init when DOM ready
+setTimeout(initResponsiveMap, 500);
+
+window.resizeImageMap = resizeImageMap;
+window.initResponsiveMap = initResponsiveMap;
