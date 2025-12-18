@@ -1720,21 +1720,67 @@ function generateInsights() {
     const agg = DataStore.getAggregations();
     const typeDist = DataStore.groupBy('type').sort((a, b) => b[1] - a[1]);
     const quadDist = DataStore.groupBy('quadrant').filter(([q]) => q !== 'No especificado').sort((a, b) => b[1] - a[1]);
+    const officerDist = DataStore.groupBy('officer').sort((a, b) => b[1] - a[1]);
 
-    // Hallazgos
+    // Calculate percentages
+    const topTypePercent = agg.total > 0 ? Math.round((typeDist[0]?.[1] || 0) / agg.total * 100) : 0;
+    const topQuadPercent = agg.total > 0 ? Math.round((quadDist[0]?.[1] || 0) / agg.total * 100) : 0;
+
+    // Hallazgos detallados
     const findings = [];
-    if (typeDist.length > 0) findings.push(`El tipo de incidente más frecuente es <strong>${typeDist[0][0]}</strong> con ${typeDist[0][1]} casos registrados.`);
-    if (quadDist.length > 0) findings.push(`La mayor concentración de actividad se encuentra en el cuadrante <strong>${quadDist[0][0]}</strong>.`);
-    if (agg.undocumented > 10) findings.push(`Se ha registrado un volumen considerable de indocumentados (${agg.undocumented}), lo cual sugiere actividad migratoria constante.`);
-    if (agg.accidents > 5) findings.push(`El número de accidentes de tránsito (${agg.accidents}) requiere atención en puntos críticos vial.`);
 
-    // Conclusiones
+    if (typeDist.length > 0) {
+        findings.push(`<strong>Tipo de Incidente más frecuente:</strong> ${typeDist[0][0]} con ${typeDist[0][1]} casos (${topTypePercent}% del total). Esta categoría representa la mayor concentración de eventos reportados durante el período analizado.`);
+    }
+
+    if (quadDist.length > 0) {
+        findings.push(`<strong>Zona de mayor actividad:</strong> El cuadrante ${quadDist[0][0]} concentra ${quadDist[0][1]} incidentes (${topQuadPercent}% del total), indicando una necesidad de reforzamiento de patrullaje en esta área.`);
+    }
+
+    if (agg.undocumented > 0) {
+        const undocPercent = Math.round(agg.undocumented / agg.total * 100);
+        findings.push(`<strong>Actividad Migratoria:</strong> Se registraron ${agg.undocumented} indocumentados detenidos (${undocPercent}% de los incidentes), evidenciando el trabajo coordinado con las autoridades migratorias.`);
+    }
+
+    if (agg.accidents > 0) {
+        findings.push(`<strong>Seguridad Vial:</strong> ${agg.accidents} accidentes de tránsito registrados. Se recomienda identificar los puntos críticos para implementar medidas preventivas.`);
+    }
+
+    if (officerDist.length > 0) {
+        findings.push(`<strong>Liderazgo Operativo:</strong> El oficial con mayor actividad es ${officerDist[0][0]} con ${officerDist[0][1]} intervenciones documentadas.`);
+    }
+
+    if (typeDist.length > 1) {
+        const secondType = typeDist[1];
+        findings.push(`<strong>Segunda categoría más frecuente:</strong> ${secondType[0]} con ${secondType[1]} casos, representando otra área de atención prioritaria.`);
+    }
+
+    // Análisis por cuadrante
+    const quadrantAnalysis = quadDist.slice(0, 4).map(([q, count]) => {
+        const percent = Math.round(count / agg.total * 100);
+        return `<strong>${q}:</strong> ${count} incidentes (${percent}%)`;
+    });
+
+    // Conclusiones y recomendaciones detalladas
     const conclusions = [];
-    conclusions.push('La operatividad se mantiene activa en los cuadrantes principales.');
-    if (agg.closures > 0) conclusions.push('Se han realizado clausuras efectivas, demostrando control sobre establecimientos irregulares.');
-    conclusions.push('Se recomienda mantener el patrullaje preventivo en las zonas de mayor incidencia detectadas.');
 
-    return { findings, conclusions };
+    conclusions.push('<strong>Estado Operativo General:</strong> La Dirección de Seguridad mantiene un nivel de operatividad activo y constante en todos los cuadrantes de Ciudad Juan Bosch, garantizando la presencia institucional y la respuesta oportuna ante eventos de seguridad.');
+
+    if (agg.closures > 0) {
+        conclusions.push(`<strong>Control de Establecimientos:</strong> Se han ejecutado ${agg.closures} clausuras de establecimientos irregulares, demostrando efectividad en el cumplimiento normativo y la seguridad comunitaria.`);
+    }
+
+    if (agg.arrests > 0) {
+        conclusions.push(`<strong>Acciones de Ley:</strong> Se realizaron ${agg.arrests} arrestos/detenciones durante el período, reflejando la capacidad de respuesta ante situaciones que requieren intervención directa.`);
+    }
+
+    conclusions.push('<strong>Recomendación Estratégica:</strong> Mantener y reforzar el patrullaje preventivo en las zonas de mayor incidencia detectadas, con énfasis especial en los horarios de mayor actividad identificados.');
+
+    conclusions.push('<strong>Coordinación Interinstitucional:</strong> Continuar fortaleciendo los lazos de cooperación con Migración, DIGESETT, y Policía Nacional para una respuesta integral a las necesidades de seguridad ciudadana.');
+
+    conclusions.push('<strong>Capacitación Continua:</strong> Se recomienda mantener programas de actualización para el personal de seguridad, enfocados en las tipologías de incidentes más frecuentes.');
+
+    return { findings, conclusions, quadrantAnalysis, typeDist, officerDist };
 }
 
 function generateExecutiveSummary() {
@@ -1742,74 +1788,136 @@ function generateExecutiveSummary() {
     const insights = generateInsights();
     const modal = document.getElementById('summaryModal');
 
-    const today = new Date().toLocaleDateString('es-DO', { day: '2-digit', month: 'long', year: 'numeric' });
-    const period = `${document.getElementById('filterDateFrom')?.value || 'Inicio'} al ${document.getElementById('filterDateTo')?.value || 'Hoy'}`;
+    const today = new Date().toLocaleDateString('es-DO', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
+    const dateFrom = document.getElementById('filterDateFrom')?.value;
+    const dateTo = document.getElementById('filterDateTo')?.value;
+    const period = dateFrom && dateTo ? `Del ${dateFrom} al ${dateTo}` : 'Período completo de datos disponibles';
+
+    // Calculate additional metrics
+    const avgPerDay = agg.total > 0 ? (agg.total / 30).toFixed(1) : 0;
+    const topOfficers = insights.officerDist?.slice(0, 3) || [];
 
     document.getElementById('summaryModalBody').innerHTML = `
         <div class="summary-content printable-summary">
-            <!-- Header Oficial para Impresión -->
-            <div class="summary-header">
-                <img src="logo-security.png" alt="Logo CJB" class="summary-logo">
+            <!-- Header Oficial con Logo VBC -->
+            <div class="summary-header" style="display: flex; align-items: center; gap: 20px; padding: 20px; background: linear-gradient(135deg, #1E3A5F 0%, #2d5a8a 100%); border-radius: 12px; color: white; margin-bottom: 25px;">
+                <img src="logo-vbc.png" alt="Logo Fideicomiso VBC RD" style="width: 100px; height: auto; background: white; padding: 8px; border-radius: 8px;">
                 <div class="summary-title-text">
-                    <h2>DIRECCIÓN DE SEGURIDAD</h2>
-                    <h3>Ciudad Juan Bosch</h3>
-                    <p>Resumen Ejecutivo de Incidentes y Operatividad</p>
+                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">FIDEICOMISO PÚBLICO PARA LA CONSTRUCCIÓN DE VIVIENDAS DE BAJO COSTO</h2>
+                    <h3 style="margin: 5px 0; font-size: 1.2rem; color: #ecf0f1;">DIRECCIÓN DE SEGURIDAD - Ciudad Juan Bosch</h3>
+                    <p style="margin: 5px 0; font-size: 0.95rem; color: #bdc3c7;">Resumen Ejecutivo de Incidentes y Operatividad</p>
                 </div>
             </div>
             
-            <div class="summary-meta-grid">
-                <div><strong>Fecha de Emisión:</strong> ${today}</div>
-                <div><strong>Periodo Analizado:</strong> ${period}</div>
+            <!-- Meta información -->
+            <div class="summary-meta-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                <div><strong>📅 Fecha de Emisión:</strong> ${today}</div>
+                <div><strong>📊 Periodo Analizado:</strong> ${period}</div>
             </div>
 
-            <hr class="summary-divider">
+            <!-- Introducción -->
+            <div class="summary-section" style="margin-bottom: 25px; padding: 20px; background: white; border-radius: 8px; border-left: 4px solid #1E3A5F;">
+                <h4 style="color: #1E3A5F; margin-bottom: 15px;"><i class="fas fa-info-circle"></i> Introducción</h4>
+                <p style="text-align: justify; line-height: 1.8; color: #333;">
+                    El presente documento constituye el <strong>Resumen Ejecutivo de Gestión de Seguridad</strong> correspondiente al período analizado. 
+                    La Dirección de Seguridad de Ciudad Juan Bosch, bajo la supervisión del Fideicomiso Público para la Construcción de Viviendas de Bajo Costo 
+                    de la República Dominicana (FIDEICOMISO VBC RD), presenta los indicadores clave de desempeño, hallazgos principales y recomendaciones 
+                    estratégicas derivadas del análisis de incidentes registrados durante este período.
+                </p>
+                <p style="text-align: justify; line-height: 1.8; color: #333; margin-top: 10px;">
+                    Este informe tiene como objetivo proporcionar una visión integral del estado de la seguridad ciudadana en los diferentes cuadrantes 
+                    que conforman Ciudad Juan Bosch, facilitando la toma de decisiones informadas para la mejora continua de los servicios de seguridad.
+                </p>
+            </div>
 
-            <div class="summary-section">
-                <h4><i class="fas fa-chart-pie"></i> Métricas Consolidadas</h4>
-                <div class="metrics-grid-summary">
-                    <div class="metric-box">
-                        <span class="m-val">${agg.total}</span>
-                        <span class="m-label">Total Incidentes</span>
+            <hr style="border: none; border-top: 2px solid #1E3A5F; margin: 25px 0;">
+
+            <!-- Métricas Principales -->
+            <div class="summary-section" style="margin-bottom: 25px;">
+                <h4 style="color: #1E3A5F; margin-bottom: 15px;"><i class="fas fa-chart-pie"></i> Indicadores Clave de Desempeño (KPIs)</h4>
+                <div class="metrics-grid-summary" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px;">
+                    <div class="metric-box" style="background: linear-gradient(135deg, #1E3A5F, #2d5a8a); padding: 20px; border-radius: 10px; text-align: center; color: white;">
+                        <span class="m-val" style="font-size: 2rem; font-weight: 700; display: block;">${agg.total}</span>
+                        <span class="m-label" style="font-size: 0.85rem; opacity: 0.9;">Total Incidentes</span>
                     </div>
-                    <div class="metric-box">
-                        <span class="m-val">${agg.undocumented}</span>
-                        <span class="m-label">Indocumentados</span>
+                    <div class="metric-box" style="background: linear-gradient(135deg, #E74C3C, #c0392b); padding: 20px; border-radius: 10px; text-align: center; color: white;">
+                        <span class="m-val" style="font-size: 2rem; font-weight: 700; display: block;">${agg.undocumented}</span>
+                        <span class="m-label" style="font-size: 0.85rem; opacity: 0.9;">Indocumentados</span>
                     </div>
-                    <div class="metric-box">
-                        <span class="m-val">${agg.accidents}</span>
-                        <span class="m-label">Accidentes Tránsito</span>
+                    <div class="metric-box" style="background: linear-gradient(135deg, #F39C12, #d68910); padding: 20px; border-radius: 10px; text-align: center; color: white;">
+                        <span class="m-val" style="font-size: 2rem; font-weight: 700; display: block;">${agg.accidents}</span>
+                        <span class="m-label" style="font-size: 0.85rem; opacity: 0.9;">Accidentes Tránsito</span>
                     </div>
-                    <div class="metric-box">
-                        <span class="m-val">${agg.arrests}</span>
-                        <span class="m-label">Arrestos</span>
+                    <div class="metric-box" style="background: linear-gradient(135deg, #27AE60, #1e8449); padding: 20px; border-radius: 10px; text-align: center; color: white;">
+                        <span class="m-val" style="font-size: 2rem; font-weight: 700; display: block;">${agg.arrests}</span>
+                        <span class="m-label" style="font-size: 0.85rem; opacity: 0.9;">Arrestos</span>
                     </div>
-                    <div class="metric-box">
-                        <span class="m-val">${agg.officers}</span>
-                        <span class="m-label">Oficiales Activos</span>
+                    <div class="metric-box" style="background: linear-gradient(135deg, #9B59B6, #7d3c98); padding: 20px; border-radius: 10px; text-align: center; color: white;">
+                        <span class="m-val" style="font-size: 2rem; font-weight: 700; display: block;">${agg.officers}</span>
+                        <span class="m-label" style="font-size: 0.85rem; opacity: 0.9;">Oficiales Activos</span>
                     </div>
+                </div>
+                <p style="text-align: center; margin-top: 15px; color: #666; font-size: 0.9rem;">
+                    <i class="fas fa-calculator"></i> Promedio estimado: <strong>${avgPerDay}</strong> incidentes por día
+                </p>
+            </div>
+
+            <!-- Distribución por Cuadrante -->
+            <div class="summary-section" style="margin-bottom: 25px; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <h4 style="color: #1E3A5F; margin-bottom: 15px;"><i class="fas fa-map-marker-alt"></i> Distribución por Cuadrante</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                    ${insights.quadrantAnalysis?.map(qa => `<div style="padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center;">${qa}</div>`).join('') || '<div>Sin datos de cuadrante disponibles</div>'}
                 </div>
             </div>
 
-            <div class="summary-cols">
-                <div class="summary-col">
-                    <h4><i class="fas fa-search"></i> Hallazgos Principales</h4>
-                    <ul class="insights-list">
-                        ${insights.findings.map(f => `<li>${f}</li>`).join('')}
+            <!-- Oficiales más activos -->
+            ${topOfficers.length > 0 ? `
+            <div class="summary-section" style="margin-bottom: 25px; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                <h4 style="color: #1E3A5F; margin-bottom: 15px;"><i class="fas fa-user-shield"></i> Oficiales con Mayor Actividad</h4>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: #1E3A5F; color: white;">
+                            <th style="padding: 12px; text-align: left; border-radius: 8px 0 0 0;">#</th>
+                            <th style="padding: 12px; text-align: left;">Oficial</th>
+                            <th style="padding: 12px; text-align: center; border-radius: 0 8px 0 0;">Intervenciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${topOfficers.map((o, i) => `
+                            <tr style="background: ${i % 2 === 0 ? '#f8f9fa' : 'white'};">
+                                <td style="padding: 12px; font-weight: bold; color: #1E3A5F;">${i + 1}</td>
+                                <td style="padding: 12px;">${o[0]}</td>
+                                <td style="padding: 12px; text-align: center; font-weight: bold;">${o[1]}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>` : ''}
+
+            <!-- Hallazgos y Conclusiones -->
+            <div class="summary-cols" style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 25px;">
+                <div class="summary-col" style="background: #fff; padding: 20px; border-radius: 8px; border-top: 4px solid #3498db;">
+                    <h4 style="color: #1E3A5F; margin-bottom: 15px;"><i class="fas fa-search"></i> Hallazgos Principales</h4>
+                    <ul class="insights-list" style="list-style: none; padding: 0; margin: 0;">
+                        ${insights.findings.map(f => `<li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.6;">${f}</li>`).join('')}
                     </ul>
                 </div>
-                <div class="summary-col">
-                    <h4><i class="fas fa-clipboard-check"></i> Conclusiones y Recomendaciones</h4>
-                    <ul class="insights-list">
-                        ${insights.conclusions.map(c => `<li>${c}</li>`).join('')}
+                <div class="summary-col" style="background: #fff; padding: 20px; border-radius: 8px; border-top: 4px solid #27ae60;">
+                    <h4 style="color: #1E3A5F; margin-bottom: 15px;"><i class="fas fa-clipboard-check"></i> Conclusiones y Recomendaciones</h4>
+                    <ul class="insights-list" style="list-style: none; padding: 0; margin: 0;">
+                        ${insights.conclusions.map(c => `<li style="padding: 12px 0; border-bottom: 1px solid #eee; line-height: 1.6;">${c}</li>`).join('')}
                     </ul>
                 </div>
             </div>
             
-            <div class="summary-footer">
-                <p>Documento generado automáticamente por el Sistema de Gestión de Seguridad CJB.</p>
-                <div class="summary-actions no-print" style="margin-top: 20px; text-align: center;">
-                    <button class="btn btn-primary" onclick="downloadSummaryPDF()"><i class="fas fa-download"></i> Descargar PDF</button>
-                    <button class="btn btn-secondary" onclick="printSummary()"><i class="fas fa-print"></i> Imprimir</button>
+            <!-- Footer -->
+            <div class="summary-footer" style="text-align: center; padding: 25px; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 8px; margin-top: 30px;">
+                <p style="color: #666; margin-bottom: 5px;"><i class="fas fa-shield-alt"></i> <strong>Dirección de Seguridad - Ciudad Juan Bosch</strong></p>
+                <p style="color: #888; font-size: 0.85rem; margin-bottom: 15px;">Documento generado automáticamente por el Sistema de Gestión de Seguridad CJB.</p>
+                <p style="color: #999; font-size: 0.8rem;">Fideicomiso Público para la Construcción de Viviendas de Bajo Costo de la República Dominicana (FIDEICOMISO VBC RD)</p>
+                <div class="summary-actions no-print" style="margin-top: 20px;">
+                    <button class="btn btn-primary" onclick="downloadSummaryPDF()" style="margin: 0 5px;"><i class="fas fa-download"></i> Descargar PDF</button>
+                    <button class="btn btn-secondary" onclick="printSummary()" style="margin: 0 5px;"><i class="fas fa-print"></i> Imprimir</button>
                 </div>
             </div>
         </div>
