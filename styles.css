@@ -3809,3 +3809,413 @@ body {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
 }
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Filter Toggle Button (Mobile Only) */
+.filter-toggle-btn {
+    display: none;
+    width: 100%;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.filter-toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+}
+
+.filter-toggle-btn i {
+    transition: transform 0.3s ease;
+}
+
+.filter-toggle-btn.active i {
+    transform: rotate(180deg);
+}
+
+/* Collapsible Filters */
+.filters-bar.collapsed {
+    display: none !important;
+}
+
+/* ============================================
+   TABLET STYLES (768px - 1024px)
+   ============================================ */
+@media screen and (max-width: 1024px) {
+    :root {
+        --sidebar-width: 220px;
+    }
+
+    .kpi-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .charts-row {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-card.chart-md,
+    .chart-card.chart-lg {
+        grid-column: span 1;
+    }
+
+    .map-layout-container {
+        flex-direction: column;
+    }
+
+    .panels-column {
+        width: 100%;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .quadrant-info-panel {
+        flex: 1;
+    }
+}
+
+/* ============================================
+   MOBILE STYLES (< 768px)
+   ============================================ */
+@media screen and (max-width: 768px) {
+    :root {
+        --sidebar-width: 260px;
+        --header-height: 60px;
+    }
+
+    body {
+        flex-direction: column;
+    }
+
+    /* Sidebar - Hidden by default, slide in */
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        z-index: 1000;
+        height: 100vh;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    /* Main Content - Full Width */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Header Mobile */
+    .header {
+        padding: 0 12px;
+        gap: 10px;
+    }
+
+    .header-title h1 {
+        font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 180px;
+    }
+
+    .header-subtitle {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .header-actions {
+        gap: 5px;
+    }
+
+    .header-actions .btn span {
+        display: none;
+    }
+
+    .header-actions .btn {
+        padding: 8px 10px;
+    }
+
+    /* Show Filter Toggle Button on Mobile */
+    .filter-toggle-btn {
+        display: flex;
+    }
+
+    /* Filters Bar - Collapsible */
+    .filters-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-group label {
+        font-size: 0.8rem;
+    }
+
+    .filter-input {
+        width: 100%;
+    }
+
+    .filters-bar .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Cross Filter Bar */
+    .cross-filter-bar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .filter-info {
+        font-size: 0.85rem;
+    }
+
+    /* KPI Row - 2 columns on mobile */
+    .kpi-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .kpi-card {
+        padding: 12px;
+    }
+
+    .kpi-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .kpi-value {
+        font-size: 1.4rem;
+    }
+
+    .kpi-label {
+        font-size: 0.7rem;
+    }
+
+    /* Historical Info Note */
+    .historical-info-note {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        margin: 0 10px;
+    }
+
+    /* Security Map Section */
+    .security-map-section {
+        padding: 10px;
+    }
+
+    .chart-card.chart-full {
+        padding: 12px;
+    }
+
+    .map-layout-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .panels-column {
+        width: 100%;
+        flex-direction: column;
+        order: 2;
+    }
+
+    .map-center-container {
+        order: 1;
+        width: 100%;
+    }
+
+    /* Map Image - Full Width */
+    .quadrant-btn-container {
+        width: 100%;
+        min-height: 250px;
+    }
+
+    .security-map-image-small {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: contain;
+    }
+
+    /* Quadrant Buttons */
+    .quadrant-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.75rem;
+    }
+
+    /* Info Panels */
+    .quadrant-info-panel {
+        width: 100%;
+        margin: 0;
+    }
+
+    .info-panel-content {
+        padding: 10px;
+    }
+
+    /* Charts Row */
+    .charts-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .chart-card {
+        padding: 12px;
+    }
+
+    .chart-card.chart-md,
+    .chart-card.chart-lg,
+    .chart-card.chart-full {
+        grid-column: span 1;
+    }
+
+    .chart-header h3 {
+        font-size: 0.95rem;
+    }
+
+    .chart-description {
+        font-size: 0.8rem;
+    }
+
+    .chart-body {
+        min-height: 200px;
+    }
+
+    /* Dashboard Section */
+    .dashboard-section {
+        padding: 15px 5px;
+        gap: 15px;
+    }
+
+    /* Table Section */
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .data-table {
+        font-size: 0.8rem;
+        min-width: 600px;
+    }
+
+    .table-pagination {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Upload Section */
+    .upload-section {
+        padding: 20px 10px;
+    }
+
+    .upload-zone {
+        padding: 30px 20px;
+    }
+
+    .upload-icon {
+        font-size: 2.5rem;
+    }
+
+    .upload-zone h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Analytics Page */
+    .analytics-header h2 {
+        font-size: 1.3rem;
+    }
+
+    /* Reports Grid */
+    .reports-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* History Page */
+    .history-page .charts-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   EXTRA SMALL MOBILE (< 480px)
+   ============================================ */
+@media screen and (max-width: 480px) {
+    .header-title h1 {
+        font-size: 0.9rem;
+        max-width: 120px;
+    }
+
+    .kpi-row {
+        grid-template-columns: 1fr;
+    }
+
+    .kpi-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .kpi-icon {
+        margin-bottom: 0;
+    }
+
+    .kpi-content {
+        text-align: left;
+    }
+
+    .quadrant-btn-container {
+        min-height: 200px;
+    }
+
+    .security-map-image-small {
+        max-height: 200px;
+    }
+
+    .chart-body {
+        min-height: 180px;
+    }
+}

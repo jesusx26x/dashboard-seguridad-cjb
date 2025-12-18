@@ -4316,9 +4316,6 @@ function transformAPIData(apiData) {
     }).filter(row => row.type || row.narrative); // Filter empty rows
 }
 
-/**
- * Update data status indicator
- */
 function updateDataStatus(message, success = true) {
     const status = document.getElementById('dataStatus');
     if (status) {
@@ -4329,3 +4326,110 @@ function updateDataStatus(message, success = true) {
         status.classList.toggle('status-success', success);
     }
 }
+
+// ============================================
+// MOBILE RESPONSIVE FUNCTIONALITY
+// ============================================
+
+/**
+ * Initialize mobile responsive features
+ */
+function initMobileFeatures() {
+    const filterToggleBtn = document.getElementById('filterToggleBtn');
+    const filtersBar = document.querySelector('.filters-bar');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    // Check if we're on mobile
+    const isMobile = () => window.innerWidth <= 768;
+
+    // Filter Toggle Button
+    if (filterToggleBtn && filtersBar) {
+        // Start collapsed on mobile
+        if (isMobile()) {
+            filtersBar.classList.add('collapsed');
+        }
+
+        filterToggleBtn.addEventListener('click', () => {
+            const isCollapsed = filtersBar.classList.toggle('collapsed');
+            filterToggleBtn.classList.toggle('active', !isCollapsed);
+
+            // Update button text
+            const span = filterToggleBtn.querySelector('span');
+            if (span) {
+                span.textContent = isCollapsed ? 'Mostrar Filtros' : 'Ocultar Filtros';
+            }
+        });
+    }
+
+    // Mobile Sidebar Toggle
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            if (sidebarOverlay) {
+                sidebarOverlay.classList.toggle('active');
+            }
+        });
+    }
+
+    // Sidebar Overlay - click to close
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+    }
+
+    // Close sidebar when clicking a nav item (mobile)
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (isMobile() && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                if (sidebarOverlay) {
+                    sidebarOverlay.classList.remove('active');
+                }
+            }
+        });
+    });
+
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            if (!isMobile()) {
+                // Reset collapsed state on desktop
+                if (filtersBar) {
+                    filtersBar.classList.remove('collapsed');
+                }
+                if (filterToggleBtn) {
+                    filterToggleBtn.classList.remove('active');
+                    const span = filterToggleBtn.querySelector('span');
+                    if (span) span.textContent = 'Mostrar Filtros';
+                }
+                // Close mobile sidebar
+                if (sidebar) {
+                    sidebar.classList.remove('active');
+                }
+                if (sidebarOverlay) {
+                    sidebarOverlay.classList.remove('active');
+                }
+            } else {
+                // Collapse filters on mobile
+                if (filtersBar && !filtersBar.classList.contains('collapsed')) {
+                    filtersBar.classList.add('collapsed');
+                }
+            }
+        }, 150);
+    });
+
+    console.log('[Mobile] Responsive features initialized');
+}
+
+// Initialize mobile features when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Small delay to ensure other initializations complete
+    setTimeout(initMobileFeatures, 100);
+});
