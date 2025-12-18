@@ -4346,19 +4346,17 @@ function initMobileFeatures() {
 
     // Filter Toggle Button
     if (filterToggleBtn && filtersBar) {
-        // Start collapsed on mobile
-        if (isMobile()) {
-            filtersBar.classList.add('collapsed');
-        }
+        // Filters are HIDDEN by default on mobile via CSS (display:none)
+        // We toggle the 'show-mobile' class to SHOW them
 
         filterToggleBtn.addEventListener('click', () => {
-            const isCollapsed = filtersBar.classList.toggle('collapsed');
-            filterToggleBtn.classList.toggle('active', !isCollapsed);
+            const isVisible = filtersBar.classList.toggle('show-mobile');
+            filterToggleBtn.classList.toggle('active', isVisible);
 
             // Update button text
             const span = filterToggleBtn.querySelector('span');
             if (span) {
-                span.textContent = isCollapsed ? 'Mostrar Filtros' : 'Ocultar Filtros';
+                span.textContent = isVisible ? 'Ocultar Filtros' : 'Mostrar Filtros';
             }
         });
     }
@@ -4400,9 +4398,9 @@ function initMobileFeatures() {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
             if (!isMobile()) {
-                // Reset collapsed state on desktop
+                // On desktop: remove show-mobile class (CSS shows filters without it)
                 if (filtersBar) {
-                    filtersBar.classList.remove('collapsed');
+                    filtersBar.classList.remove('show-mobile');
                 }
                 if (filterToggleBtn) {
                     filterToggleBtn.classList.remove('active');
@@ -4417,9 +4415,14 @@ function initMobileFeatures() {
                     sidebarOverlay.classList.remove('active');
                 }
             } else {
-                // Collapse filters on mobile
-                if (filtersBar && !filtersBar.classList.contains('collapsed')) {
-                    filtersBar.classList.add('collapsed');
+                // On mobile: hide filters (remove show-mobile class)
+                if (filtersBar) {
+                    filtersBar.classList.remove('show-mobile');
+                }
+                if (filterToggleBtn) {
+                    filterToggleBtn.classList.remove('active');
+                    const span = filterToggleBtn.querySelector('span');
+                    if (span) span.textContent = 'Mostrar Filtros';
                 }
             }
         }, 150);

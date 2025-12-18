@@ -3974,13 +3974,23 @@ body {
         display: flex;
     }
 
-    /* Filters Bar - Collapsible */
+    /* Filters Bar - HIDDEN by default on mobile */
     .filters-bar {
+        display: none;
         flex-direction: column;
         gap: 10px;
         padding: 12px;
-        max-height: 400px;
+        max-height: 350px;
         overflow-y: auto;
+        background: var(--bg-card);
+        border-radius: 8px;
+        box-shadow: var(--shadow-md);
+        margin: 0 10px 10px 10px;
+    }
+
+    /* Show filters when toggle button is active */
+    .filters-bar.show-mobile {
+        display: flex !important;
     }
 
     .filter-group {
@@ -4053,13 +4063,14 @@ body {
 
     .map-layout-container {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
 
     .panels-column {
         width: 100%;
         flex-direction: column;
         order: 2;
+        gap: 10px;
     }
 
     .map-center-container {
@@ -4067,24 +4078,28 @@ body {
         width: 100%;
     }
 
-    /* Map Image - Full Width */
+    /* Map Image - Full Width and Taller */
     .quadrant-btn-container {
         width: 100%;
-        min-height: 250px;
+        min-height: 300px;
+        height: 50vw;
+        max-height: 400px;
+        position: relative;
     }
 
     .security-map-image-small {
         width: 100%;
-        height: auto;
-        max-height: 250px;
+        height: 100%;
         object-fit: contain;
+        max-height: 400px;
     }
 
-    /* Quadrant Buttons */
+    /* Quadrant Buttons - Larger for touch */
     .quadrant-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 0.75rem;
+        width: 45px;
+        height: 45px;
+        font-size: 0.9rem;
+        font-weight: 700;
     }
 
     /* Info Panels */
