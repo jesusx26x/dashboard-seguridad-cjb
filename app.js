@@ -1799,14 +1799,15 @@ function generateExecutiveSummary() {
 
     document.getElementById('summaryModalBody').innerHTML = `
         <div class="summary-content printable-summary">
-            <!-- Header Oficial con Logo VBC -->
-            <div class="summary-header" style="display: flex; align-items: center; gap: 20px; padding: 20px; background: linear-gradient(135deg, #1E3A5F 0%, #2d5a8a 100%); border-radius: 12px; color: white; margin-bottom: 25px;">
-                <img src="logo-vbc.png" alt="Logo Fideicomiso VBC RD" style="width: 100px; height: auto; background: white; padding: 8px; border-radius: 8px;">
-                <div class="summary-title-text">
-                    <h2 style="margin: 0; font-size: 1.5rem; color: white;">FIDEICOMISO PÚBLICO PARA LA CONSTRUCCIÓN DE VIVIENDAS DE BAJO COSTO</h2>
-                    <h3 style="margin: 5px 0; font-size: 1.2rem; color: #ecf0f1;">DIRECCIÓN DE SEGURIDAD - Ciudad Juan Bosch</h3>
-                    <p style="margin: 5px 0; font-size: 0.95rem; color: #bdc3c7;">Resumen Ejecutivo de Incidentes y Operatividad</p>
+            <!-- Header Oficial con AMBOS Logos -->
+            <div class="summary-header" style="display: flex; align-items: center; justify-content: space-between; padding: 20px; background: linear-gradient(135deg, #1E3A5F 0%, #2d5a8a 100%); border-radius: 12px; color: white; margin-bottom: 25px;">
+                <img src="logo-vbc.png" alt="Logo Fideicomiso VBC RD" style="width: 90px; height: auto; background: white; padding: 8px; border-radius: 8px;">
+                <div class="summary-title-text" style="text-align: center; flex: 1; padding: 0 15px;">
+                    <h2 style="margin: 0; font-size: 1.3rem; color: white;">FIDEICOMISO PÚBLICO PARA LA CONSTRUCCIÓN DE VIVIENDAS DE BAJO COSTO</h2>
+                    <h3 style="margin: 5px 0; font-size: 1.1rem; color: #ecf0f1;">DIRECCIÓN DE SEGURIDAD - Ciudad Juan Bosch</h3>
+                    <p style="margin: 5px 0; font-size: 0.9rem; color: #bdc3c7;">Resumen Ejecutivo de Incidentes y Operatividad</p>
                 </div>
+                <img src="logo-security.png" alt="Logo Seguridad CJB" style="width: 70px; height: auto; background: white; padding: 8px; border-radius: 8px;">
             </div>
             
             <!-- Meta información -->
@@ -2544,6 +2545,11 @@ function updateHistoricalDashboard() {
         seguridad: totalLlamadas + totalAsistencias // Llamadas + Asistencias = Seguridad
     };
 
+    // REMOVED: Historical data injection into main KPIs
+    // KPIs now show ONLY data from Excel/registro (as per user request)
+    // Historical data is displayed separately in the "Histórico" section
+
+    /*
     // Add historical values to existing KPIs (Accidentes and Indocumentados) - ACTUAL SUM
     const elAccidentes = document.getElementById('kpiAccidents');
     const elUndoc = document.getElementById('kpiUndocumented');
@@ -2566,6 +2572,7 @@ function updateHistoricalDashboard() {
 
     // Inject historical data into chartByType if it exists
     injectHistoricalIntoByTypeChart();
+    */
 
     // Format date labels
     const formatDate = (dateStr) => {
