@@ -2110,19 +2110,82 @@ function printIncidentReport(id) {
 }
 
 // ============================================
-// SHAREPOINT CLOUD LOADING
+// AUTO-LOAD DATA (Local API first, then SharePoint fallback)
 // ============================================
 async function loadFromSharePoint() {
-    // Check if CONFIG exists and auto-load is enabled
-    if (typeof CONFIG === 'undefined' || !CONFIG.AUTO_LOAD_FROM_CLOUD || !CONFIG.SHAREPOINT_URL) {
-        console.log('Auto-load from cloud disabled or not configured');
-        return false;
+    console.log('[AutoLoad] Starting auto-load sequence...');
+
+    // STEP 1: Try local Node.js API first (fastest, most reliable)
+    const apiLoaded = await tryLoadFromLocalAPI();
+    if (apiLoaded) {
+        console.log('[AutoLoad] Data loaded from local API');
+        return true;
     }
 
-    showToast('Conectando con SharePoint...', 'info');
-    showLoading(true);
+    // STEP 2: Fallback to SharePoint if configured
+    if (typeof CONFIG !== 'undefined' && CONFIG.AUTO_LOAD_FROM_CLOUD && CONFIG.SHAREPOINT_URL) {
+        const spLoaded = await tryLoadFromSharePoint();
+        if (spLoaded) {
+            console.log('[AutoLoad] Data loaded from SharePoint');
+            return true;
+        }
+    }
 
+    console.log('[AutoLoad] No auto-load source available. User must upload manually.');
+    return false;
+}
+
+/**
+ * Try to load data from local Node.js API
+ */
+async function tryLoadFromLocalAPI() {
     try {
+        console.log('[API] Attempting to connect to local server...');
+
+        // Use short timeout to fail fast if server isn't running
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3000);
+
+        const response = await fetch('/api/incidentes', {
+            signal: controller.signal
+        });
+
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const result = await response.json();
+
+        if (!result.success || !result.data || !result.data.length) {
+            throw new Error('No data received');
+        }
+
+        console.log(`[API] Received ${result.count} records`);
+
+        // Transform and load data
+        const transformedData = transformAPIData(result.data);
+        DataStore.load(transformedData);
+
+        showToast(`✅ ${result.count} registros cargados desde Excel local`, 'success');
+        return true;
+
+    } catch (error) {
+        // Silent fail - server might not be running
+        console.log('[API] Local server not available:', error.message);
+        return false;
+    }
+}
+
+/**
+ * Try to load data from SharePoint (fallback)
+ */
+async function tryLoadFromSharePoint() {
+    try {
+        showToast('Conectando con SharePoint...', 'info');
+        showLoading(true);
+
         const response = await fetch(CONFIG.SHAREPOINT_URL, {
             method: 'GET',
             mode: 'cors',
@@ -2149,14 +2212,11 @@ async function loadFromSharePoint() {
         return true;
 
     } catch (error) {
-        console.error('Error loading from SharePoint:', error);
+        console.error('[SharePoint] Error:', error);
         showLoading(false);
 
-        // Check if it's a CORS error - just log it, don't show prominent toast
         if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
-            console.log('CORS: SharePoint blocked the request. User needs to upload file manually.');
-        } else {
-            console.log('SharePoint error:', error.message);
+            console.log('[SharePoint] CORS blocked the request');
         }
         return false;
     }
@@ -4054,3 +4114,157 @@ setTimeout(initResponsiveMap, 500);
 
 window.resizeImageMap = resizeImageMap;
 window.initResponsiveMap = initResponsiveMap;
+
+// ============================================
+// API DATA REFRESH (Power BI Style)
+// ============================================
+
+/**
+ * Refresh data from the local Node.js API
+ * Fetches Excel file data and reloads the dashboard
+ */
+window.refreshDataFromAPI = async function () {
+    const btn = document.getElementById('btnRefreshData');
+    const originalHTML = btn.innerHTML;
+
+    try {
+        // Show loading state
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Cargando...</span>';
+        btn.disabled = true;
+
+        // Fetch data from API
+        const response = await fetch('/api/incidentes');
+
+        if (!response.ok) {
+            throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+
+        if (!result.success) {
+            throw new Error(result.error || 'Error desconocido');
+        }
+
+        console.log(`[API] Datos recibidos: ${result.count} registros`);
+
+        // Transform API data to match expected format
+        const transformedData = transformAPIData(result.data);
+
+        // Load into DataStore
+        DataStore.load(transformedData);
+
+        // Update UI
+        updateDataStatus(`${result.count} registros cargados`, true);
+
+        // Success feedback
+        btn.innerHTML = '<i class="fas fa-check"></i> <span>¡Actualizado!</span>';
+        btn.classList.add('btn-success');
+
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.classList.remove('btn-success');
+            btn.disabled = false;
+        }, 2000);
+
+    } catch (error) {
+        console.error('[API] Error:', error);
+
+        // Error feedback
+        btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> <span>Error</span>';
+        btn.classList.add('btn-error');
+
+        // Show detailed error
+        alert(`Error al actualizar datos:\n${error.message}\n\n¿El servidor está corriendo?\nEjecuta: node server.js`);
+
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.classList.remove('btn-error');
+            btn.disabled = false;
+        }, 3000);
+    }
+};
+
+/**
+ * Transform API data (raw Excel) to match dashboard format
+ * Column mappings based on actual Excel headers from Microsoft Forms
+ */
+function transformAPIData(apiData) {
+    return apiData.map((row, index) => {
+        // Parse date from "Hora de inicio" field (format: M/D/YY H:MM)
+        const dateStr = row['Hora de inicio'] || '';
+        let date = null;
+
+        if (dateStr) {
+            try {
+                // Format: "8/25/25 15:22" -> M/D/YY H:MM
+                const parts = dateStr.split(' ');
+                if (parts.length >= 1) {
+                    const dateParts = parts[0].split('/');
+                    if (dateParts.length === 3) {
+                        const month = parseInt(dateParts[0]) - 1;
+                        const day = parseInt(dateParts[1]);
+                        let year = parseInt(dateParts[2]);
+                        // Handle 2-digit year
+                        if (year < 100) {
+                            year = year + 2000;
+                        }
+                        date = new Date(year, month, day);
+
+                        // Add time if available
+                        if (parts[1]) {
+                            const timeParts = parts[1].split(':');
+                            if (timeParts.length >= 2) {
+                                date.setHours(parseInt(timeParts[0]) || 0);
+                                date.setMinutes(parseInt(timeParts[1]) || 0);
+                            }
+                        }
+                    }
+                }
+            } catch (e) {
+                console.warn('Error parsing date:', dateStr, e);
+            }
+        }
+
+        // Parse Cantidad de Indocumentados
+        let undocCount = 0;
+        const undocStr = row['Cantidad de Indocumentados detenidos'] || '';
+        if (undocStr) {
+            const parsed = parseInt(undocStr);
+            if (!isNaN(parsed)) {
+                undocCount = parsed;
+            }
+        } else {
+            // If no explicit count, check if it's a migration incident with "Indocumentado"
+            const migrationType = row['Incidentes de migración'] || '';
+            if (migrationType.toLowerCase().includes('indocumentado')) {
+                undocCount = 1; // At least 1 if marked as indocumentado
+            }
+        }
+
+        return {
+            id: row['Id'] || index + 1,
+            date: date,
+            type: row['Tipo de Incidente'] || 'Sin Clasificar',
+            quadrant: row['Cuadrante donde sucedió el hecho'] || row['Cuadrante donde sucedio el hecho'] || 'B1',
+            officer: row['Oficial a cargo1'] || row['Oficial a cargo'] || 'Sin Asignar',
+            undocumented: undocCount,
+            narrative: row['Narrativa del Incidente'] || '',
+            actions: row['Acciones Tomadas'] || '',
+            personName: row['Nombre Completo'] || row['Nombre'] || ''
+        };
+    }).filter(row => row.type || row.narrative); // Filter empty rows
+}
+
+/**
+ * Update data status indicator
+ */
+function updateDataStatus(message, success = true) {
+    const status = document.getElementById('dataStatus');
+    if (status) {
+        status.innerHTML = `
+            <i class="fas ${success ? 'fa-check-circle' : 'fa-database'}"></i>
+            <span>${message}</span>
+        `;
+        status.classList.toggle('status-success', success);
+    }
+}
