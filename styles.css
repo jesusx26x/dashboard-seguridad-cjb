@@ -4075,34 +4075,35 @@ body {
 
     .map-center-container {
         order: 1;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
     }
 
     /* Map Container - Centered and proper size */
     .quadrant-btn-container {
-        width: 100%;
-        max-width: 350px;
+        width: 90% !important;
+        max-width: 320px !important;
         min-height: 280px;
         height: auto;
-        aspect-ratio: 1 / 1;
-        position: relative;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: relative !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
 
     /* Map Image - Centered */
     .security-map-image-small {
-        width: 100%;
-        height: auto;
-        max-width: 300px;
-        object-fit: contain;
-        margin: 0 auto;
-        display: block;
+        width: 90% !important;
+        height: auto !important;
+        max-width: 280px !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
+        display: block !important;
     }
 
     /* Quadrant Buttons - Larger for touch */
