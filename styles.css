@@ -4076,22 +4076,33 @@ body {
     .map-center-container {
         order: 1;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
     }
 
-    /* Map Image - Full Width and Taller */
+    /* Map Container - Centered and proper size */
     .quadrant-btn-container {
         width: 100%;
-        min-height: 300px;
-        height: 50vw;
-        max-height: 400px;
+        max-width: 350px;
+        min-height: 280px;
+        height: auto;
+        aspect-ratio: 1 / 1;
         position: relative;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
+    /* Map Image - Centered */
     .security-map-image-small {
         width: 100%;
-        height: 100%;
+        height: auto;
+        max-width: 300px;
         object-fit: contain;
-        max-height: 400px;
+        margin: 0 auto;
+        display: block;
     }
 
     /* Quadrant Buttons - Larger for touch */
