@@ -11,11 +11,10 @@
  * (Déjalo corriendo en segundo plano)
  */
 
-const chokidar = require('chokidar');
-const XLSX = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
+const XLSX = require('xlsx');
 
 // Configuración
 const EXCEL_PATH = 'C:\\Users\\Lenovo\\OneDrive - Fideicomiso VBCRD\\Data Formularios\\Registro Rápido de Incidentes (SEGURIDAD).xlsx';
@@ -24,6 +23,7 @@ const MIN_INTERVAL = 30000; // Mínimo 30 segundos entre sincronizaciones
 
 let lastSync = 0;
 let syncInProgress = false;
+let lastModified = 0;
 
 console.log('');
 console.log('==========================================');
@@ -33,22 +33,20 @@ console.log('');
 console.log('📁 Monitoreando:', EXCEL_PATH);
 console.log('📤 Destino:', OUTPUT_PATH);
 console.log('');
-console.log('⏳ Esperando cambios en el archivo Excel...');
+console.log('⏳ Verificando archivo cada 30 segundos...');
 console.log('   (Presiona Ctrl+C para detener)');
 console.log('');
 
 // Función para exportar y sincronizar
-async function syncData() {
+async function syncData(reason) {
     const now = Date.now();
 
     // Evitar sincronizaciones muy frecuentes
     if (now - lastSync < MIN_INTERVAL) {
-        console.log(`⏳ [${getTime()}] Esperando ${Math.ceil((MIN_INTERVAL - (now - lastSync)) / 1000)}s antes de sincronizar...`);
         return;
     }
 
     if (syncInProgress) {
-        console.log(`⏳ [${getTime()}] Sincronización en progreso, esperando...`);
         return;
     }
 
@@ -56,7 +54,7 @@ async function syncData() {
     lastSync = now;
 
     try {
-        console.log(`📂 [${getTime()}] Cambio detectado, exportando datos...`);
+        console.log(`📂 [${getTime()}] ${reason}`);
 
         // Verificar que el archivo existe
         if (!fs.existsSync(EXCEL_PATH)) {
@@ -128,20 +126,33 @@ function execPromise(command) {
     });
 }
 
-// Iniciar el vigilante
-const watcher = chokidar.watch(EXCEL_PATH, {
-    persistent: true,
-    ignoreInitial: true,
-    awaitWriteFinish: {
-        stabilityThreshold: 5000,
-        pollInterval: 1000
-    }
-});
+// Función para verificar cambios en el archivo
+function checkForChanges() {
+    try {
+        if (!fs.existsSync(EXCEL_PATH)) {
+            return;
+        }
 
-watcher
-    .on('change', syncData)
-    .on('error', error => console.error('Error en vigilante:', error));
+        const stats = fs.statSync(EXCEL_PATH);
+        const modified = stats.mtimeMs;
+
+        if (lastModified === 0) {
+            lastModified = modified;
+            return;
+        }
+
+        if (modified > lastModified) {
+            lastModified = modified;
+            syncData('Cambio detectado en Excel');
+        }
+    } catch (error) {
+        // Ignore errors (file might be locked)
+    }
+}
 
 // Hacer una sincronización inicial
 console.log('🔄 Ejecutando sincronización inicial...');
-syncData();
+syncData('Sincronización inicial');
+
+// Verificar cambios cada 30 segundos
+setInterval(checkForChanges, 30000);
