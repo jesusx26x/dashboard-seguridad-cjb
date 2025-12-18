@@ -2110,19 +2110,36 @@ function printIncidentReport(id) {
 }
 
 // ============================================
-// AUTO-LOAD DATA (Local API first, then SharePoint fallback)
+// AUTO-LOAD DATA (GitHub Pages > Local API > SharePoint)
 // ============================================
+
+// GitHub raw URL for data.json
+const GITHUB_DATA_URL = 'https://raw.githubusercontent.com/jesusx26x/dashboard-seguridad-cjb/main/data.json';
+
 async function loadFromSharePoint() {
     console.log('[AutoLoad] Starting auto-load sequence...');
 
-    // STEP 1: Try local Node.js API first (fastest, most reliable)
+    // Detect if running on GitHub Pages
+    const isGitHubPages = window.location.hostname.includes('github.io');
+
+    // STEP 1: If on GitHub Pages, load from data.json
+    if (isGitHubPages) {
+        console.log('[AutoLoad] Detected GitHub Pages environment');
+        const ghLoaded = await tryLoadFromGitHub();
+        if (ghLoaded) {
+            console.log('[AutoLoad] Data loaded from GitHub data.json');
+            return true;
+        }
+    }
+
+    // STEP 2: Try local Node.js API (for localhost development)
     const apiLoaded = await tryLoadFromLocalAPI();
     if (apiLoaded) {
         console.log('[AutoLoad] Data loaded from local API');
         return true;
     }
 
-    // STEP 2: Fallback to SharePoint if configured
+    // STEP 3: Fallback to SharePoint if configured
     if (typeof CONFIG !== 'undefined' && CONFIG.AUTO_LOAD_FROM_CLOUD && CONFIG.SHAREPOINT_URL) {
         const spLoaded = await tryLoadFromSharePoint();
         if (spLoaded) {
@@ -2133,6 +2150,50 @@ async function loadFromSharePoint() {
 
     console.log('[AutoLoad] No auto-load source available. User must upload manually.');
     return false;
+}
+
+/**
+ * Try to load data from GitHub raw JSON file
+ */
+async function tryLoadFromGitHub() {
+    try {
+        console.log('[GitHub] Loading data from:', GITHUB_DATA_URL);
+        showToast('Cargando datos desde GitHub...', 'info');
+        showLoading(true);
+
+        const response = await fetch(GITHUB_DATA_URL + '?t=' + Date.now()); // Cache bust
+
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
+        const result = await response.json();
+
+        if (!result.data || !result.data.length) {
+            throw new Error('No data in JSON file');
+        }
+
+        console.log(`[GitHub] Received ${result.count} records, last update: ${result.lastUpdate}`);
+
+        // Transform and load data
+        const transformedData = transformAPIData(result.data);
+        DataStore.load(transformedData);
+
+        // Show last update time
+        const updateDate = new Date(result.lastUpdate);
+        const formattedDate = updateDate.toLocaleDateString('es-DO', {
+            day: '2-digit', month: '2-digit', year: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        });
+        showToast(`✅ ${result.count} registros (Actualizado: ${formattedDate})`, 'success');
+
+        return true;
+
+    } catch (error) {
+        console.error('[GitHub] Error loading data:', error);
+        showLoading(false);
+        return false;
+    }
 }
 
 /**
