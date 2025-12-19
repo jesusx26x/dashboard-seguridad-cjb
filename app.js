@@ -4296,45 +4296,102 @@ window.initResponsiveMap = initResponsiveMap;
 // ============================================
 
 /**
- * Refresh data from the local Node.js API
- * Fetches Excel file data and reloads the dashboard
+ * Refresh data from the appropriate source based on environment:
+ * - GitHub Pages: loads from raw.githubusercontent.com/data.json
+ * - Local development: loads from local API or data.json
  */
 window.refreshDataFromAPI = async function () {
     const btn = document.getElementById('btnRefreshData');
     const originalHTML = btn.innerHTML;
+
+    // Detect if we're on GitHub Pages
+    const isGitHubPages = window.location.hostname.includes('github.io');
+    const isLocalFile = window.location.protocol === 'file:';
 
     try {
         // Show loading state
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Cargando...</span>';
         btn.disabled = true;
 
-        // Fetch data from API
-        const response = await fetch('/api/incidentes');
+        let data = null;
+        let recordCount = 0;
 
-        if (!response.ok) {
-            throw new Error(`Error ${response.status}: ${response.statusText}`);
+        if (isGitHubPages) {
+            // On GitHub Pages: load from raw GitHub data.json
+            console.log('[Refresh] Cargando desde GitHub data.json...');
+            const gitHubUrl = 'https://raw.githubusercontent.com/jesusx26x/dashboard-seguridad-cjb/main/data.json?' + Date.now();
+            const response = await fetch(gitHubUrl);
+
+            if (!response.ok) {
+                throw new Error(`Error ${response.status}: No se pudo cargar data.json desde GitHub`);
+            }
+
+            const result = await response.json();
+            data = result.data;
+            recordCount = result.count || data.length;
+            console.log(`[GitHub] Datos recibidos: ${recordCount} registros`);
+
+        } else if (isLocalFile) {
+            // Local file protocol: try to load local data.json
+            console.log('[Refresh] Cargando desde data.json local...');
+            const response = await fetch('data.json?' + Date.now());
+
+            if (!response.ok) {
+                throw new Error('No se pudo cargar data.json. Verifica que el archivo existe.');
+            }
+
+            const result = await response.json();
+            data = result.data;
+            recordCount = result.count || data.length;
+            console.log(`[Local] Datos recibidos: ${recordCount} registros`);
+
+        } else {
+            // Localhost development: try API first, then fallback to data.json
+            console.log('[Refresh] Intentando API local...');
+            try {
+                const response = await fetch('/api/incidentes');
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        data = result.data;
+                        recordCount = result.count || data.length;
+                        console.log(`[API] Datos recibidos: ${recordCount} registros`);
+                    }
+                }
+            } catch (apiError) {
+                console.log('[API] No disponible, usando data.json local...');
+            }
+
+            // Fallback to local data.json if API failed
+            if (!data) {
+                const response = await fetch('data.json?' + Date.now());
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar data.json ni conectar con la API.');
+                }
+                const result = await response.json();
+                data = result.data;
+                recordCount = result.count || data.length;
+                console.log(`[Local Fallback] Datos recibidos: ${recordCount} registros`);
+            }
         }
 
-        const result = await response.json();
-
-        if (!result.success) {
-            throw new Error(result.error || 'Error desconocido');
+        if (!data || !Array.isArray(data)) {
+            throw new Error('Formato de datos inválido');
         }
-
-        console.log(`[API] Datos recibidos: ${result.count} registros`);
 
         // Transform API data to match expected format
-        const transformedData = transformAPIData(result.data);
+        const transformedData = transformAPIData(data);
 
         // Load into DataStore
         DataStore.load(transformedData);
 
         // Update UI
-        updateDataStatus(`${result.count} registros cargados`, true);
+        updateDataStatus(`${recordCount} registros cargados`, true);
 
         // Success feedback
         btn.innerHTML = '<i class="fas fa-check"></i> <span>¡Actualizado!</span>';
         btn.classList.add('btn-success');
+        showToast(`${recordCount} registros cargados correctamente`, 'success');
 
         setTimeout(() => {
             btn.innerHTML = originalHTML;
@@ -4343,14 +4400,14 @@ window.refreshDataFromAPI = async function () {
         }, 2000);
 
     } catch (error) {
-        console.error('[API] Error:', error);
+        console.error('[Refresh] Error:', error);
 
         // Error feedback
         btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> <span>Error</span>';
         btn.classList.add('btn-error');
 
-        // Show detailed error
-        alert(`Error al actualizar datos:\n${error.message}\n\n¿El servidor está corriendo?\nEjecuta: node server.js`);
+        // Show user-friendly error
+        showToast(`Error: ${error.message}`, 'error');
 
         setTimeout(() => {
             btn.innerHTML = originalHTML;
