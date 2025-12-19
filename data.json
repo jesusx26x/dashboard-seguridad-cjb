@@ -1,6 +1,6 @@
 {
-  "lastUpdate": "2025-12-19T14:34:48.940Z",
-  "count": 83,
+  "lastUpdate": "2025-12-19T14:37:19.072Z",
+  "count": 85,
   "data": [
     {
       "Id": "4",
@@ -42,6 +42,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se solicitó refuerzo (Unidad, Supervisor).;Se realizó arresto / detención."
     },
     {
@@ -84,6 +85,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -126,6 +128,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se brindó asistencia a la víctima.;Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
@@ -168,6 +171,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó un diagnóstico médico para ser entregado a la Policía Nacional. "
     },
     {
@@ -210,6 +214,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizaron el diagnóstico médico correspondiente "
     },
     {
@@ -252,6 +257,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
@@ -294,6 +300,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos).;Se brindó asistencia a la víctima."
     },
     {
@@ -336,6 +343,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
@@ -378,6 +386,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
@@ -420,6 +429,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
@@ -462,6 +472,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
@@ -504,6 +515,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -546,6 +558,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -588,6 +601,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -630,6 +644,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención.;Se entregó a la policía nacional y sea entregada a migración. "
     },
     {
@@ -672,6 +687,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -714,6 +730,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se procedió a la clausura."
     },
     {
@@ -756,6 +773,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
@@ -798,6 +816,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se entrego a la policía para fines de lugar"
     },
     {
@@ -840,6 +859,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
@@ -882,6 +902,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se emitió citación / multa;Incidente referido a otra agencia.;Se Clausuraron los Establecimientos"
     },
     {
@@ -924,6 +945,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Fue entregado a la policía nacional para fines de lugar "
     },
     {
@@ -966,6 +988,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Levantado el cuerpo por el Inacif"
     },
     {
@@ -1008,6 +1031,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se entregaron a migración "
     },
     {
@@ -1050,6 +1074,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -1092,6 +1117,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Fueron entrados a DIGESSET"
     },
     {
@@ -1134,6 +1160,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
@@ -1176,6 +1203,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -1218,6 +1246,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -1260,6 +1289,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -1302,6 +1332,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se entrego a migración "
     },
     {
@@ -1344,6 +1375,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se entregaro a DIGESETT y el incif "
     },
     {
@@ -1386,6 +1418,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se entregaro al INACIF"
     },
     {
@@ -1428,6 +1461,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se entregaron a la policía Nacional para fines correspondientes "
     },
     {
@@ -1470,6 +1504,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
@@ -1512,6 +1547,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -1554,6 +1590,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -1596,6 +1633,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "“TIRILLA”   Cortésmente, por medio de la presente hago entrega al 1er Tte. ALBERTO PEREZ DIAZ, C- 093-0063322-0, ERD., perteneciente a la Dirección General de Migración, de dos vehículos uno (01) carro Marca: DAIHATSU, modelo: MIRA, placa: A910290, color: BLANCO y una (01) Jeepeta Marca: TOYOTA, modelo: 4RUNNER, placa: G349005, color: BLANCO, el cual se encontraban detenidos en la Dirección de Seguridad de Ciudad Juan Bosch, por el hecho de ser conducidos por Nacionales Haitianos y al momento de su detención se encontraban con estatus migratorio irregular.        RICHARD ROA DE LA ROSA, Coronel, ERD. (DEM) Director de Seguridad Ciudad Juan Bosch."
     },
     {
@@ -1638,6 +1676,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Fueron entregados a migración "
     },
     {
@@ -1680,6 +1719,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -1722,6 +1762,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Entregada a la policía Nacional para fines correspondientes "
     },
     {
@@ -1764,6 +1805,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
@@ -1806,6 +1848,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -1848,6 +1891,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -1890,6 +1934,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Fueron entregados a la DIGESETT para fines correspondientes "
     },
     {
@@ -1932,6 +1977,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -1974,6 +2020,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2016,6 +2063,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2058,6 +2106,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2100,6 +2149,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2142,6 +2192,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Fueron entregados a la DIGESETT para fines correspondientes "
     },
     {
@@ -2184,6 +2235,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2226,6 +2278,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2268,6 +2321,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "."
     },
     {
@@ -2310,6 +2364,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2352,6 +2407,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2394,6 +2450,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2436,6 +2493,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2478,6 +2536,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2520,6 +2579,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2562,6 +2622,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
@@ -2604,6 +2665,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Operativo "
     },
     {
@@ -2646,6 +2708,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "0"
     },
     {
@@ -2688,6 +2751,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Chequeo matutino nocturno "
     },
     {
@@ -2730,6 +2794,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -2772,6 +2837,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se puso la respectiva multa y se detuvo el vehículo"
     },
     {
@@ -2814,6 +2880,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Chequeo de rutina "
     },
     {
@@ -2856,6 +2923,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Chequeo de rutina "
     },
     {
@@ -2898,6 +2966,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Chequeo de rutina Nocturno "
     },
     {
@@ -2940,6 +3009,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Patrullaje "
     },
     {
@@ -2982,6 +3052,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Chequeo rutinario "
     },
     {
@@ -3024,6 +3095,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -3066,6 +3138,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -3108,6 +3181,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención."
     },
     {
@@ -3150,6 +3224,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -3192,6 +3267,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Patrullaje "
     },
     {
@@ -3234,6 +3310,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -3276,6 +3353,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -3318,6 +3396,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -3360,6 +3439,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -3402,6 +3482,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -3444,6 +3525,7 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
@@ -3486,7 +3568,94 @@
       "Nombre Completo4": "",
       "Cedula de identidad4": "",
       "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó advertencia verbal."
+    },
+    {
+      "Id": "89",
+      "Hora de inicio": "12/19/25 9:32",
+      "Hora de finalización": "12/19/25 9:36",
+      "Correo electrónico": "richardroa@vbc.gob.do",
+      "Nombre": "Richard Roa",
+      "Oficial a cargo1": "Tte. - Wascar Florián Medina",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "DIGESETT",
+      "Incidentes relacionados a tránsito": "Bicicleta sin casco",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": " siendo aproximadamente las 9:10 am de  fecha 18/12/2025, inició una reunión en la dirección de la escuela Prof. Juan Bosch,  culminando a las 10:23,  dicha convocatoria se llevó a cabo con la finalidad de buscar soluciones a un conflicto entre los padres de unos niños, dónde los infantes tuvieron un atercado  y, también los padres estaban involucrados , esta reunión dejó como resultado, un acuerdo de que ambos padres busquen ayuda psicológica para los niños, así como también se pidieron disculpas por las ofensas cometidas anteriormente. ",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202025-12-18%20at%2016.05.07_Richard%20Roa.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202025-12-18%20at%2016.05.08%20(1)_Richard%20Roa.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202025-12-18%20at%2016.05.08%20(2)_Richard%20Roa.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202025-12-18%20at%2016.05.08_Richard%20Roa.jpeg",
+      "Rol de la Persona": "No especificado",
+      "Nombre Completo": "0",
+      "Cedula de identidad": "0",
+      "¿Desea agregar a otro involucrado?": "No",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
+    },
+    {
+      "Id": "90",
+      "Hora de inicio": "12/19/25 9:50",
+      "Hora de finalización": "12/19/25 10:18",
+      "Correo electrónico": "richardroa@vbc.gob.do",
+      "Nombre": "Richard Roa",
+      "Oficial a cargo1": "Tte. - Wascar Florián Medina",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Seguridad CJB",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": " siendo aproximadamente las 9:10 am de  fecha 18/12/2025, inició una reunión en la dirección de la escuela Prof. Juan Bosch,  culminando a las 10:23,  dicha convocatoria se llevó a cabo con la finalidad de buscar soluciones a un conflicto entre los padres de unos niños, dónde los infantes tuvieron un atercado  y, también los padres estaban involucrados , esta reunión dejó como resultado, un acuerdo de que ambos padres busquen ayuda psicológica para los niños, así como también se pidieron disculpas por las ofensas cometidas anteriormente. ",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202025-12-18%20at%2016.05.07_Richard%20Roa%201.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202025-12-18%20at%2016.05.08%20(1)_Richard%20Roa%201.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202025-12-18%20at%2016.05.08%20(2)_Richard%20Roa%201.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202025-12-18%20at%2016.05.08_Richard%20Roa%201.jpeg",
+      "Rol de la Persona": "No especificado",
+      "Nombre Completo": "0",
+      "Cedula de identidad": "0",
+      "¿Desea agregar a otro involucrado?": "No",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "Advertencia",
+      "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     }
   ]
 }
