@@ -1,11 +1,9 @@
 /**
- * Auto-Sync: Vigilante de Cambios en Excel
- * =========================================
+ * Auto-Sync: Sincronización Directa desde SharePoint
+ * ===================================================
  * 
- * Este script monitorea el archivo Excel en OneDrive.
- * Cuando detecta cambios, automáticamente:
- * 1. Exporta los datos a JSON
- * 2. Hace commit y push a GitHub
+ * Este script descarga el Excel directamente desde SharePoint
+ * y lo sube a GitHub automáticamente.
  * 
  * Uso: node auto-sync.js
  * (Déjalo corriendo en segundo plano)
@@ -13,73 +11,104 @@
 
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 const { exec } = require('child_process');
 const XLSX = require('xlsx');
 
 // Configuración
-const EXCEL_PATH = 'C:\\Users\\Lenovo\\OneDrive - Fideicomiso VBCRD\\Data Formularios\\Registro Rápido de Incidentes (SEGURIDAD).xlsx';
+const SHAREPOINT_URL = 'https://vbcrd-my.sharepoint.com/:x:/g/personal/jesusdelossantos_vbc_gob_do/IQCbhrkDR0u2Q5KenioSh3eeAczGCtQiJzb22PSfPfTNqLo?e=SR2odg&download=1';
 const OUTPUT_PATH = path.join(__dirname, 'data.json');
-const MIN_INTERVAL = 30000; // Mínimo 30 segundos entre sincronizaciones
+const TEMP_EXCEL = path.join(__dirname, 'temp-sharepoint.xlsx');
+const SYNC_INTERVAL = 2 * 60 * 1000; // 2 minutos
 
-let lastSync = 0;
+let lastRecordCount = 0;
 let syncInProgress = false;
-let lastModified = 0;
 
 console.log('');
 console.log('==========================================');
 console.log('  🔄 Auto-Sync Dashboard Seguridad CJB');
+console.log('  📡 Conexión Directa a SharePoint');
 console.log('==========================================');
 console.log('');
-console.log('📁 Monitoreando:', EXCEL_PATH);
+console.log('🌐 Fuente:', 'SharePoint Excel');
 console.log('📤 Destino:', OUTPUT_PATH);
+console.log('⏱️  Intervalo:', SYNC_INTERVAL / 1000, 'segundos');
 console.log('');
-console.log('⏳ Verificando archivo cada 30 segundos...');
 console.log('   (Presiona Ctrl+C para detener)');
 console.log('');
 
-// Función para exportar y sincronizar
-async function syncData(reason) {
-    const now = Date.now();
+// Descargar archivo desde SharePoint
+function downloadFromSharePoint() {
+    return new Promise((resolve, reject) => {
+        const file = fs.createWriteStream(TEMP_EXCEL);
 
-    // Evitar sincronizaciones muy frecuentes
-    if (now - lastSync < MIN_INTERVAL) {
-        return;
-    }
+        // Seguir redirecciones
+        const download = (url) => {
+            https.get(url, (response) => {
+                if (response.statusCode === 301 || response.statusCode === 302) {
+                    download(response.headers.location);
+                    return;
+                }
 
-    if (syncInProgress) {
-        return;
-    }
+                if (response.statusCode !== 200) {
+                    reject(new Error(`HTTP ${response.statusCode}`));
+                    return;
+                }
+
+                response.pipe(file);
+                file.on('finish', () => {
+                    file.close();
+                    resolve();
+                });
+            }).on('error', (err) => {
+                fs.unlink(TEMP_EXCEL, () => { });
+                reject(err);
+            });
+        };
+
+        download(SHAREPOINT_URL);
+    });
+}
+
+// Función principal de sincronización
+async function syncFromSharePoint() {
+    if (syncInProgress) return;
 
     syncInProgress = true;
-    lastSync = now;
+    const time = new Date().toLocaleTimeString('es-DO');
 
     try {
-        console.log(`📂 [${getTime()}] ${reason}`);
+        console.log(`📥 [${time}] Descargando desde SharePoint...`);
 
-        // Verificar que el archivo existe
-        if (!fs.existsSync(EXCEL_PATH)) {
-            throw new Error('Archivo Excel no encontrado');
-        }
+        await downloadFromSharePoint();
 
-        // Esperar un momento para que OneDrive termine de sincronizar
-        await sleep(2000);
-
-        // Leer el archivo Excel
-        const workbook = XLSX.readFile(EXCEL_PATH);
+        // Leer Excel descargado
+        const workbook = XLSX.readFile(TEMP_EXCEL);
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const data = XLSX.utils.sheet_to_json(worksheet, { raw: false, defval: '' });
 
         console.log(`   ✅ ${data.length} registros leídos`);
 
-        // Crear objeto con metadatos
+        // Solo sincronizar si hay cambios
+        if (data.length === lastRecordCount) {
+            console.log(`   ℹ️  Sin cambios (${data.length} registros)`);
+            console.log('');
+            syncInProgress = false;
+            return;
+        }
+
+        console.log(`   🆕 Cambio detectado: ${lastRecordCount} → ${data.length} registros`);
+        lastRecordCount = data.length;
+
+        // Crear JSON
         const output = {
+            source: 'SharePoint',
             lastUpdate: new Date().toISOString(),
             count: data.length,
             data: data
         };
 
-        // Guardar como JSON
         fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2), 'utf8');
         console.log(`   ✅ JSON exportado`);
 
@@ -90,34 +119,28 @@ async function syncData(reason) {
         await execPromise(`git commit -m "auto-sync: ${data.length} registros - ${new Date().toLocaleString('es-DO')}"`);
         await execPromise('git push origin main');
 
-        console.log(`   ✅ [${getTime()}] ¡Sincronización completada!`);
+        console.log(`   ✅ [${time}] ¡Sincronización completada!`);
         console.log(`   🌐 Los usuarios verán los cambios en ~1 minuto.`);
         console.log('');
 
     } catch (error) {
         if (error.message && error.message.includes('nothing to commit')) {
-            console.log(`   ℹ️ [${getTime()}] Sin cambios nuevos para subir.`);
+            console.log(`   ℹ️  Sin cambios para subir a GitHub`);
         } else {
-            console.error(`   ❌ [${getTime()}] Error:`, error.message);
+            console.error(`   ❌ Error:`, error.message);
         }
+        console.log('');
     } finally {
         syncInProgress = false;
+        // Limpiar archivo temporal
+        try { fs.unlinkSync(TEMP_EXCEL); } catch (e) { }
     }
-}
-
-// Utilidades
-function getTime() {
-    return new Date().toLocaleTimeString('es-DO');
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function execPromise(command) {
     return new Promise((resolve, reject) => {
         exec(command, { cwd: __dirname }, (error, stdout, stderr) => {
-            if (error && !stderr.includes('nothing to commit')) {
+            if (error && !stderr.includes('nothing to commit') && !stdout.includes('nothing to commit')) {
                 reject(error);
             } else {
                 resolve(stdout);
@@ -126,33 +149,10 @@ function execPromise(command) {
     });
 }
 
-// Función para verificar cambios en el archivo
-function checkForChanges() {
-    try {
-        if (!fs.existsSync(EXCEL_PATH)) {
-            return;
-        }
-
-        const stats = fs.statSync(EXCEL_PATH);
-        const modified = stats.mtimeMs;
-
-        if (lastModified === 0) {
-            lastModified = modified;
-            return;
-        }
-
-        if (modified > lastModified) {
-            lastModified = modified;
-            syncData('Cambio detectado en Excel');
-        }
-    } catch (error) {
-        // Ignore errors (file might be locked)
-    }
-}
-
-// Hacer una sincronización inicial
+// Sincronización inicial
 console.log('🔄 Ejecutando sincronización inicial...');
-syncData('Sincronización inicial');
+console.log('');
+syncFromSharePoint();
 
-// Verificar cambios cada 30 segundos
-setInterval(checkForChanges, 30000);
+// Sincronizar cada 2 minutos
+setInterval(syncFromSharePoint, SYNC_INTERVAL);
