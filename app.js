@@ -4423,38 +4423,56 @@ window.refreshDataFromAPI = async function () {
  */
 function transformAPIData(apiData) {
     return apiData.map((row, index) => {
-        // Parse date from "Hora de inicio" field (format: M/D/YY H:MM)
-        const dateStr = row['Hora de inicio'] || '';
+        // Parse date from "Hora de inicio" field
+        // Can be: Excel serial number (46028.3675) OR string format "M/D/YY H:MM"
+        const dateValue = row['Hora de inicio'];
         let date = null;
 
-        if (dateStr) {
+        if (dateValue) {
             try {
-                // Format: "8/25/25 15:22" -> M/D/YY H:MM
-                const parts = dateStr.split(' ');
-                if (parts.length >= 1) {
-                    const dateParts = parts[0].split('/');
-                    if (dateParts.length === 3) {
-                        const month = parseInt(dateParts[0]) - 1;
-                        const day = parseInt(dateParts[1]);
-                        let year = parseInt(dateParts[2]);
-                        // Handle 2-digit year
-                        if (year < 100) {
-                            year = year + 2000;
-                        }
-                        date = new Date(year, month, day);
+                // Check if it's a number (Excel serial date)
+                if (typeof dateValue === 'number' || !isNaN(parseFloat(dateValue))) {
+                    // Excel serial date: days since 1900-01-01 (with Excel's leap year bug)
+                    const excelSerial = parseFloat(dateValue);
+                    // Excel incorrectly treats 1900 as a leap year, so we subtract 1 for dates after Feb 28, 1900
+                    const excelEpoch = new Date(1899, 11, 30); // Dec 30, 1899
+                    const dayInMs = 24 * 60 * 60 * 1000;
+                    date = new Date(excelEpoch.getTime() + excelSerial * dayInMs);
+                } else {
+                    // String format: "8/25/25 15:22" -> M/D/YY H:MM
+                    const dateStr = String(dateValue);
+                    const parts = dateStr.split(' ');
+                    if (parts.length >= 1) {
+                        const dateParts = parts[0].split('/');
+                        if (dateParts.length === 3) {
+                            const month = parseInt(dateParts[0]) - 1;
+                            const day = parseInt(dateParts[1]);
+                            let year = parseInt(dateParts[2]);
+                            // Handle 2-digit year
+                            if (year < 100) {
+                                year = year + 2000;
+                            }
+                            date = new Date(year, month, day);
 
-                        // Add time if available
-                        if (parts[1]) {
-                            const timeParts = parts[1].split(':');
-                            if (timeParts.length >= 2) {
-                                date.setHours(parseInt(timeParts[0]) || 0);
-                                date.setMinutes(parseInt(timeParts[1]) || 0);
+                            // Add time if available
+                            if (parts[1]) {
+                                const timeParts = parts[1].split(':');
+                                if (timeParts.length >= 2) {
+                                    date.setHours(parseInt(timeParts[0]) || 0);
+                                    date.setMinutes(parseInt(timeParts[1]) || 0);
+                                }
                             }
                         }
                     }
                 }
+
+                // Validate date is reasonable (between 2020 and 2030)
+                if (date && (date.getFullYear() < 2020 || date.getFullYear() > 2030)) {
+                    console.warn('Date out of range, ignoring:', dateValue, '->', date);
+                    date = null;
+                }
             } catch (e) {
-                console.warn('Error parsing date:', dateStr, e);
+                console.warn('Error parsing date:', dateValue, e);
             }
         }
 
