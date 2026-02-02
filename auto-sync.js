@@ -16,7 +16,7 @@ const { exec } = require('child_process');
 const XLSX = require('xlsx');
 
 // Configuración
-const SHAREPOINT_URL = 'https://vbcrd-my.sharepoint.com/:x:/g/personal/jesusdelossantos_vbc_gob_do/IQCbhrkDR0u2Q5KenioSh3eeAczGCtQiJzb22PSfPfTNqLo?e=uToH5U&download=1';
+const SHAREPOINT_URL = 'https://vbcrd-my.sharepoint.com/:x:/g/personal/jesusdelossantos_vbc_gob_do/IQCbhrkDR0u2Q5KenioSh3eeAczGCtQiJzb22PSfPfTNqLo?e=f8QWkc&download=1';
 const OUTPUT_PATH = path.join(__dirname, 'data.json');
 const TEMP_EXCEL = path.join(__dirname, 'temp-sharepoint.xlsx');
 const SYNC_INTERVAL = 30 * 1000; // 30 segundos
