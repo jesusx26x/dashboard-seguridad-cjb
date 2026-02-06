@@ -16,10 +16,14 @@ const { exec } = require('child_process');
 const XLSX = require('xlsx');
 
 // Configuración
-const SHAREPOINT_URL = 'https://vbcrd-my.sharepoint.com/:x:/g/personal/jesusdelossantos_vbc_gob_do/IQCbhrkDR0u2Q5KenioSh3eeAczGCtQiJzb22PSfPfTNqLo?e=f8QWkc&download=1';
+// SharePoint URL requiere autenticación - usar archivo local sincronizado via OneDrive
+const LOCAL_EXCEL_PATH = path.join(__dirname, 'Registro Rápido de Incidentes (SEGURIDAD).xlsx');
+const SHAREPOINT_URL = 'https://vbcrd-my.sharepoint.com/:x:/g/personal/jesusdelossantos_vbc_gob_do/IQCbhrkDR0u2Q5KenioSh3eeAczGCtQiJzb22PSfPfTNqLo?e=DJigW4&download=1';
 const OUTPUT_PATH = path.join(__dirname, 'data.json');
 const TEMP_EXCEL = path.join(__dirname, 'temp-sharepoint.xlsx');
-const SYNC_INTERVAL = 30 * 1000; // 30 segundos
+const SYNC_INTERVAL = 2 * 60 * 60 * 1000; // 2 horas en milisegundos
+const USE_LOCAL_FILE = true; // Usar archivo local en vez de descargar de SharePoint
+
 
 let lastRecordCount = 0;
 let syncInProgress = false;
@@ -78,17 +82,31 @@ async function syncFromSharePoint() {
     const time = new Date().toLocaleTimeString('es-DO');
 
     try {
-        console.log(`📥 [${time}] Descargando desde SharePoint...`);
+        let excelPath;
 
-        await downloadFromSharePoint();
+        if (USE_LOCAL_FILE) {
+            // Usar archivo local (sincronizado via OneDrive)
+            console.log(`� [${time}] Leyendo archivo local...`);
 
-        // Leer Excel descargado
-        const workbook = XLSX.readFile(TEMP_EXCEL);
+            if (!fs.existsSync(LOCAL_EXCEL_PATH)) {
+                throw new Error('Archivo Excel local no encontrado: ' + LOCAL_EXCEL_PATH);
+            }
+            excelPath = LOCAL_EXCEL_PATH;
+        } else {
+            // Descargar desde SharePoint
+            console.log(`�📥 [${time}] Descargando desde SharePoint...`);
+            await downloadFromSharePoint();
+            excelPath = TEMP_EXCEL;
+        }
+
+        // Leer Excel
+        const workbook = XLSX.readFile(excelPath);
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
         const data = XLSX.utils.sheet_to_json(worksheet, { raw: false, defval: '' });
 
         console.log(`   ✅ ${data.length} registros leídos`);
+
 
         // Solo sincronizar si hay cambios
         if (data.length === lastRecordCount) {
