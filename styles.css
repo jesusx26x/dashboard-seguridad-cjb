@@ -4261,3 +4261,497 @@ body {
         min-height: 180px;
     }
 }
+
+/* ============================================
+   IDS INDICATORS PAGE STYLES
+   ============================================ */
+
+/* Nav Badge for IDS */
+.nav-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 8px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+    color: white;
+    border-radius: 10px;
+    margin-left: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* IDS Header */
+.ids-header {
+    margin-bottom: 20px;
+}
+
+.ids-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.ids-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ids-header h2 i {
+    color: var(--accent-orange);
+}
+
+.ids-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.ids-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.ids-update-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 10px 16px;
+    background: rgba(52, 152, 219, 0.08);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.ids-update-info i {
+    color: var(--accent-blue);
+}
+
+.ids-population {
+    color: var(--text-muted);
+}
+
+/* IDS Summary Row */
+.ids-summary-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.ids-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.ids-summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+}
+
+.ids-summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.ids-total::before { background: var(--primary); }
+.ids-complete::before { background: var(--accent-green); }
+.ids-incomplete::before { background: var(--accent-orange); }
+.ids-pending::before { background: var(--accent-red); }
+
+.ids-summary-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.ids-total .ids-summary-icon { background: rgba(30, 58, 95, 0.1); color: var(--primary); }
+.ids-complete .ids-summary-icon { background: rgba(46, 204, 113, 0.1); color: var(--accent-green); }
+.ids-incomplete .ids-summary-icon { background: rgba(243, 156, 18, 0.1); color: var(--accent-orange); }
+.ids-pending .ids-summary-icon { background: rgba(231, 76, 60, 0.1); color: var(--accent-red); }
+
+.ids-summary-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.ids-summary-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1;
+}
+
+.ids-summary-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Period Selector */
+.ids-period-selector {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+}
+
+.ids-period-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ids-period-label i {
+    color: var(--primary);
+}
+
+.ids-period-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.ids-period-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+    background: white;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.ids-period-btn:hover {
+    background: var(--bg-main);
+    border-color: var(--accent-blue);
+}
+
+.ids-period-btn.active {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-teal) 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.ids-current-period {
+    margin-left: auto;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    padding: 6px 14px;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 20px;
+}
+
+/* Indicators Grid */
+.ids-indicators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.ids-loading {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 60px;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.ids-loading i {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+}
+
+/* Indicator Card */
+.ids-indicator-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.ids-indicator-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.ids-indicator-header {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ids-code {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    background: var(--primary);
+    color: white;
+    border-radius: 6px;
+}
+
+.ids-frequency {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--accent-blue);
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.ids-indicator-body {
+    padding: 20px;
+}
+
+.ids-indicator-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.ids-indicator-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.ids-value-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.ids-value-unit {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.ids-indicator-rate {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.ids-indicator-rate strong {
+    color: var(--accent-blue);
+}
+
+.ids-indicator-footer {
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.02);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ids-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.ids-status.completo {
+    background: rgba(46, 204, 113, 0.15);
+    color: var(--accent-green);
+}
+
+.ids-status.incompleto {
+    background: rgba(243, 156, 18, 0.15);
+    color: var(--accent-orange);
+}
+
+.ids-status.pendiente {
+    background: rgba(231, 76, 60, 0.15);
+    color: var(--accent-red);
+}
+
+.ids-source {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+/* IDS Table Section */
+.ids-table-section {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.ids-table-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ids-table-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ids-table-header h3 i {
+    color: var(--primary);
+}
+
+.ids-table-container {
+    overflow-x: auto;
+}
+
+.ids-data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ids-data-table th,
+.ids-data-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ids-data-table th {
+    background: var(--bg-main);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+}
+
+.ids-data-table td {
+    font-size: 0.9rem;
+}
+
+.ids-data-table tbody tr:hover {
+    background: rgba(52, 152, 219, 0.04);
+}
+
+/* Info Note */
+.ids-info-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(231, 76, 60, 0.05) 100%);
+    border: 1px solid rgba(243, 156, 18, 0.3);
+    border-left: 4px solid var(--accent-orange);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.ids-info-note i {
+    color: var(--accent-orange);
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.ids-info-note strong {
+    color: var(--text-dark);
+}
+
+/* Responsive IDS */
+@media screen and (max-width: 1024px) {
+    .ids-summary-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .ids-period-selector {
+        flex-wrap: wrap;
+    }
+    
+    .ids-current-period {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ids-title-row {
+        flex-direction: column;
+    }
+    
+    .ids-actions {
+        width: 100%;
+    }
+    
+    .ids-actions .btn {
+        flex: 1;
+    }
+    
+    .ids-summary-row {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .ids-indicators-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ids-period-buttons {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .ids-summary-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .ids-summary-value {
+        font-size: 1.5rem;
+    }
+}

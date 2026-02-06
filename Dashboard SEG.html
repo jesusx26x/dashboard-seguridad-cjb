@@ -72,6 +72,11 @@
                 <i class="fas fa-history"></i>
                 <span>Histórico</span>
             </a>
+            <a href="#" class="nav-item" data-section="ids" data-page="idsPage">
+                <i class="fas fa-chart-pie"></i>
+                <span>Indicadores</span>
+                <span class="nav-badge">IDS</span>
+            </a>
         </nav>
 
         <div class="sidebar-footer">
@@ -998,6 +1003,130 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================== IDS INDICATORS PAGE ================== -->
+        <section class="page-section" id="idsPage" style="display: none;">
+            <div class="dashboard-section">
+                <div class="ids-header">
+                    <div class="ids-title-row">
+                        <div>
+                            <h2><i class="fas fa-chart-pie"></i> Indicadores IDS - Pilar Seguridad</h2>
+                            <p class="ids-subtitle">Índice de Desarrollo Social - Seguimiento de indicadores del pilar
+                                Seguridad</p>
+                        </div>
+                        <div class="ids-actions">
+                            <button class="btn btn-refresh" id="btnRefreshIDS" onclick="IDSManager.refresh()">
+                                <i class="fas fa-sync-alt"></i> Actualizar
+                            </button>
+                            <button class="btn btn-primary" id="btnExportIDS" onclick="IDSManager.exportToExcel()">
+                                <i class="fas fa-file-excel"></i> Exportar Excel
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Last Update Info -->
+                    <div class="ids-update-info" id="idsUpdateInfo">
+                        <i class="fas fa-clock"></i>
+                        <span>Última actualización: <strong id="idsLastUpdate">--</strong></span>
+                        <span class="ids-population">| Población CJB: <strong id="idsPopulation">50,000</strong>
+                            hab.</span>
+                    </div>
+                </div>
+
+                <!-- Summary KPIs -->
+                <div class="ids-summary-row">
+                    <div class="ids-summary-card ids-total">
+                        <div class="ids-summary-icon"><i class="fas fa-list-ol"></i></div>
+                        <div class="ids-summary-content">
+                            <span class="ids-summary-value" id="idsTotalIndicators">5</span>
+                            <span class="ids-summary-label">Total Indicadores</span>
+                        </div>
+                    </div>
+                    <div class="ids-summary-card ids-complete">
+                        <div class="ids-summary-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="ids-summary-content">
+                            <span class="ids-summary-value" id="idsCompleteCount">0</span>
+                            <span class="ids-summary-label">Completos</span>
+                        </div>
+                    </div>
+                    <div class="ids-summary-card ids-incomplete">
+                        <div class="ids-summary-icon"><i class="fas fa-exclamation-circle"></i></div>
+                        <div class="ids-summary-content">
+                            <span class="ids-summary-value" id="idsIncompleteCount">0</span>
+                            <span class="ids-summary-label">Incompletos</span>
+                        </div>
+                    </div>
+                    <div class="ids-summary-card ids-pending">
+                        <div class="ids-summary-icon"><i class="fas fa-clock"></i></div>
+                        <div class="ids-summary-content">
+                            <span class="ids-summary-value" id="idsPendingCount">0</span>
+                            <span class="ids-summary-label">Pendientes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Period Selector -->
+                <div class="ids-period-selector">
+                    <span class="ids-period-label"><i class="fas fa-calendar-alt"></i> Período:</span>
+                    <div class="ids-period-buttons">
+                        <button class="ids-period-btn active" data-period="monthly"
+                            onclick="IDSManager.setPeriod('monthly')">Mensual</button>
+                        <button class="ids-period-btn" data-period="quarterly"
+                            onclick="IDSManager.setPeriod('quarterly')">Trimestral</button>
+                        <button class="ids-period-btn" data-period="semester"
+                            onclick="IDSManager.setPeriod('semester')">Semestral</button>
+                        <button class="ids-period-btn" data-period="annual"
+                            onclick="IDSManager.setPeriod('annual')">Anual</button>
+                    </div>
+                    <span class="ids-current-period" id="idsCurrentPeriod">--</span>
+                </div>
+
+                <!-- Indicators Cards Grid -->
+                <div class="ids-indicators-grid" id="idsIndicatorsGrid">
+                    <!-- Cards will be populated by JavaScript -->
+                    <div class="ids-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Cargando indicadores...</span>
+                    </div>
+                </div>
+
+                <!-- Detailed Table -->
+                <div class="ids-table-section">
+                    <div class="ids-table-header">
+                        <h3><i class="fas fa-table"></i> Detalle de Indicadores</h3>
+                    </div>
+                    <div class="ids-table-container">
+                        <table class="ids-data-table" id="idsDataTable">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Indicador</th>
+                                    <th>Frecuencia</th>
+                                    <th>Valor</th>
+                                    <th>Tasa</th>
+                                    <th>Estado</th>
+                                    <th>Fuente</th>
+                                </tr>
+                            </thead>
+                            <tbody id="idsTableBody">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Info Note -->
+                <div class="ids-info-note">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <strong>Nota:</strong> Los indicadores SEG-01, SEG-02 y SEG-05 se calculan automáticamente desde
+                        los datos del Forms de Seguridad.
+                        Los indicadores SEG-03 (Percepción) y SEG-04 (Tiempo de Respuesta 911) requieren entrada manual
+                        desde fuentes externas.
                     </div>
                 </div>
             </div>

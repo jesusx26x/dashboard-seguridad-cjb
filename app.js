@@ -4626,3 +4626,712 @@ document.addEventListener('DOMContentLoaded', () => {
     // Small delay to ensure other initializations complete
     setTimeout(initMobileFeatures, 100);
 });
+
+// ============================================
+// IDS INDICATORS MANAGER MODULE (CLIENT-SIDE)
+// ============================================
+
+/**
+ * IDSManager - Handles IDS Security Pillar Indicators
+ * Calculates indicators locally from DataStore data (no server required)
+ * Works with local HTML file opened directly in browser
+ */
+const IDSManager = {
+    // Current state
+    data: null,
+    currentPeriod: 'monthly',
+    isLoading: false,
+
+    // CJB Population parameters
+    population: 50000,
+    families: 14500,
+
+    // Keywords for SEG-02 inference (robbery/theft detection)
+    roboHurtoKeywords: [
+        'robo', 'hurto', 'asalto', 'atraco', 'sustracción', 'sustracci',
+        'cartera', 'celular', 'motocicleta', 'vehículo', 'vehiculo',
+        'despojo', 'arrebato', 'ladrón', 'ladron'
+    ],
+
+    // Keywords for SEG-05 (preventive actions)  
+    preventiveActionKeywords: [
+        'charla', 'capacitación', 'capacitacion', 'prevención', 'prevencion',
+        'taller', 'programa', 'convivencia', 'comunitario', 'educación',
+        'educacion', 'sensibilización', 'sensibilizacion', 'jornada'
+    ],
+
+    // Keywords for SEG-01 (violent crimes with arrests)
+    violentCrimeKeywords: [
+        'arresto', 'detenido', 'detención', 'detencion', 'aprehendido',
+        'aprehensión', 'aprehension', 'capturado', 'remitido'
+    ],
+
+    // Indicator definitions for display
+    indicatorDefs: {
+        'SEG-01': {
+            name: 'Tasa de Delitos Violentos y Homicidios',
+            icon: 'fa-gavel',
+            unit: 'casos',
+            rateUnit: 'por 100,000 hab.',
+            frequency: 'Mensual'
+        },
+        'SEG-02': {
+            name: 'Tasa de Robos y Hurtos',
+            icon: 'fa-mask',
+            unit: 'casos',
+            rateUnit: 'por 100,000 hab.',
+            frequency: 'Mensual'
+        },
+        'SEG-03': {
+            name: 'Percepción de Seguridad Ciudadana',
+            icon: 'fa-poll',
+            unit: '%',
+            rateUnit: 'de encuestados',
+            frequency: 'Trimestral'
+        },
+        'SEG-04': {
+            name: 'Tiempo de Respuesta de Emergencias (911)',
+            icon: 'fa-stopwatch',
+            unit: 'min',
+            rateUnit: 'promedio',
+            frequency: 'Mensual'
+        },
+        'SEG-05': {
+            name: 'Programas de Prevención y Convivencia',
+            icon: 'fa-hands-helping',
+            unit: 'actividades',
+            rateUnit: 'realizadas',
+            frequency: 'Semestral'
+        }
+    },
+
+    /**
+     * Initialize the IDS Manager
+     */
+    init() {
+        console.log('[IDS] Initializing IDS Manager (Client-Side)...');
+
+        // Check if we're on the IDS page
+        const idsPage = document.getElementById('idsPage');
+        if (!idsPage) {
+            console.log('[IDS] IDS page not found, skipping init');
+            return;
+        }
+
+        // Load data when page becomes visible
+        this.setupNavigationListener();
+
+        // Set initial period display
+        this.updatePeriodDisplay();
+
+        console.log('[IDS] Initialized successfully');
+    },
+
+    /**
+     * Setup listener for when IDS page becomes visible
+     */
+    setupNavigationListener() {
+        // Listen for page navigation
+        const navItems = document.querySelectorAll('[data-page="idsPage"]');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Load data when navigating to IDS page
+                setTimeout(() => this.refresh(), 100);
+            });
+        });
+    },
+
+    /**
+     * Check if text contains robbery/theft keywords
+     */
+    isRoboHurto(text) {
+        if (!text) return false;
+        const lowerText = text.toLowerCase();
+        return this.roboHurtoKeywords.some(keyword => lowerText.includes(keyword));
+    },
+
+    /**
+     * Check if text contains preventive action keywords
+     */
+    isPreventiveAction(text) {
+        if (!text) return false;
+        const lowerText = text.toLowerCase();
+        return this.preventiveActionKeywords.some(keyword => lowerText.includes(keyword));
+    },
+
+    /**
+     * Check if text contains violent crime arrest keywords
+     */
+    isViolentCrimeArrest(text) {
+        if (!text) return false;
+        const lowerText = text.toLowerCase();
+        return this.violentCrimeKeywords.some(keyword => lowerText.includes(keyword));
+    },
+
+    /**
+     * Calculate rate per 100,000 inhabitants
+     */
+    calculateRate(count) {
+        return (count / this.population) * 100000;
+    },
+
+    /**
+     * Get current period date range
+     */
+    getPeriodRange() {
+        const now = new Date();
+        let startDate, endDate;
+
+        switch (this.currentPeriod) {
+            case 'monthly':
+                startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+                endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+                break;
+            case 'quarterly':
+                const quarter = Math.floor(now.getMonth() / 3);
+                startDate = new Date(now.getFullYear(), quarter * 3, 1);
+                endDate = new Date(now.getFullYear(), (quarter + 1) * 3, 0);
+                break;
+            case 'semester':
+                const semester = now.getMonth() < 6 ? 0 : 6;
+                startDate = new Date(now.getFullYear(), semester, 1);
+                endDate = new Date(now.getFullYear(), semester + 6, 0);
+                break;
+            case 'annual':
+                startDate = new Date(now.getFullYear(), 0, 1);
+                endDate = new Date(now.getFullYear(), 11, 31);
+                break;
+            default:
+                startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+                endDate = now;
+        }
+
+        return { startDate, endDate };
+    },
+
+    /**
+     * Filter data by current period
+     */
+    filterByPeriod(data) {
+        const { startDate, endDate } = this.getPeriodRange();
+        return data.filter(row => {
+            if (!row.date) return false;
+            const rowDate = row.date instanceof Date ? row.date : new Date(row.date);
+            return rowDate >= startDate && rowDate <= endDate;
+        });
+    },
+
+    /**
+     * Calculate all IDS indicators from DataStore data
+     */
+    calculateIndicators() {
+        // Get data from DataStore
+        let rawData = DataStore.rawData || [];
+
+        // If no data, try filteredData
+        if (rawData.length === 0 && DataStore.filteredData) {
+            rawData = DataStore.filteredData;
+        }
+
+        console.log(`[IDS] Calculating indicators from ${rawData.length} records`);
+
+        // Filter by current period
+        const periodData = this.filterByPeriod(rawData);
+        console.log(`[IDS] Period data: ${periodData.length} records`);
+
+        // Calculate SEG-01: Violent Crimes with Arrests
+        // Count incidents with "Seguridad CJB" type that have arrest/detention actions
+        const seg01Count = periodData.filter(row => {
+            const tipo = row.type || row.Tipo || '';
+            const acciones = row.actions || row.Accion || '';
+            const isSecurityType = tipo.toLowerCase().includes('seguridad');
+            const hasArrest = this.isViolentCrimeArrest(acciones);
+            return isSecurityType && hasArrest;
+        }).length;
+
+        // Calculate SEG-02: Robbery/Theft
+        // Count incidents where narrative mentions robbery/theft keywords
+        const seg02Count = periodData.filter(row => {
+            const narrative = row.narrative || row.Narrativa || '';
+            const tipo = row.type || row.Tipo || '';
+            return this.isRoboHurto(narrative) || this.isRoboHurto(tipo);
+        }).length;
+
+        // SEG-03: Perception - Requires external survey data (pending)
+        const seg03Value = null;
+
+        // SEG-04: 911 Response Time - Requires external data (pending)
+        const seg04Value = null;
+
+        // Calculate SEG-05: Prevention Programs
+        // Count incidents with preventive actions
+        const seg05Count = periodData.filter(row => {
+            const acciones = row.actions || row.Accion || '';
+            return this.isPreventiveAction(acciones);
+        }).length;
+
+        // Build indicators array
+        const indicators = [
+            {
+                code: 'SEG-01',
+                name: this.indicatorDefs['SEG-01'].name,
+                value: seg01Count,
+                rate: this.calculateRate(seg01Count),
+                frequency: this.indicatorDefs['SEG-01'].frequency,
+                status: seg01Count > 0 ? 'Completo' : 'Incompleto',
+                source: 'Forms Seguridad (Auto)'
+            },
+            {
+                code: 'SEG-02',
+                name: this.indicatorDefs['SEG-02'].name,
+                value: seg02Count,
+                rate: this.calculateRate(seg02Count),
+                frequency: this.indicatorDefs['SEG-02'].frequency,
+                status: seg02Count > 0 ? 'Completo' : 'Incompleto',
+                source: 'Inferido de Narrativa'
+            },
+            {
+                code: 'SEG-03',
+                name: this.indicatorDefs['SEG-03'].name,
+                value: seg03Value !== null ? seg03Value : '--',
+                rate: null,
+                frequency: this.indicatorDefs['SEG-03'].frequency,
+                status: 'Pendiente',
+                source: 'Encuesta Externa'
+            },
+            {
+                code: 'SEG-04',
+                name: this.indicatorDefs['SEG-04'].name,
+                value: seg04Value !== null ? seg04Value : '--',
+                rate: null,
+                frequency: this.indicatorDefs['SEG-04'].frequency,
+                status: 'Pendiente',
+                source: 'Datos 911'
+            },
+            {
+                code: 'SEG-05',
+                name: this.indicatorDefs['SEG-05'].name,
+                value: seg05Count,
+                rate: null,
+                frequency: this.indicatorDefs['SEG-05'].frequency,
+                status: seg05Count > 0 ? 'Completo' : 'Incompleto',
+                source: 'Forms Seguridad (Auto)'
+            }
+        ];
+
+        // Calculate summary
+        const complete = indicators.filter(i => i.status === 'Completo').length;
+        const incomplete = indicators.filter(i => i.status === 'Incompleto').length;
+        const pending = indicators.filter(i => i.status === 'Pendiente').length;
+
+        return {
+            success: true,
+            timestamp: new Date().toISOString(),
+            period: this.currentPeriod,
+            population: this.population,
+            families: this.families,
+            totalRecords: periodData.length,
+            indicators: indicators,
+            summary: {
+                total: indicators.length,
+                complete: complete,
+                incomplete: incomplete,
+                pending: pending
+            }
+        };
+    },
+
+    /**
+     * Refresh/recalculate indicators from DataStore
+     */
+    refresh() {
+        if (this.isLoading) return;
+
+        const grid = document.getElementById('idsIndicatorsGrid');
+        const refreshBtn = document.getElementById('btnRefreshIDS');
+
+        try {
+            this.isLoading = true;
+
+            // Show loading state
+            if (refreshBtn) {
+                refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cargando...';
+                refreshBtn.disabled = true;
+            }
+
+            if (grid) {
+                grid.innerHTML = `
+                    <div class="ids-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Calculando indicadores...</span>
+                    </div>
+                `;
+            }
+
+            // Small delay for UI feedback
+            setTimeout(() => {
+                try {
+                    // Calculate indicators from local DataStore
+                    this.data = this.calculateIndicators();
+
+                    if (!this.data.success) {
+                        throw new Error('Error al calcular indicadores');
+                    }
+
+                    // Render everything
+                    this.renderIndicatorCards();
+                    this.renderSummary();
+                    this.renderDataTable();
+                    this.updateLastUpdateTime();
+
+                    // Success feedback
+                    if (refreshBtn) {
+                        refreshBtn.innerHTML = '<i class="fas fa-check"></i> Actualizado';
+                        setTimeout(() => {
+                            refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Actualizar';
+                            refreshBtn.disabled = false;
+                        }, 2000);
+                    }
+
+                    const msg = this.data.totalRecords > 0
+                        ? `Indicadores IDS calculados (${this.data.totalRecords} registros)`
+                        : 'Indicadores IDS - Sin datos para el período';
+                    showToast(msg, 'success');
+
+                } catch (calcError) {
+                    console.error('[IDS] Calculation error:', calcError);
+
+                    if (grid) {
+                        grid.innerHTML = `
+                            <div class="ids-loading" style="color: var(--accent-red);">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Error: ${calcError.message}</span>
+                            </div>
+                        `;
+                    }
+
+                    if (refreshBtn) {
+                        refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Actualizar';
+                        refreshBtn.disabled = false;
+                    }
+
+                    showToast(`Error: ${calcError.message}`, 'error');
+                }
+
+                this.isLoading = false;
+
+            }, 300);
+
+        } catch (error) {
+            console.error('[IDS] Error:', error);
+            this.isLoading = false;
+
+            if (refreshBtn) {
+                refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Actualizar';
+                refreshBtn.disabled = false;
+            }
+        }
+    },
+
+    /**
+     * Render indicator cards in the grid
+     */
+    renderIndicatorCards() {
+        const grid = document.getElementById('idsIndicatorsGrid');
+        if (!grid || !this.data?.indicators) return;
+
+        const html = this.data.indicators.map(ind => {
+            const def = this.indicatorDefs[ind.code] || {};
+            const statusClass = ind.status.toLowerCase();
+            const statusIcon = ind.status === 'Completo' ? 'fa-check-circle' :
+                ind.status === 'Incompleto' ? 'fa-exclamation-circle' : 'fa-clock';
+
+            // Format value display
+            let valueDisplay = ind.value;
+            if (typeof ind.value === 'number') {
+                valueDisplay = ind.value.toLocaleString('es-DO');
+            }
+
+            // Format rate display
+            let rateDisplay = '';
+            if (ind.rate !== null && ind.rate !== undefined) {
+                rateDisplay = `Tasa: <strong>${ind.rate.toFixed(2)}</strong> ${def.rateUnit || ''}`;
+            } else if (ind.status === 'Pendiente') {
+                rateDisplay = 'Requiere entrada manual';
+            }
+
+            return `
+                <div class="ids-indicator-card">
+                    <div class="ids-indicator-header">
+                        <span class="ids-code">${ind.code}</span>
+                        <span class="ids-frequency">${ind.frequency}</span>
+                    </div>
+                    <div class="ids-indicator-body">
+                        <div class="ids-indicator-name">
+                            <i class="fas ${def.icon || 'fa-chart-line'}"></i> ${ind.name}
+                        </div>
+                        <div class="ids-indicator-value">
+                            <span class="ids-value-number">${valueDisplay}</span>
+                            <span class="ids-value-unit">${def.unit || ''}</span>
+                        </div>
+                        <div class="ids-indicator-rate">${rateDisplay}</div>
+                    </div>
+                    <div class="ids-indicator-footer">
+                        <span class="ids-status ${statusClass}">
+                            <i class="fas ${statusIcon}"></i> ${ind.status}
+                        </span>
+                        <span class="ids-source">${ind.source}</span>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        grid.innerHTML = html;
+    },
+
+    /**
+     * Render summary KPIs
+     */
+    renderSummary() {
+        if (!this.data?.summary) return;
+
+        const { total, complete, incomplete, pending } = this.data.summary;
+
+        const totalEl = document.getElementById('idsTotalIndicators');
+        const completeEl = document.getElementById('idsCompleteCount');
+        const incompleteEl = document.getElementById('idsIncompleteCount');
+        const pendingEl = document.getElementById('idsPendingCount');
+
+        if (totalEl) totalEl.textContent = total;
+        if (completeEl) completeEl.textContent = complete;
+        if (incompleteEl) incompleteEl.textContent = incomplete;
+        if (pendingEl) pendingEl.textContent = pending;
+    },
+
+    /**
+     * Render data table
+     */
+    renderDataTable() {
+        const tbody = document.getElementById('idsTableBody');
+        if (!tbody || !this.data?.indicators) return;
+
+        const html = this.data.indicators.map(ind => {
+            const statusClass = ind.status.toLowerCase();
+
+            // Format value
+            let valueStr = ind.value;
+            if (typeof ind.value === 'number') {
+                valueStr = ind.value.toLocaleString('es-DO');
+            }
+
+            // Format rate
+            let rateStr = '--';
+            if (ind.rate !== null && ind.rate !== undefined) {
+                rateStr = ind.rate.toFixed(2);
+            }
+
+            return `
+                <tr>
+                    <td><strong style="color: var(--primary);">${ind.code}</strong></td>
+                    <td>${ind.name}</td>
+                    <td>${ind.frequency}</td>
+                    <td>${valueStr}</td>
+                    <td>${rateStr}</td>
+                    <td><span class="ids-status ${statusClass}"><i class="fas ${ind.status === 'Completo' ? 'fa-check-circle' : ind.status === 'Incompleto' ? 'fa-exclamation-circle' : 'fa-clock'}"></i> ${ind.status}</span></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">${ind.source}</td>
+                </tr>
+            `;
+        }).join('');
+
+        tbody.innerHTML = html;
+    },
+
+    /**
+     * Update last update time display
+     */
+    updateLastUpdateTime() {
+        const el = document.getElementById('idsLastUpdate');
+        if (el && this.data?.timestamp) {
+            const date = new Date(this.data.timestamp);
+            el.textContent = date.toLocaleString('es-DO', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        // Update population display
+        const popEl = document.getElementById('idsPopulation');
+        if (popEl) {
+            popEl.textContent = this.population.toLocaleString('es-DO');
+        }
+    },
+
+    /**
+     * Set current period filter
+     */
+    setPeriod(period) {
+        this.currentPeriod = period;
+
+        // Update button states
+        document.querySelectorAll('.ids-period-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.period === period);
+        });
+
+        this.updatePeriodDisplay();
+
+        // Refresh with new period
+        this.refresh();
+    },
+
+    /**
+     * Update period display text
+     */
+    updatePeriodDisplay() {
+        const el = document.getElementById('idsCurrentPeriod');
+        if (!el) return;
+
+        const now = new Date();
+        const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+        let periodText = '';
+        switch (this.currentPeriod) {
+            case 'monthly':
+                periodText = `${monthNames[now.getMonth()]} ${now.getFullYear()}`;
+                break;
+            case 'quarterly':
+                const quarter = Math.floor(now.getMonth() / 3) + 1;
+                periodText = `Q${quarter} ${now.getFullYear()}`;
+                break;
+            case 'semester':
+                const semester = now.getMonth() < 6 ? '1er' : '2do';
+                periodText = `${semester} Semestre ${now.getFullYear()}`;
+                break;
+            case 'annual':
+                periodText = `Año ${now.getFullYear()}`;
+                break;
+        }
+
+        el.textContent = periodText;
+    },
+
+    /**
+     * Export IDS indicators to Excel (client-side using SheetJS)
+     */
+    exportToExcel() {
+        const exportBtn = document.getElementById('btnExportIDS');
+
+        try {
+            if (exportBtn) {
+                exportBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Exportando...';
+                exportBtn.disabled = true;
+            }
+
+            showToast('Generando archivo Excel...', 'info');
+
+            // Check if we have data
+            if (!this.data || !this.data.indicators) {
+                throw new Error('No hay datos para exportar. Actualice primero.');
+            }
+
+            // Check if XLSX library is available
+            if (typeof XLSX === 'undefined') {
+                // Fallback: Export as CSV
+                this.exportToCSV();
+                return;
+            }
+
+            // Create workbook
+            const wb = XLSX.utils.book_new();
+
+            // Create indicators sheet data
+            const wsData = [
+                ['Código', 'Indicador', 'Frecuencia', 'Valor', 'Tasa', 'Estado', 'Fuente'],
+                ...this.data.indicators.map(ind => [
+                    ind.code,
+                    ind.name,
+                    ind.frequency,
+                    ind.value,
+                    ind.rate !== null ? ind.rate.toFixed(2) : '--',
+                    ind.status,
+                    ind.source
+                ])
+            ];
+
+            // Add summary row
+            wsData.push([]);
+            wsData.push(['Resumen']);
+            wsData.push(['Total Indicadores', this.data.summary.total]);
+            wsData.push(['Completos', this.data.summary.complete]);
+            wsData.push(['Incompletos', this.data.summary.incomplete]);
+            wsData.push(['Pendientes', this.data.summary.pending]);
+            wsData.push([]);
+            wsData.push(['Población CJB', this.population]);
+            wsData.push(['Fecha de Exportación', new Date().toLocaleString('es-DO')]);
+
+            const ws = XLSX.utils.aoa_to_sheet(wsData);
+            XLSX.utils.book_append_sheet(wb, ws, 'Indicadores IDS');
+
+            // Generate file and download
+            XLSX.writeFile(wb, `IDS_Seguridad_${new Date().toISOString().slice(0, 10)}.xlsx`);
+
+            showToast('Archivo Excel descargado', 'success');
+
+        } catch (error) {
+            console.error('[IDS] Export error:', error);
+            showToast(`Error al exportar: ${error.message}`, 'error');
+        } finally {
+            if (exportBtn) {
+                exportBtn.innerHTML = '<i class="fas fa-file-excel"></i> Exportar Excel';
+                exportBtn.disabled = false;
+            }
+        }
+    },
+
+    /**
+     * Fallback export to CSV if XLSX not available
+     */
+    exportToCSV() {
+        if (!this.data || !this.data.indicators) {
+            showToast('No hay datos para exportar', 'error');
+            return;
+        }
+
+        // Build CSV content
+        let csv = 'Código,Indicador,Frecuencia,Valor,Tasa,Estado,Fuente\n';
+
+        this.data.indicators.forEach(ind => {
+            const rate = ind.rate !== null ? ind.rate.toFixed(2) : '--';
+            csv += `"${ind.code}","${ind.name}","${ind.frequency}","${ind.value}","${rate}","${ind.status}","${ind.source}"\n`;
+        });
+
+        csv += '\n';
+        csv += `Población CJB,${this.population}\n`;
+        csv += `Fecha,${new Date().toLocaleString('es-DO')}\n`;
+
+        // Download CSV
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `IDS_Seguridad_${new Date().toISOString().slice(0, 10)}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        showToast('Archivo CSV descargado', 'success');
+    }
+};
+
+// Export IDSManager globally
+window.IDSManager = IDSManager;
+
+// Initialize IDS Manager when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => IDSManager.init(), 200);
+});
+
