@@ -238,6 +238,56 @@ const DataStore = {
             groups[key] = (groups[key] || 0) + 1;
         });
         return Object.entries(groups).sort((a, b) => a[0].localeCompare(b[0]));
+    },
+
+    /**
+     * Load data from data.json file (auto-load on startup)
+     * Works with local HTML file - fetches from same directory
+     */
+    async loadFromJSON() {
+        try {
+            showLoading(true);
+            console.log('[DataStore] Loading data from data.json...');
+
+            const response = await fetch('data.json');
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: No se pudo cargar data.json`);
+            }
+
+            const json = await response.json();
+
+            if (!json.data || !json.data.length) {
+                throw new Error('data.json está vacío o no tiene datos');
+            }
+
+            console.log(`[DataStore] Loaded ${json.data.length} records from data.json`);
+
+            // Normalize the data using FileHandler's normalize function
+            const normalized = FileHandler.normalizeData(json.data);
+
+            // Load into DataStore
+            this.load(normalized);
+
+            return { success: true, count: normalized.length };
+
+        } catch (error) {
+            console.error('[DataStore] Error loading data.json:', error);
+            showLoading(false);
+            return { success: false, error: error.message };
+        }
+    },
+
+    /**
+     * Refresh data by reloading from data.json
+     */
+    async refreshData() {
+        const result = await this.loadFromJSON();
+        if (result.success) {
+            showToast(`Datos actualizados: ${result.count} registros`, 'success');
+        } else {
+            showToast(`Error al actualizar: ${result.error}`, 'error');
+        }
+        return result;
     }
 };
 
@@ -2403,12 +2453,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     FileParser.init();
     console.log('Dashboard CJB v3.0 - Power BI Edition cargado');
 
-    // Try auto-load from SharePoint if configured
-    const loaded = await loadFromSharePoint();
+    // Try auto-load from data.json (primary method for local HTML)
+    const result = await DataStore.loadFromJSON();
 
-    if (!loaded) {
-        // Show manual upload section
-        document.getElementById('uploadSection').style.display = 'flex';
+    if (!result.success) {
+        console.log('[Init] data.json failed, trying SharePoint...');
+        // Fallback: Try SharePoint if configured
+        const loaded = await loadFromSharePoint();
+
+        if (!loaded) {
+            // Show manual upload section
+            document.getElementById('uploadSection').style.display = 'flex';
+        }
     }
 });
 
