@@ -41,10 +41,13 @@ try {
     const worksheet = workbook.Sheets[sheetName];
 
     // Leer como array de arrays para tener control total
+    // cellDates: true convierte las celdas de fecha a objetos Date de JS
     const rawData = XLSX.utils.sheet_to_json(worksheet, {
         header: 1,
         raw: false,
-        defval: ''
+        defval: '',
+        cellDates: true,
+        dateNF: 'dd/mm/yyyy' // Hint para formateo si fuera necesario
     });
 
     console.log(`📊 Filas crudas encontradas: ${rawData.length}`);
@@ -58,16 +61,35 @@ try {
     const headers = rawData[0];
     const rows = rawData.slice(1);
 
+    // Helper para formatear fechas a DD/MM/YYYY HH:mm
+    const formatDate = (val) => {
+        if (val instanceof Date) {
+            const day = val.getDate().toString().padStart(2, '0');
+            const month = (val.getMonth() + 1).toString().padStart(2, '0');
+            const year = val.getFullYear();
+            const hours = val.getHours().toString().padStart(2, '0');
+            const minutes = val.getMinutes().toString().padStart(2, '0');
+            return `${day}/${month}/${year} ${hours}:${minutes}`;
+        }
+        return val; // Devolver tal cual si no es fecha
+    };
+
     // Convertir a objetos
     const data = rows.map(row => {
         const obj = {};
         headers.forEach((header, index) => {
-            // Usar el valor o string vacío si no existe
-            obj[header] = row[index] || '';
+            let val = row[index];
+            // Si es null/undefined, usar string vacio
+            if (val === null || val === undefined) val = '';
+
+            // Formatear si es fecha
+            val = formatDate(val);
+
+            obj[header] = val;
         });
         return obj;
     }).filter(obj => {
-        // Filtrar filas totalmente vacías (si todos los valores son vacíos)
+        // Filtrar filas totalmente vacías
         return Object.values(obj).some(val => val !== '' && val !== null && val !== undefined);
     });
 
