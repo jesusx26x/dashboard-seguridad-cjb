@@ -10,8 +10,8 @@ const XLSX = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 
-// Ruta del archivo Excel en OneDrive sincronizado
-const EXCEL_PATH = 'C:\\Users\\Lenovo\\OneDrive - Fideicomiso VBCRD\\Data Formularios\\Registro Rápido de Incidentes (SEGURIDAD).xlsx';
+// Ruta del archivo Excel local (en el directorio del proyecto)
+const EXCEL_PATH = path.join(__dirname, 'Registro Rápido de Incidentes (SEGURIDAD).xlsx');
 
 // Ruta donde guardar el JSON
 const OUTPUT_PATH = path.join(__dirname, 'data.json');

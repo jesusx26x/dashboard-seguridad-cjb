@@ -263,7 +263,7 @@ const DataStore = {
             console.log(`[DataStore] Loaded ${json.data.length} records from data.json`);
 
             // Normalize the data using FileHandler's normalize function
-            const normalized = FileHandler.normalizeData(json.data);
+            const normalized = FileParser.normalizeData(json.data);
 
             // Load into DataStore
             this.load(normalized);
@@ -2439,6 +2439,70 @@ async function tryLoadFromSharePoint() {
             console.log('[SharePoint] CORS blocked the request');
         }
         return false;
+    }
+}
+
+// ============================================
+// REFRESH BUTTON HANDLER
+// ============================================
+
+/**
+ * refreshDataFromAPI - Called by the "Actualizar" button in the header.
+ * Re-reads the latest data.json (generated from Excel) and reloads the dashboard.
+ * To update data.json from the Excel file, run:  node export-data.js
+ */
+async function refreshDataFromAPI() {
+    const btn = document.getElementById('btnRefreshData');
+    const icon = btn ? btn.querySelector('i') : null;
+
+    try {
+        // Visual feedback: spinning icon
+        if (icon) {
+            icon.className = 'fas fa-spinner fa-spin';
+        }
+        if (btn) btn.disabled = true;
+
+        showToast('🔄 Actualizando datos...', 'info');
+        showLoading(true);
+
+        // Try loading fresh data.json with cache-busting
+        const cacheBuster = '?t=' + Date.now();
+        const response = await fetch('data.json' + cacheBuster);
+
+        if (!response.ok) {
+            throw new Error(`No se pudo cargar data.json (HTTP ${response.status})`);
+        }
+
+        const json = await response.json();
+
+        if (!json.data || !json.data.length) {
+            throw new Error('data.json está vacío o no tiene datos');
+        }
+
+        console.log(`[Refresh] Loaded ${json.data.length} records from data.json`);
+
+        // Normalize and load into DataStore
+        const normalized = FileParser.normalizeData(json.data);
+        DataStore.load(normalized);
+
+        // Show success with timestamp
+        const updateDate = json.lastUpdate ? new Date(json.lastUpdate) : new Date();
+        const formattedDate = updateDate.toLocaleDateString('es-DO', {
+            day: '2-digit', month: '2-digit', year: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        });
+        showToast(`✅ Datos actualizados: ${json.data.length} registros (${formattedDate})`, 'success');
+
+    } catch (error) {
+        console.error('[Refresh] Error:', error);
+        showLoading(false);
+        showToast(`❌ Error al actualizar: ${error.message}`, 'error');
+    } finally {
+        // Restore button
+        if (icon) {
+            icon.className = 'fas fa-sync-alt';
+        }
+        if (btn) btn.disabled = false;
     }
 }
 
