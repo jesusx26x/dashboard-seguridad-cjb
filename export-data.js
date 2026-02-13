@@ -40,10 +40,35 @@ try {
     const sheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[sheetName];
 
-    // Convertir a JSON
-    const data = XLSX.utils.sheet_to_json(worksheet, {
+    // Leer como array de arrays para tener control total
+    const rawData = XLSX.utils.sheet_to_json(worksheet, {
+        header: 1,
         raw: false,
         defval: ''
+    });
+
+    console.log(`📊 Filas crudas encontradas: ${rawData.length}`);
+
+    if (rawData.length < 2) {
+        console.error('❌ Error: El archivo parece estar vacío o solo tiene cabecera');
+        process.exit(1);
+    }
+
+    // Extraer cabeceras y datos
+    const headers = rawData[0];
+    const rows = rawData.slice(1);
+
+    // Convertir a objetos
+    const data = rows.map(row => {
+        const obj = {};
+        headers.forEach((header, index) => {
+            // Usar el valor o string vacío si no existe
+            obj[header] = row[index] || '';
+        });
+        return obj;
+    }).filter(obj => {
+        // Filtrar filas totalmente vacías (si todos los valores son vacíos)
+        return Object.values(obj).some(val => val !== '' && val !== null && val !== undefined);
     });
 
     console.log(`✅ ${data.length} registros leídos`);
