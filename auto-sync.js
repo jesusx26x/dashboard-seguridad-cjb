@@ -21,12 +21,25 @@ const LOCAL_EXCEL_PATH = path.join(__dirname, 'Registro Rápido de Incidentes (S
 const SHAREPOINT_URL = 'https://vbcrd-my.sharepoint.com/:x:/g/personal/jesusdelossantos_vbc_gob_do/IQCbhrkDR0u2Q5KenioSh3eeAczGCtQiJzb22PSfPfTNqLo?e=DJigW4&download=1';
 const OUTPUT_PATH = path.join(__dirname, 'data.json');
 const TEMP_EXCEL = path.join(__dirname, 'temp-sharepoint.xlsx');
-const SYNC_INTERVAL = 2 * 60 * 60 * 1000; // 2 horas en milisegundos
+const SYNC_INTERVAL = 5 * 60 * 1000; // 5 minutos en milisegundos
 const USE_LOCAL_FILE = true; // Usar archivo local en vez de descargar de SharePoint
 
 
 let lastRecordCount = 0;
 let syncInProgress = false;
+
+// Helper para formatear fechas a DD/MM/YYYY HH:mm
+const formatDate = (val) => {
+    if (val instanceof Date) {
+        const day = val.getDate().toString().padStart(2, '0');
+        const month = (val.getMonth() + 1).toString().padStart(2, '0');
+        const year = val.getFullYear();
+        const hours = val.getHours().toString().padStart(2, '0');
+        const minutes = val.getMinutes().toString().padStart(2, '0');
+        return `${day}/${month}/${year} ${hours}:${minutes}`;
+    }
+    return val;
+};
 
 console.log('');
 console.log('==========================================');
@@ -99,11 +112,39 @@ async function syncFromSharePoint() {
             excelPath = TEMP_EXCEL;
         }
 
-        // Leer Excel
+        // Leer Excel con lectura robusta (manual row mapping)
         const workbook = XLSX.readFile(excelPath);
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
-        const data = XLSX.utils.sheet_to_json(worksheet, { raw: false, defval: '' });
+
+        // Leer como array de arrays para control total
+        const rawData = XLSX.utils.sheet_to_json(worksheet, {
+            header: 1,
+            raw: false,
+            defval: '',
+            cellDates: true
+        });
+
+        if (rawData.length < 2) {
+            throw new Error('Excel vacío o sin datos');
+        }
+
+        // Extraer cabeceras y mapear filas a objetos
+        const headers = rawData[0];
+        const rows = rawData.slice(1);
+
+        const data = rows.map(row => {
+            const obj = {};
+            headers.forEach((header, index) => {
+                let val = row[index];
+                if (val === null || val === undefined) val = '';
+                val = formatDate(val);
+                obj[header] = val;
+            });
+            return obj;
+        }).filter(obj => {
+            return Object.values(obj).some(val => val !== '' && val !== null && val !== undefined);
+        });
 
         console.log(`   ✅ ${data.length} registros leídos`);
 
@@ -121,7 +162,7 @@ async function syncFromSharePoint() {
 
         // Crear JSON
         const output = {
-            source: 'SharePoint',
+            source: 'auto-sync',
             lastUpdate: new Date().toISOString(),
             count: data.length,
             data: data
