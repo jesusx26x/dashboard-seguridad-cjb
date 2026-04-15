@@ -17,7 +17,7 @@ const XLSX = require('xlsx');
 
 // Configuración
 // SharePoint URL requiere autenticación - usar archivo local sincronizado via OneDrive
-const LOCAL_EXCEL_PATH = path.join(__dirname, 'Registro Rápido de Incidentes (SEGURIDAD).xlsx');
+const LOCAL_EXCEL_PATH = 'C:\\Users\\Lenovo\\OneDrive - Fideicomiso VBCRD\\Data Formularios\\Registro Rápido de Incidentes (SEGURIDAD).xlsx';
 const SHAREPOINT_URL = 'https://vbcrd-my.sharepoint.com/:x:/g/personal/jesusdelossantos_vbc_gob_do/IQCbhrkDR0u2Q5KenioSh3eeAczGCtQiJzb22PSfPfTNqLo?e=DJigW4&download=1';
 const OUTPUT_PATH = path.join(__dirname, 'data.json');
 const TEMP_EXCEL = path.join(__dirname, 'temp-sharepoint.xlsx');
