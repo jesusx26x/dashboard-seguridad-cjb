@@ -16,8 +16,8 @@ const { exec } = require('child_process');
 const XLSX = require('xlsx');
 
 // Configuración
-// SharePoint URL requiere autenticación - usar archivo local sincronizado via OneDrive
-const LOCAL_EXCEL_PATH = 'C:\\Users\\Lenovo\\OneDrive - Fideicomiso VBCRD\\Data Formularios\\Registro Rápido de Incidentes (SEGURIDAD).xlsx';
+// Usar archivo local en la carpeta del proyecto
+const LOCAL_EXCEL_PATH = path.join(__dirname, 'Registro Rápido de Incidentes (SEGURIDAD).xlsx');
 const SHAREPOINT_URL = 'https://vbcrd-my.sharepoint.com/:x:/g/personal/jesusdelossantos_vbc_gob_do/IQCbhrkDR0u2Q5KenioSh3eeAczGCtQiJzb22PSfPfTNqLo?e=DJigW4&download=1';
 const OUTPUT_PATH = path.join(__dirname, 'data.json');
 const TEMP_EXCEL = path.join(__dirname, 'temp-sharepoint.xlsx');
@@ -169,12 +169,14 @@ async function syncFromSharePoint() {
         };
 
         fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2), 'utf8');
-        console.log(`   ✅ JSON exportado`);
+        const DATA_JS_PATH = path.join(__dirname, 'data.js');
+        fs.writeFileSync(DATA_JS_PATH, `window.EMBEDDED_DATA = ${JSON.stringify(output, null, 2)};`, 'utf8');
+        console.log(`   ✅ JSON y data.js exportados`);
 
         // Git add, commit, push
         console.log(`   📤 Subiendo a GitHub...`);
 
-        await execPromise('git add data.json');
+        await execPromise('git add data.json data.js');
         await execPromise(`git commit -m "auto-sync: ${data.length} registros - ${new Date().toLocaleString('es-DO')}"`);
         await execPromise('git push origin main');
 

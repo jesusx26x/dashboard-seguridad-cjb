@@ -105,14 +105,19 @@ try {
     // Guardar como JSON
     fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2), 'utf8');
 
+    // Guardar como JS para carga embedded (evita CORS en protocolo file://)
+    const JS_OUTPUT_PATH = path.join(__dirname, 'data.js');
+    fs.writeFileSync(JS_OUTPUT_PATH, `window.EMBEDDED_DATA = ${JSON.stringify(output, null, 2)};`, 'utf8');
+
     console.log('');
-    console.log('✅ Archivo exportado exitosamente:');
+    console.log('✅ Archivos exportados exitosamente:');
     console.log('   ', OUTPUT_PATH);
+    console.log('   ', JS_OUTPUT_PATH);
     console.log('');
     console.log('==========================================');
     console.log('  PRÓXIMOS PASOS:');
     console.log('==========================================');
-    console.log('  1. git add data.json');
+    console.log('  1. git add data.json data.js');
     console.log('  2. git commit -m "Actualizar datos"');
     console.log('  3. git push');
     console.log('');

@@ -247,20 +247,53 @@ const DataStore = {
     async loadFromJSON() {
         try {
             showLoading(true);
-            console.log('[DataStore] Loading data from data.json...');
+            console.log('[DataStore] Loading data...');
 
-            const response = await fetch('data.json');
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: No se pudo cargar data.json`);
+            let json = null;
+
+            // Priority 1: Check for EMBEDDED_DATA from data.js
+            if (window.EMBEDDED_DATA && window.EMBEDDED_DATA.data && window.EMBEDDED_DATA.data.length) {
+                console.log(`[DataStore] Loaded ${window.EMBEDDED_DATA.data.length} records from window.EMBEDDED_DATA`);
+                json = window.EMBEDDED_DATA;
+            } else {
+                // Priority 2: Fetch local data.json
+                try {
+                    const response = await fetch('data.json?t=' + Date.now()); // Anti-cache
+                    if (response.ok) {
+                        json = await response.json();
+                    }
+                } catch (fetchErr) {
+                    console.warn('[DataStore] fetch data.json failed (e.g. file:// protocol):', fetchErr.message);
+                }
+
+                // Priority 3: Fallback to GitHub raw
+                if (!json || !json.data || !json.data.length) {
+                    try {
+                        const ghUrl = 'https://raw.githubusercontent.com/jesusx26x/dashboard-seguridad-cjb/main/data.json?t=' + Date.now();
+                        const ghRes = await fetch(ghUrl);
+                        if (ghRes.ok) {
+                            json = await ghRes.json();
+                        }
+                    } catch (ghErr) {
+                        console.warn('[DataStore] fetch GitHub raw failed:', ghErr.message);
+                    }
+                }
             }
 
-            const json = await response.json();
-
-            if (!json.data || !json.data.length) {
-                throw new Error('data.json está vacío o no tiene datos');
+            if (!json || !json.data || !json.data.length) {
+                throw new Error('No se pudo cargar la base de datos de incidentes');
             }
 
-            console.log(`[DataStore] Loaded ${json.data.length} records from data.json`);
+            console.log(`[DataStore] Loaded ${json.data.length} records`);
+
+            // Update Live status in UI
+            if (json.lastUpdate) {
+                const updateDate = new Date(json.lastUpdate);
+                const liveStatusText = document.getElementById('liveStatusText');
+                if (liveStatusText) {
+                    liveStatusText.textContent = 'En Vivo: ' + updateDate.toLocaleTimeString('es-DO', { hour: '2-digit', minute: '2-digit' });
+                }
+            }
 
             // Normalize the data using FileHandler's normalize function
             const normalized = FileParser.normalizeData(json.data);
@@ -268,10 +301,10 @@ const DataStore = {
             // Load into DataStore
             this.load(normalized);
 
-            return { success: true, count: normalized.length };
+            return { success: true, count: normalized.length, lastUpdate: json.lastUpdate };
 
         } catch (error) {
-            console.error('[DataStore] Error loading data.json:', error);
+            console.error('[DataStore] Error loading data:', error);
             showLoading(false);
             return { success: false, error: error.message };
         }
@@ -2278,27 +2311,29 @@ const GITHUB_DATA_URL = 'https://raw.githubusercontent.com/jesusx26x/dashboard-s
 async function loadFromSharePoint() {
     console.log('[AutoLoad] Starting auto-load sequence...');
 
-    // Detect if running on GitHub Pages
-    const isGitHubPages = window.location.hostname.includes('github.io');
-
-    // STEP 1: If on GitHub Pages, load from data.json
-    if (isGitHubPages) {
-        console.log('[AutoLoad] Detected GitHub Pages environment');
-        const ghLoaded = await tryLoadFromGitHub();
-        if (ghLoaded) {
-            console.log('[AutoLoad] Data loaded from GitHub data.json');
-            return true;
-        }
+    // STEP 1: Check embedded data from data.js
+    if (window.EMBEDDED_DATA && window.EMBEDDED_DATA.data && window.EMBEDDED_DATA.data.length) {
+        console.log(`[AutoLoad] Using EMBEDDED_DATA (${window.EMBEDDED_DATA.data.length} records)`);
+        const normalized = FileParser.normalizeData(window.EMBEDDED_DATA.data);
+        DataStore.load(normalized);
+        return true;
     }
 
-    // STEP 2: Try local Node.js API (for localhost development)
+    // STEP 2: Try GitHub raw data
+    const ghLoaded = await tryLoadFromGitHub();
+    if (ghLoaded) {
+        console.log('[AutoLoad] Data loaded from GitHub data.json');
+        return true;
+    }
+
+    // STEP 3: Try local Node.js API (for localhost development)
     const apiLoaded = await tryLoadFromLocalAPI();
     if (apiLoaded) {
         console.log('[AutoLoad] Data loaded from local API');
         return true;
     }
 
-    // STEP 3: Fallback to SharePoint if configured
+    // STEP 4: Fallback to SharePoint if configured
     if (typeof CONFIG !== 'undefined' && CONFIG.AUTO_LOAD_FROM_CLOUD && CONFIG.SHAREPOINT_URL) {
         const spLoaded = await tryLoadFromSharePoint();
         if (spLoaded) {
@@ -2515,7 +2550,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     Navigation.init();
     TableManager.init();
     FileParser.init();
-    console.log('Dashboard CJB v3.0 - Power BI Edition cargado');
+    console.log('Dashboard CJB v3.1 - 2026 Modern Edition cargado');
 
     // Try auto-load from data.json (primary method for local HTML)
     const result = await DataStore.loadFromJSON();
@@ -2529,6 +2564,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Show manual upload section
             document.getElementById('uploadSection').style.display = 'flex';
         }
+    }
+
+    // Setup Auto-Refresh from CONFIG
+    if (window.CONFIG && CONFIG.AUTO_REFRESH_MINUTES > 0) {
+        console.log(`[Init] Auto-refresh set to ${CONFIG.AUTO_REFRESH_MINUTES} minutes`);
+        setInterval(() => {
+            console.log('[Auto-Refresh] Checking for new data...');
+            DataStore.refreshData();
+        }, CONFIG.AUTO_REFRESH_MINUTES * 60 * 1000);
     }
 });
 

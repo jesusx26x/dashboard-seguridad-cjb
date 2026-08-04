@@ -102,6 +102,12 @@
                 <p class="header-subtitle" id="pageSubtitle">Dirección de Seguridad - Ciudad Juan Bosch</p>
             </div>
             <div class="header-actions">
+                <!-- Live Sync Indicator -->
+                <div class="live-indicator" id="liveSyncIndicator">
+                    <span class="pulse-dot"></span>
+                    <span id="liveStatusText">En Vivo</span>
+                </div>
+
                 <!-- Active Filters Indicator -->
                 <div class="active-filters-badge" id="activeFiltersBadge" style="display: none;">
                     <i class="fas fa-filter"></i>
@@ -1224,6 +1230,7 @@
     </div>
 
     <!-- Custom Scripts -->
+    <script src="data.js"></script>
     <script src="app.js"></script>
 </body>
 

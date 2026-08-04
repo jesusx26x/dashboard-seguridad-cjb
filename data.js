@@ -1,4 +1,4 @@
-{
+window.EMBEDDED_DATA = {
   "lastUpdate": "2026-08-04T13:28:13.343Z",
   "count": 358,
   "data": [
@@ -15039,4 +15039,4 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     }
   ]
-}
+};
