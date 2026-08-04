@@ -1,10 +1,8 @@
 {
-  "source": "auto-sync",
-  "lastUpdate": "2026-07-14T13:03:15.782Z",
-  "count": 326,
+  "lastUpdate": "2026-08-04T13:25:44.388Z",
+  "count": 358,
   "data": [
     {
-      "Id": "4",
       "Hora de inicio": "8/25/25 15:22",
       "Hora de finalización": "8/25/25 15:26",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -47,7 +45,6 @@
       "Acciones Tomadas": "Se solicitó refuerzo (Unidad, Supervisor).;Se realizó arresto / detención."
     },
     {
-      "Id": "5",
       "Hora de inicio": "8/25/25 15:26",
       "Hora de finalización": "8/25/25 15:29",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -90,7 +87,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "7",
       "Hora de inicio": "8/27/25 18:18",
       "Hora de finalización": "8/27/25 18:25",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -133,7 +129,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima.;Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "8",
       "Hora de inicio": "8/28/25 6:11",
       "Hora de finalización": "8/28/25 6:23",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -176,7 +171,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó un diagnóstico médico para ser entregado a la Policía Nacional. "
     },
     {
-      "Id": "9",
       "Hora de inicio": "8/29/25 8:08",
       "Hora de finalización": "8/29/25 8:36",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -219,7 +213,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizaron el diagnóstico médico correspondiente "
     },
     {
-      "Id": "10",
       "Hora de inicio": "9/1/25 14:27",
       "Hora de finalización": "9/1/25 14:34",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -262,7 +255,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
-      "Id": "12",
       "Hora de inicio": "9/4/25 15:59",
       "Hora de finalización": "9/4/25 16:09",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -305,7 +297,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos).;Se brindó asistencia a la víctima."
     },
     {
-      "Id": "13",
       "Hora de inicio": "9/17/25 17:38",
       "Hora de finalización": "9/17/25 17:41",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -348,7 +339,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
-      "Id": "14",
       "Hora de inicio": "9/19/25 8:15",
       "Hora de finalización": "9/19/25 8:31",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -391,7 +381,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
-      "Id": "15",
       "Hora de inicio": "9/19/25 8:31",
       "Hora de finalización": "9/19/25 8:45",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -434,7 +423,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
-      "Id": "16",
       "Hora de inicio": "9/19/25 8:49",
       "Hora de finalización": "9/19/25 8:53",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -477,7 +465,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
-      "Id": "17",
       "Hora de inicio": "9/19/25 8:53",
       "Hora de finalización": "9/19/25 8:59",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -520,7 +507,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "18",
       "Hora de inicio": "9/19/25 9:00",
       "Hora de finalización": "9/19/25 9:01",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -563,7 +549,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "19",
       "Hora de inicio": "9/19/25 9:02",
       "Hora de finalización": "9/19/25 9:03",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -606,7 +591,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "20",
       "Hora de inicio": "9/19/25 11:17",
       "Hora de finalización": "9/19/25 11:26",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -649,7 +633,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se entregó a la policía nacional y sea entregada a migración. "
     },
     {
-      "Id": "21",
       "Hora de inicio": "9/19/25 11:27",
       "Hora de finalización": "9/19/25 11:33",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -692,7 +675,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "22",
       "Hora de inicio": "9/19/25 12:06",
       "Hora de finalización": "9/19/25 12:10",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -735,7 +717,6 @@
       "Acciones Tomadas": "Se procedió a la clausura."
     },
     {
-      "Id": "23",
       "Hora de inicio": "9/19/25 13:27",
       "Hora de finalización": "9/19/25 13:39",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -778,7 +759,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se le realizó diagnóstico médico "
     },
     {
-      "Id": "24",
       "Hora de inicio": "9/19/25 13:41",
       "Hora de finalización": "9/19/25 13:42",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -821,7 +801,6 @@
       "Acciones Tomadas": "Se entrego a la policía para fines de lugar"
     },
     {
-      "Id": "25",
       "Hora de inicio": "9/19/25 13:52",
       "Hora de finalización": "9/19/25 13:53",
       "Correo electrónico": "luisbrito@vbc.gob.do",
@@ -864,7 +843,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
-      "Id": "26",
       "Hora de inicio": "9/19/25 16:47",
       "Hora de finalización": "9/19/25 17:09",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -907,7 +885,6 @@
       "Acciones Tomadas": "Se emitió citación / multa;Incidente referido a otra agencia.;Se Clausuraron los Establecimientos"
     },
     {
-      "Id": "27",
       "Hora de inicio": "9/22/25 12:46",
       "Hora de finalización": "9/22/25 12:48",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -950,7 +927,6 @@
       "Acciones Tomadas": "Fue entregado a la policía nacional para fines de lugar "
     },
     {
-      "Id": "28",
       "Hora de inicio": "10/10/25 9:11",
       "Hora de finalización": "10/10/25 9:16",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -993,7 +969,6 @@
       "Acciones Tomadas": "Levantado el cuerpo por el Inacif"
     },
     {
-      "Id": "29",
       "Hora de inicio": "10/10/25 9:40",
       "Hora de finalización": "10/10/25 9:44",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1036,7 +1011,6 @@
       "Acciones Tomadas": "Se entregaron a migración "
     },
     {
-      "Id": "30",
       "Hora de inicio": "10/10/25 9:47",
       "Hora de finalización": "10/10/25 9:51",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1079,7 +1053,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "31",
       "Hora de inicio": "10/10/25 9:51",
       "Hora de finalización": "10/10/25 9:54",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1122,7 +1095,6 @@
       "Acciones Tomadas": "Fueron entrados a DIGESSET"
     },
     {
-      "Id": "32",
       "Hora de inicio": "10/10/25 10:00",
       "Hora de finalización": "10/10/25 10:02",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1165,7 +1137,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
-      "Id": "33",
       "Hora de inicio": "10/10/25 10:03",
       "Hora de finalización": "10/10/25 10:05",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1208,7 +1179,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "34",
       "Hora de inicio": "10/10/25 10:05",
       "Hora de finalización": "10/10/25 10:07",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1251,7 +1221,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "35",
       "Hora de inicio": "10/10/25 10:10",
       "Hora de finalización": "10/10/25 10:11",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1294,7 +1263,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "36",
       "Hora de inicio": "10/10/25 10:11",
       "Hora de finalización": "10/10/25 10:12",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1337,7 +1305,6 @@
       "Acciones Tomadas": "Se entrego a migración "
     },
     {
-      "Id": "37",
       "Hora de inicio": "10/10/25 10:14",
       "Hora de finalización": "10/10/25 10:16",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1380,7 +1347,6 @@
       "Acciones Tomadas": "Se entregaro a DIGESETT y el incif "
     },
     {
-      "Id": "38",
       "Hora de inicio": "10/30/25 14:58",
       "Hora de finalización": "10/30/25 15:10",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1423,7 +1389,6 @@
       "Acciones Tomadas": "Se entregaro al INACIF"
     },
     {
-      "Id": "39",
       "Hora de inicio": "10/30/25 15:21",
       "Hora de finalización": "10/30/25 15:24",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1466,7 +1431,6 @@
       "Acciones Tomadas": "Se entregaron a la policía Nacional para fines correspondientes "
     },
     {
-      "Id": "40",
       "Hora de inicio": "10/30/25 15:34",
       "Hora de finalización": "10/30/25 15:35",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1509,7 +1473,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "41",
       "Hora de inicio": "10/30/25 15:39",
       "Hora de finalización": "10/30/25 15:41",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1552,7 +1515,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "42",
       "Hora de inicio": "10/30/25 15:52",
       "Hora de finalización": "10/30/25 15:53",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1595,7 +1557,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "43",
       "Hora de inicio": "10/31/25 10:35",
       "Hora de finalización": "10/31/25 10:37",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1638,7 +1599,6 @@
       "Acciones Tomadas": "“TIRILLA”   Cortésmente, por medio de la presente hago entrega al 1er Tte. ALBERTO PEREZ DIAZ, C- 093-0063322-0, ERD., perteneciente a la Dirección General de Migración, de dos vehículos uno (01) carro Marca: DAIHATSU, modelo: MIRA, placa: A910290, color: BLANCO y una (01) Jeepeta Marca: TOYOTA, modelo: 4RUNNER, placa: G349005, color: BLANCO, el cual se encontraban detenidos en la Dirección de Seguridad de Ciudad Juan Bosch, por el hecho de ser conducidos por Nacionales Haitianos y al momento de su detención se encontraban con estatus migratorio irregular.        RICHARD ROA DE LA ROSA, Coronel, ERD. (DEM) Director de Seguridad Ciudad Juan Bosch."
     },
     {
-      "Id": "44",
       "Hora de inicio": "11/5/25 12:07",
       "Hora de finalización": "11/5/25 12:09",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1681,7 +1641,6 @@
       "Acciones Tomadas": "Fueron entregados a migración "
     },
     {
-      "Id": "45",
       "Hora de inicio": "11/13/25 8:46",
       "Hora de finalización": "11/13/25 8:49",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1724,7 +1683,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "46",
       "Hora de inicio": "11/14/25 14:58",
       "Hora de finalización": "11/14/25 15:00",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1767,7 +1725,6 @@
       "Acciones Tomadas": "Entregada a la policía Nacional para fines correspondientes "
     },
     {
-      "Id": "47",
       "Hora de inicio": "11/14/25 16:10",
       "Hora de finalización": "11/14/25 16:12",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1810,7 +1767,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "48",
       "Hora de inicio": "11/15/25 7:45",
       "Hora de finalización": "11/15/25 7:47",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1853,7 +1809,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "49",
       "Hora de inicio": "11/19/25 8:36",
       "Hora de finalización": "11/19/25 8:37",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1896,7 +1851,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "50",
       "Hora de inicio": "11/19/25 14:40",
       "Hora de finalización": "11/19/25 14:42",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1939,7 +1893,6 @@
       "Acciones Tomadas": "Fueron entregados a la DIGESETT para fines correspondientes "
     },
     {
-      "Id": "51",
       "Hora de inicio": "11/22/25 12:20",
       "Hora de finalización": "11/22/25 12:22",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -1982,7 +1935,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "52",
       "Hora de inicio": "11/22/25 22:26",
       "Hora de finalización": "11/22/25 22:28",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2025,7 +1977,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "53",
       "Hora de inicio": "11/22/25 22:28",
       "Hora de finalización": "11/22/25 22:30",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2068,7 +2019,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "54",
       "Hora de inicio": "11/24/25 16:43",
       "Hora de finalización": "11/24/25 16:44",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2111,7 +2061,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "55",
       "Hora de inicio": "12/2/25 10:03",
       "Hora de finalización": "12/2/25 10:05",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2154,7 +2103,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "56",
       "Hora de inicio": "12/3/25 22:19",
       "Hora de finalización": "12/3/25 22:20",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2197,7 +2145,6 @@
       "Acciones Tomadas": "Fueron entregados a la DIGESETT para fines correspondientes "
     },
     {
-      "Id": "57",
       "Hora de inicio": "12/3/25 22:21",
       "Hora de finalización": "12/3/25 22:22",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2240,7 +2187,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "58",
       "Hora de inicio": "12/8/25 8:23",
       "Hora de finalización": "12/8/25 8:52",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2283,7 +2229,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "59",
       "Hora de inicio": "12/12/25 12:47",
       "Hora de finalización": "12/12/25 13:04",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2326,7 +2271,6 @@
       "Acciones Tomadas": "."
     },
     {
-      "Id": "60",
       "Hora de inicio": "12/12/25 22:02",
       "Hora de finalización": "12/12/25 22:04",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2369,7 +2313,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "61",
       "Hora de inicio": "12/14/25 10:56",
       "Hora de finalización": "12/14/25 10:57",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2412,7 +2355,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "62",
       "Hora de inicio": "12/14/25 10:58",
       "Hora de finalización": "12/14/25 11:00",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2455,7 +2397,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "63",
       "Hora de inicio": "12/14/25 11:01",
       "Hora de finalización": "12/14/25 11:02",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2498,7 +2439,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "64",
       "Hora de inicio": "12/14/25 11:02",
       "Hora de finalización": "12/14/25 11:03",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2541,7 +2481,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "65",
       "Hora de inicio": "12/14/25 12:25",
       "Hora de finalización": "12/14/25 13:12",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2584,7 +2523,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "66",
       "Hora de inicio": "12/14/25 13:13",
       "Hora de finalización": "12/14/25 13:26",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2627,7 +2565,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
-      "Id": "67",
       "Hora de inicio": "12/14/25 13:27",
       "Hora de finalización": "12/14/25 13:38",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2670,7 +2607,6 @@
       "Acciones Tomadas": "Operativo "
     },
     {
-      "Id": "68",
       "Hora de inicio": "12/14/25 13:38",
       "Hora de finalización": "12/14/25 13:52",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2713,7 +2649,6 @@
       "Acciones Tomadas": "0"
     },
     {
-      "Id": "69",
       "Hora de inicio": "12/14/25 14:09",
       "Hora de finalización": "12/15/25 8:36",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2756,7 +2691,6 @@
       "Acciones Tomadas": "Chequeo matutino nocturno "
     },
     {
-      "Id": "70",
       "Hora de inicio": "12/15/25 8:37",
       "Hora de finalización": "12/15/25 9:35",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2799,7 +2733,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "71",
       "Hora de inicio": "12/15/25 9:37",
       "Hora de finalización": "12/15/25 9:43",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2842,7 +2775,6 @@
       "Acciones Tomadas": "Se puso la respectiva multa y se detuvo el vehículo"
     },
     {
-      "Id": "72",
       "Hora de inicio": "12/15/25 10:06",
       "Hora de finalización": "12/15/25 11:42",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2885,7 +2817,6 @@
       "Acciones Tomadas": "Chequeo de rutina "
     },
     {
-      "Id": "73",
       "Hora de inicio": "12/16/25 8:53",
       "Hora de finalización": "12/16/25 9:01",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2928,7 +2859,6 @@
       "Acciones Tomadas": "Chequeo de rutina "
     },
     {
-      "Id": "74",
       "Hora de inicio": "12/16/25 9:02",
       "Hora de finalización": "12/16/25 9:06",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -2971,7 +2901,6 @@
       "Acciones Tomadas": "Chequeo de rutina Nocturno "
     },
     {
-      "Id": "75",
       "Hora de inicio": "12/16/25 9:15",
       "Hora de finalización": "12/16/25 9:23",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3014,7 +2943,6 @@
       "Acciones Tomadas": "Patrullaje "
     },
     {
-      "Id": "76",
       "Hora de inicio": "12/16/25 9:23",
       "Hora de finalización": "12/16/25 9:30",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3057,7 +2985,6 @@
       "Acciones Tomadas": "Chequeo rutinario "
     },
     {
-      "Id": "77",
       "Hora de inicio": "12/16/25 9:48",
       "Hora de finalización": "12/16/25 11:32",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3100,7 +3027,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "78",
       "Hora de inicio": "12/16/25 15:31",
       "Hora de finalización": "12/16/25 15:38",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3143,7 +3069,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "79",
       "Hora de inicio": "12/17/25 9:14",
       "Hora de finalización": "12/17/25 9:33",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3186,7 +3111,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención."
     },
     {
-      "Id": "80",
       "Hora de inicio": "12/17/25 9:33",
       "Hora de finalización": "12/17/25 9:37",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3229,7 +3153,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "81",
       "Hora de inicio": "12/17/25 9:37",
       "Hora de finalización": "12/17/25 9:43",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3272,7 +3195,6 @@
       "Acciones Tomadas": "Patrullaje "
     },
     {
-      "Id": "82",
       "Hora de inicio": "12/17/25 9:43",
       "Hora de finalización": "12/17/25 9:58",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3315,7 +3237,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "83",
       "Hora de inicio": "12/17/25 9:58",
       "Hora de finalización": "12/17/25 10:14",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3358,7 +3279,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "84",
       "Hora de inicio": "12/17/25 11:36",
       "Hora de finalización": "12/17/25 12:18",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3401,7 +3321,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "85",
       "Hora de inicio": "12/17/25 14:44",
       "Hora de finalización": "12/17/25 14:49",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3444,7 +3363,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "86",
       "Hora de inicio": "12/18/25 8:57",
       "Hora de finalización": "12/18/25 9:32",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3487,7 +3405,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "87",
       "Hora de inicio": "12/18/25 9:32",
       "Hora de finalización": "12/18/25 9:34",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3530,7 +3447,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "88",
       "Hora de inicio": "12/18/25 9:34",
       "Hora de finalización": "12/18/25 9:38",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3573,7 +3489,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
-      "Id": "89",
       "Hora de inicio": "12/19/25 9:32",
       "Hora de finalización": "12/19/25 9:36",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3616,7 +3531,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "90",
       "Hora de inicio": "12/19/25 9:50",
       "Hora de finalización": "12/19/25 10:18",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3659,7 +3573,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "91",
       "Hora de inicio": "12/19/25 10:47",
       "Hora de finalización": "12/19/25 11:11",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3702,7 +3615,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "92",
       "Hora de inicio": "12/19/25 11:12",
       "Hora de finalización": "12/19/25 11:13",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3745,7 +3657,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "93",
       "Hora de inicio": "12/19/25 11:13",
       "Hora de finalización": "12/19/25 11:23",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3788,7 +3699,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "94",
       "Hora de inicio": "12/19/25 11:23",
       "Hora de finalización": "12/19/25 11:28",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3831,7 +3741,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "95",
       "Hora de inicio": "12/19/25 11:30",
       "Hora de finalización": "12/19/25 11:40",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3874,7 +3783,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
-      "Id": "96",
       "Hora de inicio": "12/19/25 11:40",
       "Hora de finalización": "12/19/25 11:46",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3917,7 +3825,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "97",
       "Hora de inicio": "12/19/25 11:46",
       "Hora de finalización": "12/19/25 11:55",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -3960,7 +3867,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "98",
       "Hora de inicio": "12/19/25 11:56",
       "Hora de finalización": "12/19/25 12:02",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4003,7 +3909,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "99",
       "Hora de inicio": "12/19/25 12:07",
       "Hora de finalización": "12/19/25 12:12",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4046,7 +3951,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se realizó advertencia verbal."
     },
     {
-      "Id": "100",
       "Hora de inicio": "12/22/25 9:02",
       "Hora de finalización": "12/22/25 9:05",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4089,7 +3993,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "101",
       "Hora de inicio": "12/22/25 9:05",
       "Hora de finalización": "12/22/25 9:09",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4132,7 +4035,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se realizó advertencia verbal."
     },
     {
-      "Id": "102",
       "Hora de inicio": "12/22/25 9:10",
       "Hora de finalización": "12/22/25 9:12",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4175,7 +4077,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
-      "Id": "103",
       "Hora de inicio": "12/22/25 9:33",
       "Hora de finalización": "12/22/25 9:44",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4218,7 +4119,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "104",
       "Hora de inicio": "12/23/25 9:57",
       "Hora de finalización": "12/23/25 10:01",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4261,7 +4161,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "105",
       "Hora de inicio": "12/23/25 10:03",
       "Hora de finalización": "12/23/25 10:09",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4304,7 +4203,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "106",
       "Hora de inicio": "12/23/25 10:10",
       "Hora de finalización": "12/23/25 10:18",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4347,7 +4245,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "107",
       "Hora de inicio": "12/23/25 10:32",
       "Hora de finalización": "12/23/25 10:37",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4390,7 +4287,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "108",
       "Hora de inicio": "12/23/25 10:54",
       "Hora de finalización": "12/23/25 11:05",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4433,7 +4329,6 @@
       "Acciones Tomadas": "Se aseguró la escena del crimen."
     },
     {
-      "Id": "109",
       "Hora de inicio": "12/26/25 10:01",
       "Hora de finalización": "12/26/25 10:20",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4476,7 +4371,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "110",
       "Hora de inicio": "12/26/25 10:20",
       "Hora de finalización": "12/26/25 10:22",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4519,7 +4413,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "111",
       "Hora de inicio": "12/26/25 10:22",
       "Hora de finalización": "12/26/25 10:25",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4562,7 +4455,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
-      "Id": "112",
       "Hora de inicio": "12/26/25 10:25",
       "Hora de finalización": "12/26/25 10:36",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4605,7 +4497,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "113",
       "Hora de inicio": "12/29/25 8:42",
       "Hora de finalización": "12/29/25 8:49",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4648,7 +4539,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se realizó advertencia verbal.;No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "114",
       "Hora de inicio": "12/29/25 10:08",
       "Hora de finalización": "12/29/25 10:15",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4691,7 +4581,6 @@
       "Acciones Tomadas": "Se aseguró la escena del crimen.;Se realizó arresto / detención."
     },
     {
-      "Id": "115",
       "Hora de inicio": "12/29/25 10:15",
       "Hora de finalización": "12/30/25 9:08",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4734,7 +4623,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "116",
       "Hora de inicio": "1/2/26 21:21",
       "Hora de finalización": "1/2/26 21:23",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4777,7 +4665,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "117",
       "Hora de inicio": "1/5/26 14:08",
       "Hora de finalización": "1/5/26 14:13",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4820,7 +4707,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "118",
       "Hora de inicio": "1/5/26 14:13",
       "Hora de finalización": "1/5/26 14:21",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4863,7 +4749,6 @@
       "Acciones Tomadas": "Se aseguró la escena del crimen.;Se realizó advertencia verbal."
     },
     {
-      "Id": "119",
       "Hora de inicio": "1/5/26 22:12",
       "Hora de finalización": "1/5/26 22:15",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4906,7 +4791,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "120",
       "Hora de inicio": "1/6/26 8:49",
       "Hora de finalización": "1/6/26 9:01",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4949,7 +4833,6 @@
       "Acciones Tomadas": "Se aseguró la escena del crimen.;Se realizó advertencia verbal."
     },
     {
-      "Id": "121",
       "Hora de inicio": "1/8/26 8:43",
       "Hora de finalización": "1/8/26 8:47",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -4992,7 +4875,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se aseguró la escena del crimen."
     },
     {
-      "Id": "122",
       "Hora de inicio": "1/8/26 8:48",
       "Hora de finalización": "1/8/26 8:53",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5035,7 +4917,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "123",
       "Hora de inicio": "1/8/26 8:53",
       "Hora de finalización": "1/8/26 8:58",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5078,7 +4959,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "124",
       "Hora de inicio": "1/8/26 8:58",
       "Hora de finalización": "1/8/26 9:03",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5121,7 +5001,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "125",
       "Hora de inicio": "1/8/26 9:03",
       "Hora de finalización": "1/8/26 9:08",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5164,7 +5043,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
-      "Id": "126",
       "Hora de inicio": "1/8/26 9:08",
       "Hora de finalización": "1/8/26 11:30",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5207,7 +5085,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "127",
       "Hora de inicio": "1/8/26 12:05",
       "Hora de finalización": "1/8/26 12:12",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5250,7 +5127,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se realizó advertencia verbal."
     },
     {
-      "Id": "128",
       "Hora de inicio": "1/9/26 8:52",
       "Hora de finalización": "1/9/26 8:55",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5293,7 +5169,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se aseguró la escena del crimen."
     },
     {
-      "Id": "129",
       "Hora de inicio": "1/9/26 9:15",
       "Hora de finalización": "1/9/26 9:20",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5336,7 +5211,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "130",
       "Hora de inicio": "1/12/26 8:55",
       "Hora de finalización": "1/12/26 9:02",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5379,7 +5253,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se emitió citación / multa"
     },
     {
-      "Id": "131",
       "Hora de inicio": "1/12/26 9:03",
       "Hora de finalización": "1/12/26 9:08",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5422,7 +5295,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se emitió citación / multa"
     },
     {
-      "Id": "132",
       "Hora de inicio": "1/12/26 9:08",
       "Hora de finalización": "1/12/26 9:12",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5465,7 +5337,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "133",
       "Hora de inicio": "1/13/26 9:47",
       "Hora de finalización": "1/13/26 9:49",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5508,7 +5379,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "134",
       "Hora de inicio": "1/13/26 9:49",
       "Hora de finalización": "1/13/26 9:53",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5551,7 +5421,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "135",
       "Hora de inicio": "1/14/26 9:55",
       "Hora de finalización": "1/14/26 9:58",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5594,7 +5463,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "136",
       "Hora de inicio": "1/15/26 9:04",
       "Hora de finalización": "1/15/26 9:05",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5637,7 +5505,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "137",
       "Hora de inicio": "1/15/26 9:06",
       "Hora de finalización": "1/15/26 9:11",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5680,7 +5547,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "138",
       "Hora de inicio": "1/15/26 9:11",
       "Hora de finalización": "1/15/26 9:16",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5723,7 +5589,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "139",
       "Hora de inicio": "1/15/26 9:16",
       "Hora de finalización": "1/15/26 9:19",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5766,7 +5631,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "140",
       "Hora de inicio": "1/15/26 9:19",
       "Hora de finalización": "1/15/26 10:01",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5809,7 +5673,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "141",
       "Hora de inicio": "1/15/26 10:01",
       "Hora de finalización": "1/15/26 11:39",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5852,7 +5715,6 @@
       "Acciones Tomadas": "Se aseguró la escena del crimen."
     },
     {
-      "Id": "142",
       "Hora de inicio": "1/15/26 14:59",
       "Hora de finalización": "1/15/26 15:03",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5895,7 +5757,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "143",
       "Hora de inicio": "1/16/26 9:11",
       "Hora de finalización": "1/16/26 9:16",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5938,7 +5799,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se aseguró la escena del crimen."
     },
     {
-      "Id": "144",
       "Hora de inicio": "1/16/26 9:16",
       "Hora de finalización": "1/16/26 9:20",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -5981,7 +5841,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "145",
       "Hora de inicio": "1/16/26 10:08",
       "Hora de finalización": "1/16/26 10:10",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6024,7 +5883,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "146",
       "Hora de inicio": "1/16/26 11:15",
       "Hora de finalización": "1/19/26 10:00",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6067,7 +5925,6 @@
       "Acciones Tomadas": "Se aseguró la escena del crimen.;Se realizó advertencia verbal."
     },
     {
-      "Id": "147",
       "Hora de inicio": "1/19/26 10:01",
       "Hora de finalización": "1/19/26 10:53",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6110,7 +5967,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "148",
       "Hora de inicio": "1/19/26 10:59",
       "Hora de finalización": "1/19/26 11:00",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6153,7 +6009,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "149",
       "Hora de inicio": "1/20/26 9:37",
       "Hora de finalización": "1/20/26 9:38",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6196,7 +6051,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "150",
       "Hora de inicio": "1/20/26 9:39",
       "Hora de finalización": "1/20/26 9:43",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6239,7 +6093,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "151",
       "Hora de inicio": "1/20/26 9:44",
       "Hora de finalización": "1/20/26 9:47",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6282,7 +6135,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "152",
       "Hora de inicio": "1/22/26 9:25",
       "Hora de finalización": "1/22/26 12:06",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6325,7 +6177,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "153",
       "Hora de inicio": "1/22/26 12:18",
       "Hora de finalización": "1/27/26 9:25",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6368,7 +6219,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Se realizó advertencia verbal."
     },
     {
-      "Id": "154",
       "Hora de inicio": "1/27/26 9:25",
       "Hora de finalización": "1/27/26 9:31",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6411,7 +6261,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención."
     },
     {
-      "Id": "155",
       "Hora de inicio": "1/27/26 9:31",
       "Hora de finalización": "1/27/26 9:33",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6454,7 +6303,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención."
     },
     {
-      "Id": "156",
       "Hora de inicio": "1/27/26 9:35",
       "Hora de finalización": "1/27/26 9:36",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6497,7 +6345,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención."
     },
     {
-      "Id": "157",
       "Hora de inicio": "1/27/26 9:36",
       "Hora de finalización": "1/27/26 9:37",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6540,7 +6387,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención.;Se emitió citación / multa"
     },
     {
-      "Id": "158",
       "Hora de inicio": "1/27/26 9:37",
       "Hora de finalización": "1/27/26 9:39",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6583,7 +6429,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención.;Se emitió citación / multa"
     },
     {
-      "Id": "159",
       "Hora de inicio": "1/27/26 9:41",
       "Hora de finalización": "1/27/26 9:43",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6626,7 +6471,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "160",
       "Hora de inicio": "1/27/26 9:49",
       "Hora de finalización": "1/27/26 9:50",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6669,7 +6513,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "161",
       "Hora de inicio": "1/27/26 10:31",
       "Hora de finalización": "1/27/26 10:33",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6712,7 +6555,6 @@
       "Acciones Tomadas": "Se emitió citación / multa;Se realizó advertencia verbal."
     },
     {
-      "Id": "162",
       "Hora de inicio": "1/27/26 10:34",
       "Hora de finalización": "1/27/26 10:39",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6755,7 +6597,6 @@
       "Acciones Tomadas": "Se emitió citación / multa;Se realizó advertencia verbal."
     },
     {
-      "Id": "163",
       "Hora de inicio": "1/28/26 9:40",
       "Hora de finalización": "1/28/26 9:42",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6798,7 +6639,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "164",
       "Hora de inicio": "1/28/26 9:42",
       "Hora de finalización": "1/28/26 9:47",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6841,7 +6681,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "165",
       "Hora de inicio": "1/28/26 13:27",
       "Hora de finalización": "1/28/26 13:28",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6884,7 +6723,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "166",
       "Hora de inicio": "1/29/26 8:50",
       "Hora de finalización": "1/29/26 8:54",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6927,7 +6765,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "167",
       "Hora de inicio": "1/29/26 9:01",
       "Hora de finalización": "1/29/26 9:02",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -6970,7 +6807,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "168",
       "Hora de inicio": "1/29/26 9:33",
       "Hora de finalización": "1/29/26 9:39",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7013,7 +6849,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "169",
       "Hora de inicio": "1/29/26 9:42",
       "Hora de finalización": "1/29/26 9:44",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7056,7 +6891,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "170",
       "Hora de inicio": "1/29/26 9:44",
       "Hora de finalización": "1/29/26 9:48",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7099,7 +6933,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "171",
       "Hora de inicio": "1/31/26 12:57",
       "Hora de finalización": "1/31/26 13:09",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7142,7 +6975,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "172",
       "Hora de inicio": "1/31/26 13:11",
       "Hora de finalización": "1/31/26 13:15",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7185,7 +7017,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se aseguró la escena del crimen.;Incidente referido a otra agencia."
     },
     {
-      "Id": "173",
       "Hora de inicio": "1/31/26 13:17",
       "Hora de finalización": "1/31/26 13:22",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7228,7 +7059,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;Incidente referido a otra agencia."
     },
     {
-      "Id": "174",
       "Hora de inicio": "1/31/26 13:24",
       "Hora de finalización": "1/31/26 13:26",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7271,7 +7101,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "175",
       "Hora de inicio": "1/31/26 13:28",
       "Hora de finalización": "1/31/26 13:30",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7314,7 +7143,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "176",
       "Hora de inicio": "2/2/26 9:18",
       "Hora de finalización": "2/2/26 9:20",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7357,7 +7185,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "177",
       "Hora de inicio": "2/2/26 9:22",
       "Hora de finalización": "2/2/26 9:25",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7400,7 +7227,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "178",
       "Hora de inicio": "2/2/26 9:26",
       "Hora de finalización": "2/2/26 9:38",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7443,7 +7269,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "179",
       "Hora de inicio": "2/2/26 10:26",
       "Hora de finalización": "2/2/26 10:30",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7486,7 +7311,6 @@
       "Acciones Tomadas": "Se aseguró la escena del crimen.;Incidente referido a otra agencia."
     },
     {
-      "Id": "180",
       "Hora de inicio": "2/5/26 9:24",
       "Hora de finalización": "2/5/26 9:38",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7529,7 +7353,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "181",
       "Hora de inicio": "2/5/26 9:39",
       "Hora de finalización": "2/5/26 9:48",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7572,7 +7395,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "182",
       "Hora de inicio": "2/5/26 10:41",
       "Hora de finalización": "2/5/26 10:44",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7615,7 +7437,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "183",
       "Hora de inicio": "2/5/26 10:45",
       "Hora de finalización": "2/5/26 10:46",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7658,7 +7479,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "184",
       "Hora de inicio": "2/5/26 10:46",
       "Hora de finalización": "2/5/26 10:47",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7701,7 +7521,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "185",
       "Hora de inicio": "2/5/26 10:49",
       "Hora de finalización": "2/5/26 10:52",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7744,7 +7563,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "186",
       "Hora de inicio": "2/5/26 13:57",
       "Hora de finalización": "2/5/26 13:58",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7787,7 +7605,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "187",
       "Hora de inicio": "2/6/26 9:02",
       "Hora de finalización": "2/6/26 9:05",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7830,7 +7647,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "188",
       "Hora de inicio": "2/6/26 9:07",
       "Hora de finalización": "2/6/26 9:09",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7873,7 +7689,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "189",
       "Hora de inicio": "2/6/26 10:50",
       "Hora de finalización": "2/6/26 10:53",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7916,7 +7731,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención.;No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "190",
       "Hora de inicio": "2/9/26 9:32",
       "Hora de finalización": "2/9/26 9:37",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -7959,7 +7773,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se brindó asistencia a la víctima."
     },
     {
-      "Id": "191",
       "Hora de inicio": "2/9/26 9:37",
       "Hora de finalización": "2/9/26 9:40",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8002,7 +7815,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "192",
       "Hora de inicio": "2/9/26 9:40",
       "Hora de finalización": "2/9/26 9:46",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8045,7 +7857,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "193",
       "Hora de inicio": "2/9/26 9:46",
       "Hora de finalización": "2/9/26 9:56",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8088,7 +7899,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma.;Se realizó advertencia verbal."
     },
     {
-      "Id": "194",
       "Hora de inicio": "2/9/26 10:06",
       "Hora de finalización": "2/9/26 10:07",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8131,7 +7941,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "195",
       "Hora de inicio": "2/10/26 8:57",
       "Hora de finalización": "2/10/26 9:03",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8174,7 +7983,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "196",
       "Hora de inicio": "2/10/26 9:03",
       "Hora de finalización": "2/10/26 9:05",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8217,7 +8025,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "197",
       "Hora de inicio": "2/10/26 9:05",
       "Hora de finalización": "2/10/26 9:07",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8260,7 +8067,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "198",
       "Hora de inicio": "2/10/26 9:07",
       "Hora de finalización": "2/10/26 9:12",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8303,7 +8109,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "199",
       "Hora de inicio": "2/10/26 9:12",
       "Hora de finalización": "2/10/26 9:16",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8346,7 +8151,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "200",
       "Hora de inicio": "2/17/26 9:26",
       "Hora de finalización": "2/17/26 9:38",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8389,7 +8193,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "201",
       "Hora de inicio": "2/17/26 9:38",
       "Hora de finalización": "2/17/26 9:41",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8432,7 +8235,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "202",
       "Hora de inicio": "2/17/26 9:41",
       "Hora de finalización": "2/17/26 9:46",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8475,7 +8277,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "203",
       "Hora de inicio": "2/17/26 9:47",
       "Hora de finalización": "2/17/26 9:50",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8518,7 +8319,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "204",
       "Hora de inicio": "2/17/26 9:51",
       "Hora de finalización": "2/17/26 9:57",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8561,7 +8361,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "205",
       "Hora de inicio": "2/17/26 9:57",
       "Hora de finalización": "2/17/26 11:08",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8604,7 +8403,6 @@
       "Acciones Tomadas": "Se emitió citación / multa;Se realizó advertencia verbal."
     },
     {
-      "Id": "206",
       "Hora de inicio": "2/19/26 10:05",
       "Hora de finalización": "2/19/26 10:11",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8647,7 +8445,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "207",
       "Hora de inicio": "2/19/26 12:51",
       "Hora de finalización": "2/19/26 12:53",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8690,7 +8487,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "208",
       "Hora de inicio": "2/23/26 9:20",
       "Hora de finalización": "2/23/26 9:28",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8733,7 +8529,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "209",
       "Hora de inicio": "2/23/26 9:29",
       "Hora de finalización": "2/23/26 9:30",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8776,7 +8571,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "210",
       "Hora de inicio": "2/23/26 9:30",
       "Hora de finalización": "2/23/26 9:32",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8819,7 +8613,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "211",
       "Hora de inicio": "2/23/26 9:38",
       "Hora de finalización": "2/23/26 9:41",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8862,7 +8655,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "212",
       "Hora de inicio": "2/23/26 9:46",
       "Hora de finalización": "2/23/26 9:46",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8905,7 +8697,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "213",
       "Hora de inicio": "2/23/26 9:46",
       "Hora de finalización": "2/23/26 9:49",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8948,7 +8739,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "214",
       "Hora de inicio": "2/24/26 10:43",
       "Hora de finalización": "2/24/26 10:46",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -8991,7 +8781,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "215",
       "Hora de inicio": "2/26/26 9:56",
       "Hora de finalización": "2/26/26 10:44",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9034,7 +8823,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "216",
       "Hora de inicio": "2/26/26 10:44",
       "Hora de finalización": "2/26/26 10:46",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9077,7 +8865,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "217",
       "Hora de inicio": "2/26/26 10:46",
       "Hora de finalización": "2/26/26 10:49",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9120,7 +8907,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "218",
       "Hora de inicio": "2/26/26 11:35",
       "Hora de finalización": "2/26/26 11:36",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9163,7 +8949,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "219",
       "Hora de inicio": "3/3/26 10:33",
       "Hora de finalización": "3/3/26 10:38",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9206,7 +8991,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "220",
       "Hora de inicio": "3/3/26 10:39",
       "Hora de finalización": "3/3/26 10:42",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9249,7 +9033,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "221",
       "Hora de inicio": "3/3/26 10:42",
       "Hora de finalización": "3/3/26 10:44",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9292,7 +9075,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "222",
       "Hora de inicio": "3/3/26 10:44",
       "Hora de finalización": "3/3/26 10:46",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9335,7 +9117,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "223",
       "Hora de inicio": "3/3/26 10:52",
       "Hora de finalización": "3/3/26 10:54",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9378,7 +9159,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "224",
       "Hora de inicio": "3/3/26 10:55",
       "Hora de finalización": "3/3/26 11:27",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9421,7 +9201,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "225",
       "Hora de inicio": "3/3/26 11:34",
       "Hora de finalización": "3/3/26 11:39",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9464,7 +9243,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "226",
       "Hora de inicio": "3/5/26 9:41",
       "Hora de finalización": "3/5/26 9:44",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9507,7 +9285,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "227",
       "Hora de inicio": "3/5/26 9:45",
       "Hora de finalización": "3/5/26 9:47",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9550,7 +9327,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "228",
       "Hora de inicio": "3/5/26 9:51",
       "Hora de finalización": "3/5/26 9:52",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9593,7 +9369,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "229",
       "Hora de inicio": "3/5/26 9:53",
       "Hora de finalización": "3/5/26 9:55",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9636,7 +9411,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "230",
       "Hora de inicio": "3/5/26 9:56",
       "Hora de finalización": "3/5/26 9:57",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9679,7 +9453,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "231",
       "Hora de inicio": "3/5/26 9:57",
       "Hora de finalización": "3/5/26 9:58",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9722,7 +9495,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "232",
       "Hora de inicio": "3/5/26 9:59",
       "Hora de finalización": "3/5/26 10:00",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9765,7 +9537,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "233",
       "Hora de inicio": "3/5/26 10:01",
       "Hora de finalización": "3/5/26 10:01",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9808,7 +9579,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "234",
       "Hora de inicio": "3/9/26 9:35",
       "Hora de finalización": "3/9/26 9:39",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9851,7 +9621,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "235",
       "Hora de inicio": "3/9/26 9:40",
       "Hora de finalización": "3/9/26 9:44",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9894,7 +9663,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "236",
       "Hora de inicio": "3/9/26 9:46",
       "Hora de finalización": "3/9/26 9:48",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9937,7 +9705,6 @@
       "Acciones Tomadas": "Se aseguró la escena del crimen."
     },
     {
-      "Id": "237",
       "Hora de inicio": "3/9/26 10:00",
       "Hora de finalización": "3/9/26 10:00",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -9980,7 +9747,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "238",
       "Hora de inicio": "3/10/26 9:09",
       "Hora de finalización": "3/10/26 9:14",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10023,7 +9789,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "239",
       "Hora de inicio": "3/12/26 9:28",
       "Hora de finalización": "3/12/26 9:42",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10066,7 +9831,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "240",
       "Hora de inicio": "3/12/26 9:44",
       "Hora de finalización": "3/12/26 9:47",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10109,7 +9873,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "241",
       "Hora de inicio": "3/17/26 9:28",
       "Hora de finalización": "3/17/26 9:37",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10152,7 +9915,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "242",
       "Hora de inicio": "3/17/26 9:56",
       "Hora de finalización": "3/17/26 9:57",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10195,7 +9957,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "243",
       "Hora de inicio": "3/19/26 9:46",
       "Hora de finalización": "3/19/26 10:03",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10238,7 +9999,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "244",
       "Hora de inicio": "3/19/26 10:04",
       "Hora de finalización": "3/19/26 10:06",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10281,7 +10041,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "245",
       "Hora de inicio": "3/19/26 10:08",
       "Hora de finalización": "3/19/26 10:10",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10324,7 +10083,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "246",
       "Hora de inicio": "3/19/26 10:11",
       "Hora de finalización": "3/19/26 10:13",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10367,7 +10125,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "247",
       "Hora de inicio": "3/19/26 10:15",
       "Hora de finalización": "3/19/26 10:16",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10410,7 +10167,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "248",
       "Hora de inicio": "3/23/26 9:18",
       "Hora de finalización": "3/23/26 9:26",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10453,7 +10209,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "249",
       "Hora de inicio": "3/23/26 9:39",
       "Hora de finalización": "3/23/26 9:41",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10496,7 +10251,6 @@
       "Acciones Tomadas": "Se aseguró la escena del crimen."
     },
     {
-      "Id": "250",
       "Hora de inicio": "3/23/26 11:11",
       "Hora de finalización": "3/23/26 11:15",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10539,7 +10293,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "251",
       "Hora de inicio": "3/23/26 11:16",
       "Hora de finalización": "3/26/26 9:40",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10582,7 +10335,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "252",
       "Hora de inicio": "3/26/26 9:41",
       "Hora de finalización": "3/26/26 9:42",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10625,7 +10377,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "253",
       "Hora de inicio": "3/26/26 9:48",
       "Hora de finalización": "3/26/26 14:36",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10668,7 +10419,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "254",
       "Hora de inicio": "3/26/26 15:27",
       "Hora de finalización": "3/26/26 15:28",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10711,7 +10461,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "255",
       "Hora de inicio": "3/27/26 9:18",
       "Hora de finalización": "3/27/26 9:24",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10754,7 +10503,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "256",
       "Hora de inicio": "3/27/26 9:25",
       "Hora de finalización": "3/27/26 9:28",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10797,7 +10545,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "257",
       "Hora de inicio": "3/30/26 9:59",
       "Hora de finalización": "3/30/26 10:01",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10840,7 +10587,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "258",
       "Hora de inicio": "3/30/26 10:29",
       "Hora de finalización": "3/30/26 10:49",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10883,7 +10629,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "259",
       "Hora de inicio": "4/1/26 9:15",
       "Hora de finalización": "4/1/26 9:39",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10926,7 +10671,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "260",
       "Hora de inicio": "4/1/26 9:43",
       "Hora de finalización": "4/1/26 9:51",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -10969,7 +10713,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "261",
       "Hora de inicio": "4/1/26 9:52",
       "Hora de finalización": "4/1/26 9:56",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -11012,7 +10755,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "262",
       "Hora de inicio": "4/1/26 9:56",
       "Hora de finalización": "4/1/26 9:59",
       "Correo electrónico": "richardroa@vbc.gob.do",
@@ -11055,7 +10797,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "263",
       "Hora de inicio": "4/29/26 10:03",
       "Hora de finalización": "4/29/26 10:24",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11098,7 +10839,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
-      "Id": "264",
       "Hora de inicio": "5/1/26 12:05",
       "Hora de finalización": "5/1/26 12:11",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11141,7 +10881,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "265",
       "Hora de inicio": "5/1/26 12:11",
       "Hora de finalización": "5/1/26 12:17",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11184,7 +10923,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "266",
       "Hora de inicio": "5/1/26 12:20",
       "Hora de finalización": "5/1/26 12:28",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11227,7 +10965,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "267",
       "Hora de inicio": "5/1/26 12:30",
       "Hora de finalización": "5/1/26 12:33",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11270,7 +11007,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "268",
       "Hora de inicio": "5/5/26 8:26",
       "Hora de finalización": "5/5/26 8:42",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11313,7 +11049,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "269",
       "Hora de inicio": "5/5/26 8:48",
       "Hora de finalización": "5/5/26 9:03",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11356,7 +11091,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "270",
       "Hora de inicio": "5/5/26 9:34",
       "Hora de finalización": "5/5/26 9:36",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11399,7 +11133,6 @@
       "Acciones Tomadas": "Incidente referido a otra agencia."
     },
     {
-      "Id": "271",
       "Hora de inicio": "5/5/26 9:38",
       "Hora de finalización": "5/5/26 9:39",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11442,7 +11175,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "272",
       "Hora de inicio": "5/5/26 9:41",
       "Hora de finalización": "5/5/26 9:51",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11485,7 +11217,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "273",
       "Hora de inicio": "5/6/26 11:26",
       "Hora de finalización": "5/6/26 11:34",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11528,7 +11259,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "274",
       "Hora de inicio": "5/6/26 11:34",
       "Hora de finalización": "5/6/26 11:37",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11571,7 +11301,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima.;Incidente referido a otra agencia."
     },
     {
-      "Id": "275",
       "Hora de inicio": "5/8/26 8:12",
       "Hora de finalización": "5/8/26 8:37",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11614,7 +11343,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "276",
       "Hora de inicio": "5/8/26 8:39",
       "Hora de finalización": "5/8/26 8:42",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11657,7 +11385,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "277",
       "Hora de inicio": "5/8/26 8:48",
       "Hora de finalización": "5/8/26 8:52",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11700,7 +11427,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "278",
       "Hora de inicio": "5/11/26 8:20",
       "Hora de finalización": "5/11/26 8:32",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11743,7 +11469,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "279",
       "Hora de inicio": "5/11/26 8:32",
       "Hora de finalización": "5/11/26 8:39",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11786,7 +11511,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "280",
       "Hora de inicio": "5/12/26 9:04",
       "Hora de finalización": "5/12/26 9:08",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11829,7 +11553,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "281",
       "Hora de inicio": "5/12/26 9:10",
       "Hora de finalización": "5/12/26 9:13",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11872,7 +11595,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "282",
       "Hora de inicio": "5/12/26 10:28",
       "Hora de finalización": "5/12/26 10:33",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11915,7 +11637,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "283",
       "Hora de inicio": "5/12/26 10:34",
       "Hora de finalización": "5/12/26 10:36",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -11958,7 +11679,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "284",
       "Hora de inicio": "5/13/26 13:31",
       "Hora de finalización": "5/13/26 13:33",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12001,7 +11721,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "285",
       "Hora de inicio": "5/15/26 8:57",
       "Hora de finalización": "5/15/26 9:02",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12044,7 +11763,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "286",
       "Hora de inicio": "5/18/26 14:29",
       "Hora de finalización": "5/18/26 14:31",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12087,7 +11805,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención."
     },
     {
-      "Id": "287",
       "Hora de inicio": "5/18/26 14:31",
       "Hora de finalización": "5/18/26 14:33",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12130,7 +11847,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención."
     },
     {
-      "Id": "288",
       "Hora de inicio": "5/19/26 9:21",
       "Hora de finalización": "5/19/26 9:25",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12173,7 +11889,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "289",
       "Hora de inicio": "5/19/26 9:25",
       "Hora de finalización": "5/19/26 9:27",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12216,7 +11931,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "290",
       "Hora de inicio": "5/20/26 10:18",
       "Hora de finalización": "5/20/26 10:22",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12259,7 +11973,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos).;Se emitió citación / multa"
     },
     {
-      "Id": "291",
       "Hora de inicio": "5/26/26 8:35",
       "Hora de finalización": "5/26/26 8:37",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12302,7 +12015,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "292",
       "Hora de inicio": "5/26/26 8:39",
       "Hora de finalización": "5/26/26 8:42",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12345,7 +12057,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "293",
       "Hora de inicio": "5/26/26 8:43",
       "Hora de finalización": "5/26/26 8:45",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12388,7 +12099,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "294",
       "Hora de inicio": "5/26/26 8:49",
       "Hora de finalización": "5/26/26 9:05",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12431,7 +12141,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "298",
       "Hora de inicio": "5/26/26 9:28",
       "Hora de finalización": "5/26/26 9:35",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12474,7 +12183,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "299",
       "Hora de inicio": "5/26/26 9:53",
       "Hora de finalización": "5/26/26 9:56",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12517,7 +12225,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "300",
       "Hora de inicio": "5/26/26 12:50",
       "Hora de finalización": "5/26/26 12:52",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12560,7 +12267,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "301",
       "Hora de inicio": "5/29/26 10:22",
       "Hora de finalización": "5/29/26 10:24",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12603,7 +12309,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "302",
       "Hora de inicio": "5/29/26 10:24",
       "Hora de finalización": "5/29/26 10:27",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12646,7 +12351,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "303",
       "Hora de inicio": "6/1/26 9:51",
       "Hora de finalización": "6/1/26 9:57",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12689,7 +12393,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "304",
       "Hora de inicio": "6/1/26 9:57",
       "Hora de finalización": "6/1/26 10:00",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12732,7 +12435,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "305",
       "Hora de inicio": "6/1/26 10:01",
       "Hora de finalización": "6/1/26 10:02",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12775,7 +12477,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "306",
       "Hora de inicio": "6/1/26 10:13",
       "Hora de finalización": "6/1/26 10:15",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12818,7 +12519,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención."
     },
     {
-      "Id": "307",
       "Hora de inicio": "6/8/26 12:12",
       "Hora de finalización": "6/8/26 12:14",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12861,7 +12561,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "308",
       "Hora de inicio": "6/8/26 12:14",
       "Hora de finalización": "6/8/26 12:14",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12904,7 +12603,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "309",
       "Hora de inicio": "6/8/26 12:15",
       "Hora de finalización": "6/8/26 12:16",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12947,7 +12645,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "310",
       "Hora de inicio": "6/8/26 12:17",
       "Hora de finalización": "6/8/26 12:18",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -12990,7 +12687,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "311",
       "Hora de inicio": "6/8/26 12:18",
       "Hora de finalización": "6/8/26 12:20",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13033,7 +12729,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención.;Incidente referido a otra agencia."
     },
     {
-      "Id": "312",
       "Hora de inicio": "6/8/26 12:20",
       "Hora de finalización": "6/8/26 12:24",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13076,7 +12771,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención.;Se aseguró la escena del crimen."
     },
     {
-      "Id": "313",
       "Hora de inicio": "6/8/26 12:28",
       "Hora de finalización": "6/8/26 12:29",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13119,7 +12813,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "314",
       "Hora de inicio": "6/8/26 12:29",
       "Hora de finalización": "6/8/26 12:29",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13162,7 +12855,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "315",
       "Hora de inicio": "6/8/26 12:29",
       "Hora de finalización": "6/8/26 12:32",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13205,7 +12897,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "316",
       "Hora de inicio": "6/8/26 12:32",
       "Hora de finalización": "6/8/26 12:33",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13248,7 +12939,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "317",
       "Hora de inicio": "6/8/26 12:33",
       "Hora de finalización": "6/8/26 12:34",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13291,7 +12981,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "318",
       "Hora de inicio": "6/8/26 12:34",
       "Hora de finalización": "6/8/26 12:34",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13334,7 +13023,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "319",
       "Hora de inicio": "6/9/26 11:50",
       "Hora de finalización": "6/9/26 14:45",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13377,7 +13065,6 @@
       "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
     },
     {
-      "Id": "320",
       "Hora de inicio": "6/9/26 14:48",
       "Hora de finalización": "6/9/26 14:53",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13420,7 +13107,6 @@
       "Acciones Tomadas": "Se emitió citación / multa"
     },
     {
-      "Id": "321",
       "Hora de inicio": "6/9/26 14:54",
       "Hora de finalización": "6/9/26 14:56",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13463,7 +13149,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "322",
       "Hora de inicio": "6/10/26 7:58",
       "Hora de finalización": "6/10/26 8:35",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13506,7 +13191,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "323",
       "Hora de inicio": "6/12/26 10:37",
       "Hora de finalización": "6/12/26 10:39",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13549,7 +13233,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "324",
       "Hora de inicio": "6/12/26 10:43",
       "Hora de finalización": "6/12/26 10:44",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13592,7 +13275,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "325",
       "Hora de inicio": "6/12/26 10:45",
       "Hora de finalización": "6/12/26 10:46",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13635,7 +13317,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "326",
       "Hora de inicio": "6/12/26 10:48",
       "Hora de finalización": "6/12/26 10:49",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13678,7 +13359,6 @@
       "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
     },
     {
-      "Id": "327",
       "Hora de inicio": "6/15/26 12:45",
       "Hora de finalización": "6/15/26 12:46",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13721,7 +13401,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "328",
       "Hora de inicio": "6/15/26 12:46",
       "Hora de finalización": "6/15/26 12:48",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13764,7 +13443,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "329",
       "Hora de inicio": "6/15/26 12:48",
       "Hora de finalización": "6/15/26 12:50",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13807,7 +13485,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "330",
       "Hora de inicio": "6/15/26 12:50",
       "Hora de finalización": "6/15/26 12:51",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13850,7 +13527,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "331",
       "Hora de inicio": "6/15/26 12:51",
       "Hora de finalización": "6/15/26 12:52",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13893,7 +13569,6 @@
       "Acciones Tomadas": "Se realizó advertencia verbal."
     },
     {
-      "Id": "332",
       "Hora de inicio": "6/15/26 12:53",
       "Hora de finalización": "6/15/26 12:54",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13936,7 +13611,6 @@
       "Acciones Tomadas": "Se realizó arresto / detención."
     },
     {
-      "Id": "333",
       "Hora de inicio": "6/15/26 12:54",
       "Hora de finalización": "6/15/26 12:55",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -13979,7 +13653,6 @@
       "Acciones Tomadas": "Se brindó asistencia a la víctima."
     },
     {
-      "Id": "334",
       "Hora de inicio": "6/15/26 12:55",
       "Hora de finalización": "6/15/26 12:56",
       "Correo electrónico": "frankbaez@vbc.gob.do",
@@ -14020,6 +13693,1350 @@
       "¿Desea agregar a otro involucrado?4": "",
       "Incidentes de Seguridad CJB": "",
       "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "6/17/26 8:50",
+      "Hora de finalización": "6/17/26 8:56",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente - Victor Javier Adon",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Policia Nacional",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "Riña",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": "NOTA INFORMATIVA\r\n\r\n17/06/2026\r\n\r\nRespetuosamente informo que, siendo aproximadamente la 01:20 horas del día de la fecha, se produjo un incidente en el Residencial Sembrador No. 1.\r\n\r\nAl ser notificados de la situación, nos trasladamos al lugar, donde pudimos constatar que varios jóvenes sostenían una riña. Como resultado de la intervención, fueron detenidas tres personas, las cuales fueron trasladadas al Destacamento No. 2 de Ciudad Juan Bosch para los fines correspondientes.\r\n\r\nEn el lugar de los hechos fueron ocupadas varias armas blancas.\r\n\r\nEntre los detenidos se encontraba un menor de edad, quien posteriormente fue entregado a su hermana, conforme al procedimiento correspondiente.\r\nEn el lugar de los hechos fueron ocupadas varias armas blancas.\r\n\r\nDe los tres detenidos, uno resultó ser menor de edad, por lo que fue entregado a su hermana, conforme al procedimiento correspondiente.\r\n\r\nEs lo que informo para su conocimiento y fines de lugar.\r\n\r\nAtentamente,",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-17%20at%203.37.29%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-17%20at%203.37.18%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-17%20at%203.34.18%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-17%20at%203.34.14%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención.;Se aseguró la escena del crimen."
+    },
+    {
+      "Hora de inicio": "6/17/26 11:32",
+      "Hora de finalización": "6/17/26 11:48",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "T/ Corbeta - Solin Cuevas Sena",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "1",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B2",
+      "Narrativa del Incidente": "\r\nIndocumentado ",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-17%20at%2011.17.38%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "6/18/26 13:11",
+      "Hora de finalización": "6/18/26 14:49",
+      "Correo electrónico": "lauranunez@vbc.gob.do",
+      "Nombre": "Laura Nuñez",
+      "Oficial a cargo1": "1er Teniente - Brandol Martínez Fortuna",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "DIGESETT",
+      "Incidentes relacionados a tránsito": "Alta velocidad",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "En las afueras de CJB",
+      "Narrativa del Incidente": "En la noche del 18/06/2026 a las 12:00 AM no informaron de una pelea de menores usaron armas blanco y lastimaron otros dos menores dentro del Residencial Terrazol 1. ",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/icons8-construction-building-96_Laura%20Nu%C3%B1ez.png",
+      "Rol de la Persona": "Sospechoso / Ofensor",
+      "Nombre Completo": "Laura Isabel Nunez",
+      "Cedula de identidad": "40200564348",
+      "¿Desea agregar a otro involucrado?": "Si",
+      "Rol de la Persona1": "Víctima",
+      "Nombre Completo1": "Laura Isabel Nunez",
+      "Cedula de identidad1": "40200564348",
+      "¿Desea agregar a otro involucrado?1": "No",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención.;Se solicitó refuerzo (Unidad, Supervisor)."
+    },
+    {
+      "Hora de inicio": "6/19/26 10:20",
+      "Hora de finalización": "6/19/26 10:27",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "Capitan - Sardy M. Santana Florian",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Policia Nacional",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "Vehiculos abandonados ",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B4",
+      "Narrativa del Incidente": "17/06/2026.\r\n\r\nRespetuosamente siendo las 21:15 horas fuimos  informado vía radio por la Cabo Sanchez del servicio de monitoreo de esta ciudad Juan Boch que nos traslademos al puesto de servicio gaviota #5 a verificar un vehículo de perfil sospechoso donde hicimos contacto con uno de los familiares del propietario de dicho vehículo donde nos informaron que el departamento del Dicrim de la Policía  Nacional ya habian pasado por el lugar y tiene en calidad de detención al Señor Jonathan Mendez de mas datos ignorados,  propietario de  vehículo por este tener en su perfil de whatsapp  una foto con un arma de fuego (pistola ) de igual manera supuestamente dicho vehículo esta quedado por combustible según la policía buscará la manera de trasladarlo al destacamento policial.\r\n\r\nEs lo que informo para su  conocimiento y estime de lugar.\r\n\r\nAnexo Fotos\r\n\r\n\r\nSardy M Santana Florian\r\n          Capitán E.R.D",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-17%20at%209.48.33%20PM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-17%20at%209.48.34%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Incidente referido a otra agencia."
+    },
+    {
+      "Hora de inicio": "6/19/26 10:29",
+      "Hora de finalización": "6/19/26 10:30",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente - Victor Javier Adon",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Seguridad CJB",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B4",
+      "Narrativa del Incidente": "19/06/2026\r\nRecorrido por los terrenos con amenaza de invasión, que son propiedad del Fideicomiso VBC-RD.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Video%202026-06-18%20at%208.17.06%20AM_Frank%20Baez.mp4; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-18%20at%208.17.20%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "Supervisión de Terrenos / Invasiones / Obras",
+      "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
+    },
+    {
+      "Hora de inicio": "6/26/26 9:59",
+      "Hora de finalización": "6/26/26 10:02",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente - Victor Javier Adon",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Seguridad CJB",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B4",
+      "Narrativa del Incidente": "Siendo las 11:21am del día 25/06/2026, Informo del  Recorrido por los terrenos con amenaza de invasión, que son propiedad del Fideicomiso VBC-RD, encontrando todo sin novedad.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Video%202026-06-25%20at%2011.20.46%20AM_Frank%20Baez.mp4; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%2011.21.04%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "Supervisión de Terrenos / Invasiones / Obras",
+      "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
+    },
+    {
+      "Hora de inicio": "6/26/26 10:02",
+      "Hora de finalización": "6/26/26 10:06",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente -  Danelson Medina Reyes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "1",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B3",
+      "Narrativa del Incidente": "Siendo las 09:20 fue detenido este nacional haitiano  sin ningún tipo de documento frente a la plaza del bolsillo,  fue entregado al destacamento #2 en buen estado físico y mental para fines correspondientes.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%209.50.22%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%209.50.21%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "6/26/26 10:06",
+      "Hora de finalización": "6/26/26 10:15",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "1er Teniente - Brandol Martínez Fortuna",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Seguridad CJB",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B3",
+      "Narrativa del Incidente": "Siendo las 08:00am del día 25/06/2026,   informamos del chequeo rutinario de la seguridad militar en conjunto con la digesset en la entrada de la ciudad (GAVIOTA 3), donde fueron fiscalizados varios ciudadanos por diferentes infracciones.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%208.49.16%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%208.50.44%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%208.35.38%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%208.35.28%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%208.33.06%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%2011.59.33%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%202.23.43%20PM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%203.00.58%20PM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%203.16.19%20PM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-25%20at%203.14.56%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "Chequeo Rutinario",
+      "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
+    },
+    {
+      "Hora de inicio": "6/26/26 10:27",
+      "Hora de finalización": "6/26/26 10:30",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "T/ Corbeta - Solin Cuevas Sena",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "DIGESETT",
+      "Incidentes relacionados a tránsito": "Accidente de transito",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B2",
+      "Narrativa del Incidente": "SEGURIDAD DE CIUDAD JUAN BOSH\r\n\r\n             *NOTA INFORMATIVA *\r\n                                                       22/06/2026\r\n\r\nRespetuosamente, informo que siendo las 08:35 horas del día de la fecha se produjo un accidente entre dos motores en el semáforo próximo AV.el sembrador, el señor JAIME ISMAEL PÉREZ FLORIAN Ced. 022-0025752-1 en un  motor  ROJO marca cg loncing 125\r\nplaca K2583022. y\r\n\r\nEl señor JOSÉ PH . DIEULORDE\r\nmotor marca HONDA, placa: K2657696, color ROJO el cual era conducido por el señor DIEULORDE. (NH) y sin ningún tipo de documento de identificación, los mismos fueron asistidos por la Dirección de Seguridad Ciudadana Juan Bosch, 911. Recibiendo las atenciones primarias en el lugar del suceso, Así mismos informo que le fueron brindadas las atenciones pertinentes.\r\nde lo cual el señor Jaime Ismael PÉREZ FLORIÁN salió ILESO y el señor *JOSEPH.DIEULORDE\r\nfue retirado por la unidad de 911.\r\n\r\nLo que informó para conocimiento y fines que estimen de lugar.\r\n\r\n *T/CORBETA. CUEVA CENA, SOLIS SUPERVISOR DE  SEGURIDAD CJB* .",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-22%20at%2010.32.31%20PM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-22%20at%2010.32.32%20PM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-22%20at%2010.32.32%20PM%20(1)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-22%20at%2010.32.32%20PM%20(2)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-22%20at%2010.32.32%20PM%20(3)_Frank%20Baez.jpeg",
+      "Rol de la Persona": "No especificado",
+      "Nombre Completo": "JOSÉ PH . DIEULORDE",
+      "Cedula de identidad": "0",
+      "¿Desea agregar a otro involucrado?": "Si",
+      "Rol de la Persona1": "No especificado",
+      "Nombre Completo1": "JAIME ISMAEL PÉREZ FLORIAN ",
+      "Cedula de identidad1": "2200257521",
+      "¿Desea agregar a otro involucrado?1": "No",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
+    },
+    {
+      "Hora de inicio": "6/26/26 10:32",
+      "Hora de finalización": "6/26/26 10:35",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "Tte. de Fragata - Wellington Rosario Cespedes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "DIGESETT",
+      "Incidentes relacionados a tránsito": "Accidente de transito",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B3",
+      "Narrativa del Incidente": "SEGURIDAD DE CIUDAD JUAN BOSH\r\n\r\n             NOTA INFORMATIVA \r\n                      21/06/2026\r\n\r\nRespetuosamente, informo que siendo las 07:10 horas del día de la fecha se produjo un accidente entre una Onsa y un motor en la avenida BLVD DE LA MUJER esquina AV. CAMINO REAL,  la Onsa del transporte público la cual era conducido por el señor REYES DURAN Ced. 001-0290198-0 y el motor el cual impactó por detrás a la Onsa referido motor marca LOCYN, placa: K2617676, color NEGRO el cual era conducido por el señor LUMENE. (NH) y sin ningún tipo de documento de identificación, los mismos fueron asistidos por la Dirección de Seguridad Ciudadana Juan Bosch, 911. Recibiendo las atenciones primarias en el lugar del suceso, Así mismos informo que le fueron brindadas las atenciones pertinentes.\r\n\r\nLo que informó para conocimiento y fines que estimen de lugar.\r\n\r\nT/F Wellington A. Rosario Céspedes, ARD. Supervisor de Seguridad CJB.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-21%20at%207.39.45%20AM%20(3)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-21%20at%207.39.45%20AM%20(2)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-21%20at%207.39.45%20AM%20(1)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-21%20at%207.39.45%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Víctima",
+      "Nombre Completo": "LUMENE",
+      "Cedula de identidad": "0",
+      "¿Desea agregar a otro involucrado?": "No",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
+    },
+    {
+      "Hora de inicio": "6/26/26 10:36",
+      "Hora de finalización": "6/26/26 10:42",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "Tte. de Fragata - Wellington Rosario Cespedes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Seguridad CJB",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B2",
+      "Narrativa del Incidente": "\r\nNOTA INFORMATIVA \r\n20/06/2026\r\n\r\nRespetuosamente informo, que siendo las 20:30 horas del día de la fecha, fuimos notificados por un residente de Ciudad Juan Bosch, que había una persona con una bocina predicando y con música cristiana con volumen alto en el residencial dos amigos, razón por la cual nos solicitaron apoyo.\r\n\r\nAsí mismo informo, que nos dirigimos al lugar y la persona que tinia el culto no es residente de Ciudad Juan Bosch, por lo cual procedimos a orientarlo y controlamos la situación sin novedad.\r\n\r\nLo que informó para conocimiento y fines que estimen de lugar.\r\n\r\nT/F Wellington A. Rosario Céspedes, ARD.                               Supervisor de Seguridad CJB",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-21%20at%2012.32.05%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "Advertencia",
+      "Acciones Tomadas": "Se brindó asistencia a la víctima."
+    },
+    {
+      "Hora de inicio": "6/29/26 8:05",
+      "Hora de finalización": "6/29/26 8:08",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "Capitán - Elubey Ogando De La Rosa",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Policia Nacional",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "Amenazas",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": "Respetuosamente, informo que, siendo las 10:30 horas del día 28/06/2026, la patrulla acudió a un llamado recibido desde el sector Ciudad Real Ecológica, de esta Ciudad Juan Bosch, donde se reportaba una riña. Al llegar al lugar, fue localizado el señor Keilyn Báez, señalado como uno de los presuntos participantes en el incidente, a quien, al practicarle un registro corporal, se le ocupó un arma blanca tipo machete, por lo que fue conducido a este Parque de Venta para los fines correspondientes. Posteriormente, la patrulla regresó al lugar del hecho, donde localizó al señor Vinisio Hernández, quien también fue trasladado a este Parque de Venta. Luego, ambos ciudadanos fueron conducidos a un centro de salud para la realización de sus respectivos diagnósticos médicos y, posteriormente, trasladados al Destacamento de la Policía Nacional No. 2 de esta Ciudad Juan Bosch, donde fueron entregados al raso Mildre Prensa, sargento de guardia de la Policía Nacional, para el procedimiento correspondiente. Lo que informo para su conocimiento y fines que estimen de lugar.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-28%20at%206.06.41%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó advertencia verbal.;Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "6/29/26 8:08",
+      "Hora de finalización": "6/29/26 8:10",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "Capitán - Elubey Ogando De La Rosa",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "DIGESETT",
+      "Incidentes relacionados a tránsito": "Accidente de transito",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": "NOTA INFORMATIVA\r\nRespetuosamente, informo que, siendo las 20:35 horas del día 28/06/2026, se produjo un accidente de tránsito entre dos (02) vehículos en la avenida Dos Amigos, esquina Av. Camino Real. Uno de los vehículos era marca Ford, modelo Focus, placa A859214, color blanco, el cual era conducido por el señor José Manuel Suero Martínez. El otro vehículo implicado en la colisión era una guagua marca Kia, modelo Sorento, placa PP781347, color negro, conducida por el señor Silvio Ríos de Luna. Asimismo, informo que no hubo personas lesionadas. Ambos conductores se encontraban en perfecto estado físico y manifestaron haber llegado a un acuerdo para realizar el debido proceso ante las autoridades competentes. \r\n",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-28%20at%206.45.52%20AM%20(3)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-28%20at%206.45.52%20AM%20(2)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-28%20at%206.45.51%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-28%20at%206.45.52%20AM%20(1)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-28%20at%206.45.52%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-28%20at%206.06.41%20PM_Frank%20Baez%201.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó advertencia verbal.;Se brindó asistencia a la víctima."
+    },
+    {
+      "Hora de inicio": "6/30/26 9:36",
+      "Hora de finalización": "6/30/26 9:45",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente -  Danelson Medina Reyes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "2",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B4",
+      "Narrativa del Incidente": "NOTA NFORMATIVA.\r\nRespetuosamente Informo que, siendo las 09:00 del día 30/06/2026, fueron detenidos en gaviota 5 cuadrante 4, Dos (2) nacionales haitianos sin ningún tipo de documentos, los cuales fueron entregados en buen estado físico y metal a la Raso Mildre Prenza PN. Sargento de guardia del destacamento #2 de esta Ciudad Juan Bosch.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-30%20at%209.26.40%20AM%20(1)_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "6/30/26 9:46",
+      "Hora de finalización": "6/30/26 9:48",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente -  Danelson Medina Reyes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Seguridad CJB",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B4",
+      "Narrativa del Incidente": "NOTA INFORMTIVA. \r\n30/06/2026  09:44am.\r\nRecorrido por los terrenos con amenaza de invasión, que son propiedad del Fideicomiso VBC-RD.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Video%202026-06-30%20at%209.44.33%20AM_Frank%20Baez.mp4; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-06-30%20at%209.44.56%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "Supervisión de Terrenos / Invasiones / Obras",
+      "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
+    },
+    {
+      "Hora de inicio": "7/6/26 9:02",
+      "Hora de finalización": "7/6/26 9:05",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "Tte. de Fragata - Wellington Rosario Cespedes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "1",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": "Indocumentado",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-04%20at%208.22.14%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "7/6/26 9:05",
+      "Hora de finalización": "7/6/26 9:15",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "Capitan - Sardy M. Santana Florian",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "1",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B2",
+      "Narrativa del Incidente": "Indocumentado",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-06%20at%209.08.21%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "7/8/26 14:35",
+      "Hora de finalización": "7/8/26 14:36",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente -  Danelson Medina Reyes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "1",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B2",
+      "Narrativa del Incidente": "Respetuosamente, informo que un nacional haitiano fue retenido por carecer de documentos de identidad. El mismo fue trasladado al Destacamento No. 2 de Ciudad Juan Bosch para los fines correspondientes.\r\n",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-08%20at%202.14.29%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "7/8/26 14:36",
+      "Hora de finalización": "7/8/26 14:37",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "T/ Corbeta - Solin Cuevas Sena",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "1",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B3",
+      "Narrativa del Incidente": "Respetuosamente, informo que un nacional haitiano fue retenido por carecer de documentos de identidad. El mismo fue trasladado al Destacamento No. 2 de Ciudad Juan Bosch para los fines correspondientes.\r\n",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-08%20at%202.14.37%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "7/8/26 14:37",
+      "Hora de finalización": "7/8/26 14:38",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "Capitán - Elubey Ogando De La Rosa",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "1",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B2",
+      "Narrativa del Incidente": "Respetuosamente, informo que un nacional haitiano fue retenido por carecer de documentos de identidad. El mismo fue trasladado al Destacamento No. 2 de Ciudad Juan Bosch para los fines correspondientes.\r\n",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-08%20at%202.14.44%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "7/10/26 8:40",
+      "Hora de finalización": "7/10/26 8:48",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente - Victor Javier Adon",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "DIGESETT",
+      "Incidentes relacionados a tránsito": "Accidente de transito",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B4",
+      "Narrativa del Incidente": "Nota informativa \r\nRespetuosamente informo que siendo 15:20  del día y la fecha 9/7/2025 ocurrió un accidente de transito en la avenida el sembrador de esta ciudad Juan Bosch el señor netali de Jesús González CED-225-0022073- de 35 año dominicano que conducía la guagua haice color blanco placa I 028207 impacto un poste de luz,  el señor fue asistido por el sistema de emergencia 911gracias adiós solo dañó materiales.\r\nEs lo que informo para conocimiento de los superiores y fines correspondiente \r\n\r\n2dott Adon Javier F.A.R.D",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-09%20at%206.27.35%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se solicitó unidad especializada (DIGESETT, DNCD, Paramédicos)."
+    },
+    {
+      "Hora de inicio": "7/10/26 8:49",
+      "Hora de finalización": "7/10/26 8:52",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente - Victor Javier Adon",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "1",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B3",
+      "Narrativa del Incidente": "Nota informativas \r\nRespetuosamente informo que siendo 17:00 del día y la fecha 9/7/2026 fue de tenido un nacional haitiano sin ningún tipo de documento en gaviota 3 abordo de una motocicleta marca baja platino color negro placa k 2581601 sin ningún tipo de documentos ambos fueron conducidos al destacamento policial #2 de ciudad Juan Bosch y entregado al 2tte  Kevin Castillo PN.\r\n\r\nPara conocimiento de los superiores y fines correspondiente \r\n\r\n2dott Adon Javier F.A.R.D",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-09%20at%205.57.13%20PM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-09%20at%205.57.12%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "7/13/26 9:42",
+      "Hora de finalización": "7/13/26 9:45",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "Capitán - Elubey Ogando De La Rosa",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "DICRIM",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "Criminales por Homicidio",
+      "Cuadrante donde sucedió el hecho": "B2",
+      "Narrativa del Incidente": "NOTA INFORMATIVA\r\nAsunto: Homicidio.\r\nInformo que, siendo las 08:00 horas del día 12-07-2026, acudimos a un llamado para trasladarnos al Residencial Río Grande, de esta Ciudad Juan Bosch.\r\nAl llegar al lugar, observamos un cuerpo sin vida de una persona de sexo masculino, tendido en la entrada principal del residencial. De inmediato iniciamos las indagaciones correspondientes, entrevistando en primer lugar al vigilante de servicio, Juan Santana, quien manifestó que el occiso había llegado aproximadamente a las 04:40 horas y le informó que se dirigía al apartamento 1D, por lo que le permitió el acceso.\r\nAsimismo, el vigilante expresó que no habían transcurrido diez minutos cuando el individuo regresó corriendo hacia la garita de seguridad, siendo perseguido por cuatro personas (tres mujeres y un hombre), quienes presuntamente lo agredieron físicamente, mientras este vociferaba: \"No me maten\".\r\nPosteriormente, entrevistamos a la señora Ibét Peñalo, propietaria del apartamento, quien manifestó que el domingo anterior este había agredido físicamente a su hija menor, Alejandra. Agregó que, en esta ocasión, el individuo volvió a presentarse al apartamento y presuntamente realizó tocamientos indebidos a la joven, por lo que su otra hija, Lizbeth, reaccionó junto con otras personas, propinándole varios golpes que, presuntamente, ocasionaron la muerte del fallecido, identificado como Starlin Manuel Paredes Sábala.\r\nEn el lugar también se encontraba personal del DICRIM, quienes esperaban la llegada del esposo de la señora Ibét Peñalo, ya que, según las informaciones obtenidas, este se encontraba en la vivienda al momento de los hechos, pero posteriormente salió a trabajar. Se informó que le habían realizado varias llamadas telefónicas para que regresara al lugar, sin que hasta ese momento se hubiera presentado.\r\nCapitán Ogando \r\n",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-12%20at%2010.30.14%20AM%20(1)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-12%20at%2010.30.14%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-12%20at%2010.30.15%20AM%20(1)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-12%20at%2010.30.15%20AM%20(2)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-12%20at%2010.30.15%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención.;Se aseguró la escena del crimen.;Se solicitó refuerzo (Unidad, Supervisor).;Se brindó asistencia a la víctima."
+    },
+    {
+      "Hora de inicio": "7/13/26 9:45",
+      "Hora de finalización": "7/13/26 9:47",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente - Victor Javier Adon",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "DIGESETT",
+      "Incidentes relacionados a tránsito": "Accidente de transito",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": "NOTA INFORMATIVA\r\nRespetuosamente, informo que, siendo las 15:20 horas del día 09/07/2025, ocurrió un accidente de tránsito (16) en la avenida El Sembrador, de esta Ciudad Juan Bosch. En el hecho estuvo involucrado el señor Netalí de Jesús González, cédula No. 225-0022073-, de 35 años de edad, de nacionalidad dominicana, quien conducía una guagua marca Haice, color blanco, placa I028207. El conductor fue asistido por el Sistema Nacional de Atención a Emergencias y Seguridad 9-1-1, el incidente solo ocasionó daños materiales, sin personas lesionadas.\r\n2do Tte. Adón Javier, F.A.R.D.\r\n",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-09%20at%206.27.35%20PM%20(1)_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Víctima",
+      "Nombre Completo": "Netalí de Jesús González,",
+      "Cedula de identidad": "22500220731",
+      "¿Desea agregar a otro involucrado?": "No",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se brindó asistencia a la víctima."
+    },
+    {
+      "Hora de inicio": "7/13/26 9:47",
+      "Hora de finalización": "7/13/26 9:49",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente - Victor Javier Adon",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "1",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B2",
+      "Narrativa del Incidente": "Se retuvo a un nacional haitiano en condición migratoria irregular, por no portar documentos que acreditaran su permanencia legal en el país.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-12%20at%205.55.28%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "7/13/26 9:49",
+      "Hora de finalización": "7/13/26 9:49",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente - José Manuel Tavares Milanés",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "1",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": "Se retuvo a un nacional haitiano en condición migratoria irregular, por no portar documentos que acreditaran su permanencia legal en el país.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-12%20at%205.55.41%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "7/15/26 8:28",
+      "Hora de finalización": "7/15/26 8:40",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "T/ Corbeta - Solin Cuevas Sena",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Seguridad CJB",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": "NOTA INFORMATIVA\r\n\r\n\r\n\r\nRespetuosamente, informo para conocimiento de los superiores que, siendo las 12:53 horas del día 15/07/2026, mediante una llamada recibida desde el área de monitoreo, nos trasladamos al Residencial Sembrador No. 1, de Ciudad Juan Bosch, donde se reportaba una contaminación sónica provocada por un juego de dominó.\r\n\r\nAl llegar al lugar, procedimos a incautar la mesa utilizada para la actividad, debido a que era la segunda ocasión en que los ocupantes habían sido notificados por la misma situación.\r\n\r\n\r\n\r\nTte. Cnel. Cuevas Sena",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-15%20at%2012.54.07%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-15%20at%2012.57.01%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-15%20at%2012.45.08%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "Desalojo de Vías y Aceras",
+      "Acciones Tomadas": "Se realizó advertencia verbal."
+    },
+    {
+      "Hora de inicio": "7/17/26 8:44",
+      "Hora de finalización": "7/17/26 8:46",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente - Victor Javier Adon",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Seguridad CJB",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B3",
+      "Narrativa del Incidente": "Santo Domingo Este.\r\n\r\nFecha : 16 - 7 - 2026.\r\n\r\nNOTA INFORMATIVA\r\n\r\nSe hace del conocimiento que el Presidente de la República, Luis Abinader Corona, encabezó el acto de apertura y entrega de la Villa Centroamericana y del Caribe, ubicada en la calle Encarnación Mendoza, Residencial Villas del Este, Ciudad Juan Bosch, Santo Domingo Este.\r\n\r\nEl mandatario estuvo acompañado por el alcalde de Santo Domingo Este, Dío Astacio, y por el ministro de Deporte, Kelvin Antonio Cruz Cáceres.\r\n\r\nDurante el recorrido, el señor Presidente visitó varios puntos, entre ellos: la Plaza de la Bandera, donde se encuentran representados todos los países participantes; las casas donde estarán alojados los deportistas; y el área del comedor.\r\n\r\nEl Presidente se retiró del lugar a las 19:15 horas, sin novedad.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-16%20at%208.18.08%20PM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-16%20at%208.18.08%20PM%20(1)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-16%20at%208.18.09%20PM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Video%202026-07-16%20at%208.18.10%20PM_Frank%20Baez.mp4",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "Actividades",
+      "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
+    },
+    {
+      "Hora de inicio": "7/21/26 9:26",
+      "Hora de finalización": "7/21/26 9:32",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente -  Danelson Medina Reyes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Migración",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "2",
+      "Incidentes de migración": "Indocumentado",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": "NOTA 21/07/2025 \r\nRespetuosamente informo que siendo las 09:20  hora del día y la fecha, Fueron detenidos y entregado en el destacamento número 2 de la ciudad Juan Bosch  dos nacionales haitianos  sin ningún tipo de documento en buen estado físico y mental. \r\nEs lo que informo para conocimiento. ",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-21%20at%209.23.18%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-21%20at%209.23.18%20AM%20(1)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-21%20at%209.23.19%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó arresto / detención."
+    },
+    {
+      "Hora de inicio": "7/21/26 9:34",
+      "Hora de finalización": "7/21/26 9:35",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente -  Danelson Medina Reyes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "Seguridad CJB",
+      "Incidentes relacionados a tránsito": "",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B4",
+      "Narrativa del Incidente": "NOTA \r\n21/07/2026\r\nRecorrido por los terrenos con amenaza de invasión, que son propiedad del Fideicomiso VBC-RD.",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-20%20at%209.32.55%20AM_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Video%202026-07-20%20at%209.32.39%20AM_Frank%20Baez.mp4",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "Supervisión de Terrenos / Invasiones / Obras",
+      "Acciones Tomadas": "No se requirió acción / Falsa Alarma."
+    },
+    {
+      "Hora de inicio": "7/27/26 9:48",
+      "Hora de finalización": "7/27/26 9:51",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente -  Danelson Medina Reyes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "DIGESETT",
+      "Incidentes relacionados a tránsito": "Accidente de transito",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B1",
+      "Narrativa del Incidente": "NOTA INFORMATIVA\r\nRespetuosamente, informo que siendo las 11:10 a. m. del día 21/07/2026, fuimos notificados de un accidente de tránsito ocurrido en la avenida Oro y La Paz, frente al Residencial Antares 3. Al llegar al lugar, verificamos que en el accidente estuvieron involucrados un vehículo marca Ford, color gris, placa G667270, propiedad del señor Sotero Valenzuela, y un vehículo marca Runner, color negro, placa K0909574, propiedad del señor Juan Stiward Mejía Oliveros. Luego de conversar con ambas partes, los conductores manifestaron que llegaron a un acuerdo de manera amistosa, por lo que no fue necesaria la intervención de otras autoridades. Es cuanto informo para su conocimiento y fines correspondientes.\r\n",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-21%20at%2011.53.52%20AM%20(1)_Frank%20Baez.jpeg; https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-21%20at%2011.53.52%20AM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó advertencia verbal."
+    },
+    {
+      "Hora de inicio": "7/27/26 9:52",
+      "Hora de finalización": "7/27/26 9:52",
+      "Correo electrónico": "frankbaez@vbc.gob.do",
+      "Nombre": "Frank Baez",
+      "Oficial a cargo1": "2do Teniente -  Danelson Medina Reyes",
+      "Oficial a cargo": "",
+      "Tipo de Incidente": "DIGESETT",
+      "Incidentes relacionados a tránsito": "Accidente de transito",
+      "Cantidad de Indocumentados detenidos": "",
+      "Incidentes de migración": "",
+      "Incidentes de seguridad policial": "",
+      "Incidentes de control de drogas": "",
+      "Incidentes Cibernéticos de Alta tecnología": "",
+      "Incidentes de seguridad municipal": "",
+      "Incidentes de investigaciones criminales": "",
+      "Cuadrante donde sucedió el hecho": "B2",
+      "Narrativa del Incidente": "NOTA INFORMATIVA\r\nRespetuosamente, informo que se produjo un accidente de tránsito en el semáforo ubicado próximo al residencial La Gaviota 2. En el incidente no se registraron pérdidas humanas ni personas lesionadas, únicamente daños materiales en los vehículos involucrados. Las partes llegaron a un acuerdo de manera amistosa, por lo que se realizó el reporte correspondiente.\r\n",
+      "Evidencia Visual": "https://vbcrd-my.sharepoint.com/personal/jesusdelossantos_vbc_gob_do/Documents/Apps/Microsoft%20Forms/Registro%20R%C3%A1pido%20de%20Incidentes%20(SRRI)/Pregunta/WhatsApp%20Image%202026-07-26%20at%2010.53.05%20PM_Frank%20Baez.jpeg",
+      "Rol de la Persona": "Ninguno",
+      "Nombre Completo": "",
+      "Cedula de identidad": "",
+      "¿Desea agregar a otro involucrado?": "",
+      "Rol de la Persona1": "",
+      "Nombre Completo1": "",
+      "Cedula de identidad1": "",
+      "¿Desea agregar a otro involucrado?1": "",
+      "Rol de la Persona2": "",
+      "Nombre Completo2": "",
+      "Cedula de identidad2": "",
+      "¿Desea agregar a otro involucrado?2": "",
+      "Rol de la Persona3": "",
+      "Nombre Completo3": "",
+      "Cedula de identidad3": "",
+      "¿Desea agregar a otro involucrado?3": "",
+      "Rol de la Persona4": "",
+      "Nombre Completo4": "",
+      "Cedula de identidad4": "",
+      "¿Desea agregar a otro involucrado?4": "",
+      "Incidentes de Seguridad CJB": "",
+      "Acciones Tomadas": "Se realizó advertencia verbal."
     }
   ]
 }
