@@ -1,6 +1,6 @@
 window.EMBEDDED_DATA = {
   "source": "auto-sync",
-  "lastUpdate": "2026-09-18T12:59:39.068Z",
+  "lastUpdate": "2026-09-18T13:00:39.224Z",
   "count": 373,
   "data": [
     {
